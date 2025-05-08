@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -17,11 +18,11 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Projects", href: "#projects" },
-    { name: "Shop", href: "#shop" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "/" },
+    { name: "About", href: "/#about" },
+    { name: "Projects", href: "/#projects" },
+    { name: "Shop", href: "/#shop" },
+    { name: "Contact", href: "/contact" },
   ];
 
   return (
@@ -34,15 +35,15 @@ const Navbar = () => {
         )}
       >
         <div className="flex flex-col items-center py-6">
-          <a href="#" className="text-xl font-playfair font-bold tracking-tighter text-highlight mb-12">
-            Portfolio
-          </a>
+          <Link to="/" className="text-xl font-playfair font-bold tracking-tighter text-highlight mb-12">
+            DW
+          </Link>
 
           <div className="flex flex-col space-y-12 h-full">
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
-                href={link.href}
+                to={link.href}
                 className="text-gray-300 hover:text-highlight transition-colors duration-300 group flex flex-col items-center"
               >
                 <span className={cn(
@@ -51,7 +52,7 @@ const Navbar = () => {
                 )}>
                   {link.name}
                 </span>
-              </a>
+              </Link>
             ))}
           </div>
         </div>
@@ -75,14 +76,14 @@ const Navbar = () => {
               Portfolio
             </span>
             {navLinks.map((link) => (
-              <a
+              <Link
                 key={link.name}
-                href={link.href}
+                to={link.href}
                 className="text-gray-300 hover:text-highlight transition-colors duration-300 text-xl font-inter py-2 flex items-center gap-3"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {link.name}
-              </a>
+              </Link>
             ))}
           </div>
         </div>
