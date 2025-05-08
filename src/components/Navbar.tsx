@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Facebook, Twitter, Instagram } from "lucide-react";
 import { Link } from "react-router-dom";
 import logoSvg from "../assets/logo.svg";
 
@@ -26,6 +26,12 @@ const Navbar = () => {
     { name: "Contact", href: "/contact" },
   ];
 
+  const socialLinks = [
+    { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
+    { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
+    { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
+  ];
+
   return (
     <>
       {/* Desktop Sidebar */}
@@ -35,26 +41,44 @@ const Navbar = () => {
           isScrolled ? "shadow-md" : ""
         )}
       >
-        <div className="flex flex-col items-center py-6">
-          <Link to="/" className="mb-12">
-            <img src={logoSvg} alt="DW Logo" className="w-10 h-10 hover:scale-110 transition-transform duration-300" />
-          </Link>
+        <div className="flex flex-col items-center py-6 h-full justify-between">
+          <div className="flex flex-col items-center">
+            <Link to="/" className="mb-12">
+              <img src={logoSvg} alt="DW Logo" className="w-10 h-10 hover:scale-110 transition-transform duration-300" />
+            </Link>
 
-          <div className="flex flex-col space-y-12 h-full">
-            {navLinks.map((link) => (
-              <Link
-                key={link.name}
-                to={link.href}
-                className="text-gray-300 hover:text-highlight transition-colors duration-300 group flex flex-col items-center"
+            <div className="flex flex-col space-y-12">
+              {navLinks.map((link) => (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  className="text-gray-300 hover:text-highlight transition-colors duration-300 group flex flex-col items-center"
+                >
+                  <span className={cn(
+                    "inline-block whitespace-nowrap text-sm font-inter tracking-wider transform group-hover:text-highlight relative",
+                    link.name !== "Home" && "origin-left -rotate-90",
+                    "after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-highlight after:bottom-1/2 after:left-0 after:transform after:translate-y-1/2 group-hover:after:w-full after:transition-all after:duration-300"
+                  )}>
+                    {link.name}
+                  </span>
+                </Link>
+              ))}
+            </div>
+          </div>
+          
+          {/* Social Media Links */}
+          <div className="flex flex-col space-y-6 mb-6">
+            {socialLinks.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-highlight transition-colors duration-300"
+                aria-label={link.label}
               >
-                <span className={cn(
-                  "inline-block whitespace-nowrap text-sm font-inter tracking-wider transform group-hover:text-highlight relative",
-                  link.name !== "Home" && "origin-left -rotate-90",
-                  "after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-highlight after:bottom-1/2 after:left-0 after:transform after:translate-y-1/2 group-hover:after:w-full after:transition-all after:duration-300"
-                )}>
-                  {link.name}
-                </span>
-              </Link>
+                <link.icon size={20} />
+              </a>
             ))}
           </div>
         </div>
@@ -88,6 +112,22 @@ const Navbar = () => {
                 {link.name}
               </Link>
             ))}
+            
+            {/* Mobile Social Links */}
+            <div className="flex space-x-6 mt-8">
+              {socialLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-highlight transition-colors duration-300"
+                  aria-label={link.label}
+                >
+                  <link.icon size={24} />
+                </a>
+              ))}
+            </div>
           </div>
         </div>
       )}
