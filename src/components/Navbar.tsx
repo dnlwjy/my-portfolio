@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
+import logoSvg from "../assets/logo.svg";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -35,8 +36,8 @@ const Navbar = () => {
         )}
       >
         <div className="flex flex-col items-center py-6">
-          <Link to="/" className="text-xl font-playfair font-bold tracking-tighter text-highlight mb-12">
-            DW
+          <Link to="/" className="mb-12">
+            <img src={logoSvg} alt="DW Logo" className="w-10 h-10 hover:scale-110 transition-transform duration-300" />
           </Link>
 
           <div className="flex flex-col space-y-12 h-full">
@@ -72,7 +73,8 @@ const Navbar = () => {
       {mobileMenuOpen && (
         <div className="md:hidden fixed inset-0 z-40 bg-dark-secondary animate-fade-in">
           <div className="flex flex-col items-center justify-center h-full space-y-8">
-            <span className="text-2xl font-playfair font-bold tracking-tighter text-highlight mb-8">
+            <span className="flex items-center gap-3 text-2xl font-playfair font-bold tracking-tighter text-highlight mb-8">
+              <img src={logoSvg} alt="DW Logo" className="w-8 h-8" />
               Portfolio
             </span>
             {navLinks.map((link) => (
