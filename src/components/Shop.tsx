@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { ShoppingCart } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
 
 type Product = {
   id: number;
@@ -74,10 +75,12 @@ const Shop = () => {
                 <p className="text-gray-400 text-sm mb-4">{product.description}</p>
                 <div className="flex justify-between items-center">
                   <span className="text-highlight text-xl font-bold">${product.price}</span>
-                  <button className="bg-highlight hover:bg-highlight-secondary text-white px-3 py-2 rounded-lg transition-colors duration-300 flex items-center gap-2">
+                  <Button 
+                    className="bg-highlight hover:bg-highlight text-white transition-all duration-300 flex items-center gap-2 hover:shadow-[0_0_15px_rgba(59,130,246,0.7)]"
+                  >
                     <ShoppingCart size={16} />
                     <span>Add to Cart</span>
-                  </button>
+                  </Button>
                 </div>
               </div>
             </div>

@@ -68,6 +68,24 @@
   .text-gradient {
     @apply bg-gradient-to-r from-highlight to-highlight-secondary bg-clip-text text-transparent;
   }
+  
+  .btn-glow {
+    @apply relative overflow-hidden;
+  }
+  
+  .btn-glow:hover::after {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: linear-gradient(45deg, #3B82F6, #60A5FA);
+    filter: blur(20px);
+    opacity: 0.4;
+    z-index: -1;
+    animation: pulse 2s infinite;
+  }
 }
 
 @keyframes blurUp {
@@ -80,6 +98,21 @@
     filter: blur(0);
     transform: translateY(0);
     opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.4;
+    transform: scale(0.98);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0.4;
+    transform: scale(0.98);
   }
 }
 
