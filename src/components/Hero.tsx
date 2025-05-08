@@ -10,7 +10,7 @@ import VideoPortrait from "./VideoPortrait";
 
 const Hero = () => {
   return (
-    <section id="home" className="pt-32 pb-24 md:pt-40 md:pb-32 min-h-screen flex items-center relative overflow-hidden">
+    <section id="home" className="h-screen flex items-center justify-center relative overflow-hidden">
       <div className="absolute top-0 right-0 w-96 h-96 bg-highlight/10 rounded-full filter blur-3xl opacity-20 -z-10" />
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-highlight/15 rounded-full filter blur-3xl opacity-30 -z-10" />
       
