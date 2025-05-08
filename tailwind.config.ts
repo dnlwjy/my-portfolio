@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -26,7 +25,8 @@ export default {
 			fontFamily: {
 				sans: ['Geist', 'sans-serif'],
 				playfair: ['Playfair Display', 'serif'],
-				geist: ['Geist', 'sans-serif']
+				geist: ['Geist', 'sans-serif'],
+				inter: ['Inter', 'sans-serif']
 			},
 			colors: {
 				border: 'hsl(var(--border))',
