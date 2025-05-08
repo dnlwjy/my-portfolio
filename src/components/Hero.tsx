@@ -1,6 +1,7 @@
 
 import { ArrowRight } from "lucide-react";
 import AnimatedText from "./AnimatedText";
+import VideoPortrait from "./VideoPortrait";
 
 const Hero = () => {
   return (
@@ -14,6 +15,8 @@ const Hero = () => {
             <span className="animate-glow mr-2 h-2 w-2 rounded-full bg-highlight inline-block"></span>
             Designer & Developer
           </p>
+          
+          <VideoPortrait />
           
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight">
             <AnimatedText text="Crafting Digital" delay={200} blurAnimation={true} />
