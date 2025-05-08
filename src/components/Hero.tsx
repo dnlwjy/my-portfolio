@@ -16,12 +16,12 @@ const Hero = () => {
           </p>
           
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight">
-            <AnimatedText text="Crafting Digital" delay={200} />
+            <AnimatedText text="Crafting Digital" delay={200} blurAnimation={true} />
             <span className="block">
-              <AnimatedText text="Experiences that" delay={400} />
+              <AnimatedText text="Experiences that" delay={400} blurAnimation={true} />
             </span>
             <span className="block">
-              <AnimatedText text="Matter" gradient={true} delay={600} className="relative" />
+              <AnimatedText text="Matter" gradient={true} delay={600} blurAnimation={true} className="relative" />
             </span>
           </h1>
           

@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
 @tailwind base;
@@ -67,4 +68,24 @@
   .text-gradient {
     @apply bg-gradient-to-r from-highlight to-highlight-secondary bg-clip-text text-transparent;
   }
+}
+
+@keyframes blurUp {
+  0% {
+    filter: blur(15px);
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  100% {
+    filter: blur(0);
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.blur-animation {
+  animation: blurUp 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  transform-origin: center;
+  opacity: 0;
+  filter: blur(15px);
 }
