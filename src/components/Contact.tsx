@@ -13,7 +13,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import ReCAPTCHA from "react-google-recaptcha";
 
 // Configuration
-const RECAPTCHA_SITE_KEY = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"; // Replace with your actual site key
+const RECAPTCHA_SITE_KEY = "6Ld3wTIrAAAAAAZdro17b1BoqdzbudrhayMGT9NZ";
 
 // Create schema for form validation
 const formSchema = z.object({
