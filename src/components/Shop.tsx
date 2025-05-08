@@ -1,6 +1,7 @@
 
 import { useState } from "react";
 import { ShoppingCart } from "lucide-react";
+import { Link } from "react-router-dom";
 
 type Product = {
   id: number;
@@ -59,15 +60,17 @@ const Shop = () => {
               key={product.id} 
               className="glass-card rounded-xl overflow-hidden transition-all duration-300 hover:border-highlight/30 hover:scale-[1.01] group"
             >
-              <div className="h-48 overflow-hidden">
+              <Link to={`/shop/${product.id}`} className="block h-48 overflow-hidden">
                 <img 
                   src={product.image} 
                   alt={product.name} 
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-              </div>
+              </Link>
               <div className="p-5">
-                <h3 className="text-xl font-semibold mb-2">{product.name}</h3>
+                <Link to={`/shop/${product.id}`}>
+                  <h3 className="text-xl font-semibold mb-2 hover:text-highlight transition-colors duration-300">{product.name}</h3>
+                </Link>
                 <p className="text-gray-400 text-sm mb-4">{product.description}</p>
                 <div className="flex justify-between items-center">
                   <span className="text-highlight text-xl font-bold">${product.price}</span>
