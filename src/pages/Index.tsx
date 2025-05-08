@@ -12,10 +12,12 @@ const Index = () => {
     <ThemeProvider>
       <div className="min-h-screen bg-[#121212] text-white">
         <Navbar />
-        <Hero />
-        <About />
-        <Projects />
-        <Contact />
+        <div className="max-w-[840px] mx-auto px-4">
+          <Hero />
+          <About />
+          <Projects />
+          <Contact />
+        </div>
         <Footer />
       </div>
     </ThemeProvider>
