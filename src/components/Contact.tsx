@@ -1,3 +1,4 @@
+
 import { ArrowRight, Mail, Github, Linkedin } from "lucide-react";
 import { useState, useRef } from "react";
 import { useToast } from "@/hooks/use-toast";
@@ -12,7 +13,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import ReCAPTCHA from "react-google-recaptcha";
 
 // Configuration
-const RECAPTCHA_SITE_KEY = "YOUR_ACTUAL_RECAPTCHA_SITE_KEY"; // Replace this with your actual site key from Google reCAPTCHA admin console
+const RECAPTCHA_SITE_KEY = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"; // Replace with your actual site key
 
 // Create schema for form validation
 const formSchema = z.object({
