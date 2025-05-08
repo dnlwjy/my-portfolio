@@ -1,6 +1,6 @@
 
 import { ArrowRight, Mail, Github, Linkedin } from "lucide-react";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { Separator } from "@/components/ui/separator";
 import { supabase } from "@/integrations/supabase/client";
@@ -10,17 +10,20 @@ import { Textarea } from "@/components/ui/textarea";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import ReCAPTCHA from "react-google-recaptcha";
 
 // Create schema for form validation
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
   email: z.string().email({ message: "Please enter a valid email address." }),
-  message: z.string().min(10, { message: "Message must be at least 10 characters." })
+  message: z.string().min(10, { message: "Message must be at least 10 characters." }),
+  recaptcha: z.string().min(1, { message: "Please complete the reCAPTCHA verification." })
 });
 
 const Contact = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
 
   // Initialize form
   const form = useForm<z.infer<typeof formSchema>>({
@@ -28,7 +31,8 @@ const Contact = () => {
     defaultValues: {
       name: "",
       email: "",
-      message: ""
+      message: "",
+      recaptcha: ""
     }
   });
 
@@ -45,7 +49,8 @@ const Contact = () => {
           {
             name: data.name,
             email: data.email,
-            message: data.message
+            message: data.message,
+            recaptcha_token: data.recaptcha
           }
         ]);
       
@@ -59,8 +64,9 @@ const Contact = () => {
         description: "Thanks for reaching out. I'll get back to you soon.",
       });
       
-      // Reset form after successful submission
+      // Reset form and reCAPTCHA after successful submission
       form.reset();
+      recaptchaRef.current?.reset();
     } catch (error) {
       console.error('Error submitting form:', error);
       toast({
@@ -71,6 +77,10 @@ const Contact = () => {
     } finally {
       setIsSubmitting(false);
     }
+  };
+
+  const handleReCaptchaChange = (token: string | null) => {
+    form.setValue("recaptcha", token || "");
   };
 
   return (
@@ -181,6 +191,26 @@ const Contact = () => {
                             className="w-full bg-dark border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-highlight/50"
                             placeholder="Your message"
                           />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                  
+                  <FormField
+                    control={form.control}
+                    name="recaptcha"
+                    render={() => (
+                      <FormItem>
+                        <FormControl>
+                          <div className="flex justify-center md:justify-start">
+                            <ReCAPTCHA
+                              ref={recaptchaRef}
+                              sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+                              onChange={handleReCaptchaChange}
+                              theme="dark"
+                            />
+                          </div>
                         </FormControl>
                         <FormMessage />
                       </FormItem>
