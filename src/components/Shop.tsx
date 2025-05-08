@@ -54,7 +54,7 @@ const Shop = () => {
     <section id="shop" className="py-20">
       <Separator className="mb-20 bg-gray-800" />
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 opacity-0 animate-spring-in">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Digital Products</h2>
           <div className="h-1 w-20 bg-highlight mx-auto mb-6"></div>
           <p className="text-gray-400 max-w-2xl mx-auto">
@@ -63,10 +63,11 @@ const Shop = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {products.map((product) => (
+          {products.map((product, index) => (
             <div 
               key={product.id} 
-              className="glass-card rounded-xl overflow-hidden transition-all duration-300 hover:border-highlight/30 hover:scale-[1.01] group"
+              className="glass-card rounded-xl overflow-hidden transition-all duration-300 hover:border-highlight/30 opacity-0 animate-spring-in spring-hover"
+              style={{ animationDelay: `${index * 150}ms` }}
             >
               <Link to={`/shop/${product.id}`} className="block h-48 overflow-hidden">
                 <img 
@@ -83,7 +84,7 @@ const Shop = () => {
                 <div className="flex justify-between items-center">
                   <span className="text-highlight text-xl font-bold">${product.price}</span>
                   <Button 
-                    className="bg-highlight hover:bg-highlight text-white transition-all duration-300 flex items-center gap-2 hover:shadow-[0_0_15px_rgba(59,130,246,0.7)]"
+                    className="bg-highlight hover:bg-highlight text-white transition-all duration-300 flex items-center gap-2 hover:shadow-[0_0_15px_rgba(59,130,246,0.7)] spring-hover"
                   >
                     <ShoppingCart size={16} />
                     <span>Add to Cart</span>

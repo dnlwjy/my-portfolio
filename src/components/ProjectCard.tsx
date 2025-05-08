@@ -26,7 +26,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
 }) => {
   return (
     <div className={cn(
-      "grid md:grid-cols-2 gap-8 mb-20",
+      "grid md:grid-cols-2 gap-8 mb-20 opacity-0 animate-spring-in",
       reversed && "md:grid-flow-dense"
     )}>
       <div className={cn(
@@ -34,7 +34,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         reversed ? "md:order-1" : "md:order-2"
       )}>
         <div 
-          className="w-full h-64 md:h-80 bg-dark-accent rounded-lg overflow-hidden relative group"
+          className="w-full h-64 md:h-80 bg-dark-accent rounded-lg overflow-hidden relative group spring-hover"
         >
           <div 
             className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
@@ -55,7 +55,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
           {tags.map((tag) => (
             <span 
               key={tag} 
-              className="px-3 py-1 bg-dark-secondary rounded-full text-sm text-gray-300"
+              className="px-3 py-1 bg-dark-secondary rounded-full text-sm text-gray-300 spring-hover"
             >
               {tag}
             </span>
@@ -64,7 +64,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         
         <a 
           href={url} 
-          className="inline-flex items-center text-highlight hover:text-highlight-secondary transition-colors w-fit"
+          className="inline-flex items-center text-highlight hover:text-highlight-secondary transition-colors w-fit spring-hover"
         >
           View Project
           <ArrowRight size={16} className="ml-2" />

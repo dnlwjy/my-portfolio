@@ -46,7 +46,7 @@ const MyStack = () => {
     <section id="my-stack" className="py-20">
       <Separator className="mb-20 bg-gray-800" />
       <div className="container mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 opacity-0 animate-spring-in">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">My Stack</h2>
           <div className="h-1 w-20 bg-highlight mx-auto mb-6"></div>
           <p className="text-gray-400 max-w-2xl mx-auto">
@@ -58,7 +58,7 @@ const MyStack = () => {
           {categories.map((category, index) => (
             <div 
               key={category.name}
-              className="glass-card p-6 rounded-lg hover:transform hover:translate-y-[-5px] transition-all duration-300"
+              className="glass-card p-6 rounded-lg opacity-0 animate-spring-in spring-hover"
               style={{ animationDelay: `${index * 150}ms` }}
             >
               <div className="flex flex-col items-center text-center">
@@ -69,7 +69,7 @@ const MyStack = () => {
                     <Badge 
                       key={skill} 
                       variant="outline" 
-                      className="bg-white/5 hover:bg-white/10 transition-colors"
+                      className="bg-white/5 hover:bg-white/10 transition-colors spring-hover"
                     >
                       {skill}
                     </Badge>

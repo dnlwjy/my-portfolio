@@ -69,7 +69,7 @@ const ProjectsContent = () => {
   return (
     <section className="py-20">
       <Separator className="mb-20 bg-gray-800" />
-      <div className="text-center mb-16">
+      <div className="text-center mb-16 opacity-0 animate-spring-in">
         <h1 className="text-4xl md:text-5xl font-bold mb-4">My Projects</h1>
         <div className="h-1 w-20 bg-highlight mx-auto mb-6"></div>
         <p className="text-gray-400 max-w-2xl mx-auto">
@@ -83,6 +83,7 @@ const ProjectsContent = () => {
               onClick={() => setActiveFilter(filter)}
               variant={activeFilter === filter ? "default" : "secondary"}
               className={cn(
+                "spring-hover",
                 activeFilter === filter 
                   ? "bg-highlight hover:bg-highlight/90" 
                   : "bg-dark-secondary text-gray-300 hover:bg-dark-accent"
@@ -95,9 +96,14 @@ const ProjectsContent = () => {
       </div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {filteredProjects.map((project) => (
-          <Link key={project.id} to={`/projects/${project.id}`} className="block">
-            <div className="bg-dark-secondary rounded-lg overflow-hidden transition-all duration-300 hover:transform hover:scale-[1.02] shadow-lg">
+        {filteredProjects.map((project, index) => (
+          <Link 
+            key={project.id} 
+            to={`/projects/${project.id}`} 
+            className="block opacity-0 animate-spring-in"
+            style={{ animationDelay: `${index * 150}ms` }}
+          >
+            <div className="bg-dark-secondary rounded-lg overflow-hidden transition-all duration-300 hover:transform hover:scale-[1.02] shadow-lg spring-hover">
               <div 
                 className="h-52 bg-cover bg-center"
                 style={{ backgroundImage: `url(${project.image})` }}
@@ -110,7 +116,7 @@ const ProjectsContent = () => {
                   {project.tags.map((tag) => (
                     <span 
                       key={tag} 
-                      className="px-3 py-1 bg-dark-accent rounded-full text-sm text-gray-300"
+                      className="px-3 py-1 bg-dark-accent rounded-full text-sm text-gray-300 spring-hover"
                     >
                       {tag}
                     </span>
@@ -118,7 +124,7 @@ const ProjectsContent = () => {
                 </div>
                 
                 <span 
-                  className="inline-flex items-center text-highlight hover:text-highlight-secondary transition-colors"
+                  className="inline-flex items-center text-highlight hover:text-highlight-secondary transition-colors spring-hover"
                 >
                   View Case Study →
                 </span>
@@ -128,17 +134,17 @@ const ProjectsContent = () => {
         ))}
       </div>
 
-      <div className="mt-12">
+      <div className="mt-12 opacity-0 animate-spring-in" style={{ animationDelay: '600ms' }}>
         <Pagination>
           <PaginationContent>
             <PaginationItem>
-              <PaginationLink href="#" isActive>1</PaginationLink>
+              <PaginationLink href="#" isActive className="spring-hover">1</PaginationLink>
             </PaginationItem>
             <PaginationItem>
-              <PaginationLink href="#">2</PaginationLink>
+              <PaginationLink href="#" className="spring-hover">2</PaginationLink>
             </PaginationItem>
             <PaginationItem>
-              <PaginationLink href="#">3</PaginationLink>
+              <PaginationLink href="#" className="spring-hover">3</PaginationLink>
             </PaginationItem>
           </PaginationContent>
         </Pagination>

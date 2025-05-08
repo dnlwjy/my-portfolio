@@ -17,8 +17,8 @@ const Footer = () => {
       <Separator className="mb-12 bg-gray-800" />
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-6 md:mb-0">
-            <a href="#" className="text-xl font-bold tracking-tighter text-gradient">
+          <div className="mb-6 md:mb-0 opacity-0 animate-spring-in">
+            <a href="#" className="text-xl font-bold tracking-tighter text-gradient spring-hover">
               Portfolio
             </a>
             <p className="text-gray-500 mt-2">
@@ -26,10 +26,10 @@ const Footer = () => {
             </p>
           </div>
           
-          <div className="flex flex-col items-center md:items-end">
+          <div className="flex flex-col items-center md:items-end opacity-0 animate-spring-in" style={{ animationDelay: '150ms' }}>
             <button 
               onClick={scrollToTop}
-              className="mb-6 w-10 h-10 rounded-full bg-highlight/10 flex items-center justify-center text-highlight hover:bg-highlight/20 transition-colors"
+              className="mb-6 w-10 h-10 rounded-full bg-highlight/10 flex items-center justify-center text-highlight hover:bg-highlight/20 transition-colors spring-hover"
               aria-label="Back to top"
             >
               <ChevronUp size={20} />
