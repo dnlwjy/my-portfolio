@@ -2,6 +2,7 @@
 import { useState } from "react";
 import ProjectCard from "./ProjectCard";
 import { cn } from "@/lib/utils";
+import { Separator } from "@/components/ui/separator";
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState("All");
@@ -53,6 +54,7 @@ const Projects = () => {
 
   return (
     <section id="projects" className="py-20">
+      <Separator className="mb-20 bg-gray-800" />
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured Projects</h2>

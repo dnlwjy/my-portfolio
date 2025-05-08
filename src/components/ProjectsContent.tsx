@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { Button } from "./ui/button";
+import { Separator } from "./ui/separator";
 import { Pagination, PaginationContent, PaginationItem, PaginationLink } from "./ui/pagination";
 
 const ProjectsContent = () => {
@@ -67,6 +68,7 @@ const ProjectsContent = () => {
 
   return (
     <section className="py-20">
+      <Separator className="mb-20 bg-gray-800" />
       <div className="text-center mb-16">
         <h1 className="text-4xl md:text-5xl font-bold mb-4">My Projects</h1>
         <div className="h-1 w-20 bg-highlight mx-auto mb-6"></div>

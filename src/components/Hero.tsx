@@ -33,7 +33,7 @@ const Hero = () => {
           <div className="flex flex-col sm:flex-row justify-center gap-4 opacity-0 animate-fade-in" style={{ animationDelay: '1000ms', animationFillMode: 'forwards' }}>
             <a 
               href="#projects" 
-              className="bg-highlight hover:bg-highlight-secondary text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center"
+              className="bg-highlight hover:bg-highlight-secondary text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center btn-glow"
             >
               View My Work
               <ArrowRight size={16} className="ml-2" />

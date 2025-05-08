@@ -3,6 +3,7 @@ import { useState } from "react";
 import { ShoppingCart } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
 
 type Product = {
   id: number;
@@ -46,6 +47,7 @@ const Shop = () => {
 
   return (
     <section id="shop" className="py-20">
+      <Separator className="mb-20 bg-gray-800" />
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Digital Products</h2>

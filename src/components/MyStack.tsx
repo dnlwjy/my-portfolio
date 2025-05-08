@@ -1,6 +1,7 @@
 
 import React from "react";
 import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
 import { 
   Code, 
   FileCode, 
@@ -38,6 +39,7 @@ const MyStack = () => {
 
   return (
     <section id="my-stack" className="py-20">
+      <Separator className="mb-20 bg-gray-800" />
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">My Stack</h2>
