@@ -1,4 +1,9 @@
 
+{/*
+  This site is fully hand-coded by Daniel Wijaya.
+  Built with React, Tailwind CSS, and 💻.
+*/}
+
 import { Code, Palette, Settings } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 

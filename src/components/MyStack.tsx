@@ -1,4 +1,9 @@
 
+{/*
+  This site is fully hand-coded by Daniel Wijaya.
+  Built with React, Tailwind CSS, and 💻.
+*/}
+
 import React from "react";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";

@@ -1,4 +1,9 @@
 
+{/*
+  This site is fully hand-coded by Daniel Wijaya.
+  Built with React, Tailwind CSS, and 💻.
+*/}
+
 import { useParams } from "react-router-dom";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import Navbar from "@/components/Navbar";

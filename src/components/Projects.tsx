@@ -1,4 +1,9 @@
 
+{/*
+  This site is fully hand-coded by Daniel Wijaya.
+  Built with React, Tailwind CSS, and 💻.
+*/}
+
 import { useState } from "react";
 import ProjectCard from "./ProjectCard";
 import { cn } from "@/lib/utils";

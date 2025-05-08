@@ -1,4 +1,9 @@
 
+{/*
+  This site is fully hand-coded by Daniel Wijaya.
+  Built with React, Tailwind CSS, and 💻.
+*/}
+
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 
 const VideoPortrait = () => {

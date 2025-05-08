@@ -1,3 +1,9 @@
+
+{/*
+  This site is fully hand-coded by Daniel Wijaya.
+  Built with React, Tailwind CSS, and 💻.
+*/}
+
 import * as React from "react"
 
 const MOBILE_BREAKPOINT = 768
