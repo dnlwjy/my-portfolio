@@ -12,6 +12,9 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import ReCAPTCHA from "react-google-recaptcha";
 
+// Configuration
+const RECAPTCHA_SITE_KEY = "6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"; // Replace with your actual site key
+
 // Create schema for form validation
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -206,7 +209,7 @@ const Contact = () => {
                           <div className="flex justify-center md:justify-start">
                             <ReCAPTCHA
                               ref={recaptchaRef}
-                              sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+                              sitekey={RECAPTCHA_SITE_KEY}
                               onChange={handleReCaptchaChange}
                               theme="dark"
                             />
