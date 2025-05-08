@@ -5,8 +5,9 @@
 */}
 
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { withCursorFollow } from "@/utils/withCursorFollow";
 
-const VideoPortrait = () => {
+const VideoPortraitBase = () => {
   return (
     <div className="mb-8 relative mx-auto max-w-md">
       <div className="absolute inset-0 bg-highlight/10 rounded-full filter blur-3xl opacity-20 -z-10 animate-pulse" />
@@ -25,5 +26,7 @@ const VideoPortrait = () => {
     </div>
   );
 };
+
+const VideoPortrait = withCursorFollow(VideoPortraitBase);
 
 export default VideoPortrait;
