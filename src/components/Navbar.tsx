@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
-import { Menu, X, ShoppingCart, Info, Briefcase, Contact } from "lucide-react";
+import { Menu, X, Info, Briefcase, ShoppingCart, Mail } from "lucide-react";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -17,11 +17,11 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: "Home", href: "#home", icon: <span className="text-xl font-bold tracking-tighter text-gradient">P</span> },
+    { name: "Home", href: "#home", icon: <span className="text-xl font-bold tracking-tighter text-highlight">Home</span> },
     { name: "About", href: "#about", icon: <Info size={20} className="text-highlight" /> },
     { name: "Projects", href: "#projects", icon: <Briefcase size={20} className="text-highlight" /> },
     { name: "Shop", href: "#shop", icon: <ShoppingCart size={20} className="text-highlight" /> },
-    { name: "Contact", href: "#contact", icon: <Contact size={20} className="text-highlight" /> },
+    { name: "Contact", href: "#contact", icon: <Mail size={20} className="text-highlight" /> },
   ];
 
   return (
@@ -34,8 +34,8 @@ const Navbar = () => {
         )}
       >
         <div className="flex flex-col items-center py-6">
-          <a href="#" className="text-xl font-bold tracking-tighter text-gradient mb-12">
-            P
+          <a href="#" className="text-xl font-bold tracking-tighter text-highlight mb-12">
+            Portfolio
           </a>
 
           <div className="flex flex-col space-y-12 h-full">
@@ -46,7 +46,7 @@ const Navbar = () => {
                 className="text-gray-300 hover:text-highlight transition-colors duration-300 group flex flex-col items-center"
               >
                 {index === 0 ? (
-                  link.icon
+                  <span className="text-sm tracking-wider transform transition-colors duration-300">Home</span>
                 ) : (
                   <div className="mb-1">{link.icon}</div>
                 )}
@@ -54,7 +54,7 @@ const Navbar = () => {
                   "inline-block whitespace-nowrap text-sm tracking-wider transform group-hover:text-highlight transition-colors duration-300",
                   index !== 0 && "origin-left -rotate-90"
                 )}>
-                  {link.name}
+                  {index !== 0 ? link.name : ""}
                 </span>
               </a>
             ))}
@@ -76,9 +76,9 @@ const Navbar = () => {
       {mobileMenuOpen && (
         <div className="md:hidden fixed inset-0 z-40 bg-dark-secondary animate-fade-in">
           <div className="flex flex-col items-center justify-center h-full space-y-8">
-            <a href="#" className="text-2xl font-bold tracking-tighter text-gradient mb-8">
+            <span className="text-2xl font-bold tracking-tighter text-highlight mb-8">
               Portfolio
-            </a>
+            </span>
             {navLinks.map((link) => (
               <a
                 key={link.name}
