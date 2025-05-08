@@ -48,8 +48,9 @@ const Navbar = () => {
                 className="text-gray-300 hover:text-highlight transition-colors duration-300 group flex flex-col items-center"
               >
                 <span className={cn(
-                  "inline-block whitespace-nowrap text-sm font-inter tracking-wider transform group-hover:text-highlight transition-colors duration-300",
-                  link.name !== "Home" && "origin-left -rotate-90"
+                  "inline-block whitespace-nowrap text-sm font-inter tracking-wider transform group-hover:text-highlight relative",
+                  link.name !== "Home" && "origin-left -rotate-90",
+                  "after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-highlight after:bottom-1/2 after:left-0 after:transform after:translate-y-1/2 group-hover:after:w-full after:transition-all after:duration-300"
                 )}>
                   {link.name}
                 </span>
@@ -81,7 +82,7 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 to={link.href}
-                className="text-gray-300 hover:text-highlight transition-colors duration-300 text-xl font-inter py-2 flex items-center gap-3"
+                className="text-gray-300 hover:text-highlight transition-colors duration-300 text-xl font-inter py-2 flex items-center gap-3 relative after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-highlight after:bottom-1/2 after:left-0 after:transform after:translate-y-1/2 hover:after:w-full after:transition-all after:duration-300"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {link.name}
