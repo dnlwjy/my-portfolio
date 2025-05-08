@@ -13,7 +13,6 @@ interface AnimatedTextProps {
   gradient?: boolean;
   delay?: number;
   blurAnimation?: boolean;
-  springAnimation?: boolean;
 }
 
 const AnimatedText: React.FC<AnimatedTextProps> = ({ 
@@ -21,16 +20,14 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({
   className, 
   gradient = false,
   delay = 0,
-  blurAnimation = false,
-  springAnimation = true
+  blurAnimation = false
 }) => {
   return (
     <span 
       className={cn(
-        "inline-block opacity-0", 
+        "inline-block opacity-0 animate-fade-in", 
         gradient && "text-gradient",
         blurAnimation && "blur-animation",
-        springAnimation && !blurAnimation && "spring-animation",
         className
       )}
       style={{ 
