@@ -65,9 +65,9 @@ export default {
 				},
 				// Custom portfolio colors
 				dark: {
-					DEFAULT: '#1A1F2C',
-					secondary: '#221F26',
-					accent: '#403E43',
+					DEFAULT: '#121212', // Updated from #1A1F2C to #121212
+					secondary: '#1E1E1E', // Adjusted to match new background
+					accent: '#2D2D2D', // Adjusted to match new background
 				},
 				highlight: {
 					DEFAULT: '#8A2BE2', // Vibrant purple

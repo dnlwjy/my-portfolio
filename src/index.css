@@ -45,7 +45,7 @@
   }
   
   body {
-    @apply bg-dark text-foreground font-sans antialiased;
+    @apply bg-[#121212] text-foreground font-sans antialiased;
     font-feature-settings: "ss01", "ss02", "cv01", "cv02", "cv03";
   }
 

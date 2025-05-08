@@ -39,7 +39,7 @@ const About = () => {
               {skills.map((skill) => (
                 <span 
                   key={skill} 
-                  className="px-3 py-1 bg-dark/80 border border-white/10 rounded-full text-sm text-gray-300"
+                  className="px-3 py-1 bg-[#121212]/80 border border-white/10 rounded-full text-sm text-gray-300"
                 >
                   {skill}
                 </span>
