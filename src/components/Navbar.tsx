@@ -34,7 +34,7 @@ const Navbar = () => {
         )}
       >
         <div className="flex flex-col items-center py-6">
-          <a href="#" className="text-xl font-bold tracking-tighter text-highlight mb-12">
+          <a href="#" className="text-xl font-playfair font-bold tracking-tighter text-highlight mb-12">
             Portfolio
           </a>
 
@@ -46,7 +46,7 @@ const Navbar = () => {
                 className="text-gray-300 hover:text-highlight transition-colors duration-300 group flex flex-col items-center"
               >
                 <span className={cn(
-                  "inline-block whitespace-nowrap text-sm tracking-wider transform group-hover:text-highlight transition-colors duration-300",
+                  "inline-block whitespace-nowrap text-sm font-inter tracking-wider transform group-hover:text-highlight transition-colors duration-300",
                   link.name !== "Home" && "origin-left -rotate-90"
                 )}>
                   {link.name}
@@ -71,14 +71,14 @@ const Navbar = () => {
       {mobileMenuOpen && (
         <div className="md:hidden fixed inset-0 z-40 bg-dark-secondary animate-fade-in">
           <div className="flex flex-col items-center justify-center h-full space-y-8">
-            <span className="text-2xl font-bold tracking-tighter text-highlight mb-8">
+            <span className="text-2xl font-playfair font-bold tracking-tighter text-highlight mb-8">
               Portfolio
             </span>
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-gray-300 hover:text-highlight transition-colors duration-300 text-xl py-2 flex items-center gap-3"
+                className="text-gray-300 hover:text-highlight transition-colors duration-300 text-xl font-inter py-2 flex items-center gap-3"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {link.name}

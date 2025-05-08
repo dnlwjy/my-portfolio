@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -23,9 +24,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				sans: ['Geist', 'sans-serif'],
+				sans: ['Inter', 'sans-serif'],
 				playfair: ['Playfair Display', 'serif'],
-				geist: ['Geist', 'sans-serif'],
 				inter: ['Inter', 'sans-serif']
 			},
 			colors: {
