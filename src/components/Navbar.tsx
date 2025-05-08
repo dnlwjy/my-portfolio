@@ -24,35 +24,39 @@ const Navbar = () => {
   ];
 
   return (
-    <nav
-      className={cn(
-        "fixed top-0 w-full z-50 transition-all duration-300",
-        isScrolled
-          ? "bg-dark/90 backdrop-blur-md py-3 shadow-md"
-          : "bg-transparent py-5"
-      )}
-    >
-      <div className="container mx-auto px-4 flex justify-between items-center">
-        <a href="#" className="text-xl font-bold tracking-tighter text-gradient">
-          Portfolio
-        </a>
+    <>
+      {/* Desktop Sidebar */}
+      <nav
+        className={cn(
+          "fixed left-0 top-0 h-full w-16 z-50 flex flex-col bg-dark-secondary transition-all duration-300",
+          isScrolled ? "shadow-md" : ""
+        )}
+      >
+        <div className="flex flex-col items-center py-6">
+          <a href="#" className="text-xl font-bold tracking-tighter text-gradient mb-12">
+            P
+          </a>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-8">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-gray-300 hover:text-highlight transition-colors duration-300"
-            >
-              {link.name}
-            </a>
-          ))}
+          <div className="flex flex-col space-y-12 h-full">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="text-gray-300 hover:text-highlight transition-colors duration-300 group"
+              >
+                <span className="inline-block origin-left -rotate-90 whitespace-nowrap text-sm tracking-wider transform group-hover:text-highlight transition-colors duration-300">
+                  {link.name}
+                </span>
+              </a>
+            ))}
+          </div>
         </div>
+      </nav>
 
-        {/* Mobile Menu Button */}
+      {/* Mobile Menu Button */}
+      <div className="fixed top-4 left-4 z-50 md:hidden">
         <button
-          className="md:hidden text-gray-300 hover:text-highlight"
+          className="text-gray-300 hover:text-highlight bg-dark-secondary/70 p-2 rounded-md backdrop-blur-sm"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -61,13 +65,16 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-dark-secondary absolute top-full left-0 w-full py-4 shadow-lg animate-fade-in">
-          <div className="container mx-auto px-4 flex flex-col space-y-4">
+        <div className="md:hidden fixed inset-0 z-40 bg-dark-secondary animate-fade-in">
+          <div className="flex flex-col items-center justify-center h-full space-y-8">
+            <a href="#" className="text-2xl font-bold tracking-tighter text-gradient mb-8">
+              Portfolio
+            </a>
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-gray-300 hover:text-highlight transition-colors duration-300 py-2"
+                className="text-gray-300 hover:text-highlight transition-colors duration-300 text-xl py-2"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 {link.name}
@@ -76,7 +83,7 @@ const Navbar = () => {
           </div>
         </div>
       )}
-    </nav>
+    </>
   );
 };
 
