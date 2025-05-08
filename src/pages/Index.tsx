@@ -16,7 +16,6 @@ const Index = () => {
         <div className="ml-16 md:ml-16"> {/* Add margin to accommodate sidebar */}
           <div className="max-w-[840px] mx-auto px-4">
             <Hero />
-            <About />
             <Projects />
             <Shop />
             <Contact />
