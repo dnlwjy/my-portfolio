@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ShoppingCart, Info, Briefcase, Contact } from "lucide-react";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -17,10 +17,11 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
-    { name: "Projects", href: "#projects" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "#home", icon: <span className="text-xl font-bold tracking-tighter text-gradient">P</span> },
+    { name: "About", href: "#about", icon: <Info size={20} className="text-highlight" /> },
+    { name: "Projects", href: "#projects", icon: <Briefcase size={20} className="text-highlight" /> },
+    { name: "Shop", href: "#shop", icon: <ShoppingCart size={20} className="text-highlight" /> },
+    { name: "Contact", href: "#contact", icon: <Contact size={20} className="text-highlight" /> },
   ];
 
   return (
@@ -38,13 +39,21 @@ const Navbar = () => {
           </a>
 
           <div className="flex flex-col space-y-12 h-full">
-            {navLinks.map((link) => (
+            {navLinks.map((link, index) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-gray-300 hover:text-highlight transition-colors duration-300 group"
+                className="text-gray-300 hover:text-highlight transition-colors duration-300 group flex flex-col items-center"
               >
-                <span className="inline-block origin-left -rotate-90 whitespace-nowrap text-sm tracking-wider transform group-hover:text-highlight transition-colors duration-300">
+                {index === 0 ? (
+                  link.icon
+                ) : (
+                  <div className="mb-1">{link.icon}</div>
+                )}
+                <span className={cn(
+                  "inline-block whitespace-nowrap text-sm tracking-wider transform group-hover:text-highlight transition-colors duration-300",
+                  index !== 0 && "origin-left -rotate-90"
+                )}>
                   {link.name}
                 </span>
               </a>
@@ -74,9 +83,10 @@ const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-gray-300 hover:text-highlight transition-colors duration-300 text-xl py-2"
+                className="text-gray-300 hover:text-highlight transition-colors duration-300 text-xl py-2 flex items-center gap-3"
                 onClick={() => setMobileMenuOpen(false)}
               >
+                {link.name !== "Home" && link.icon}
                 {link.name}
               </a>
             ))}
