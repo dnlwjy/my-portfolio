@@ -70,8 +70,8 @@ export default {
 					accent: '#2D2D2D', // Adjusted to match new background
 				},
 				highlight: {
-					DEFAULT: '#8A2BE2', // Vibrant purple
-					secondary: '#A75FE2',
+					DEFAULT: '#3B82F6', // Changed from #8A2BE2 (purple) to #3B82F6 (blue)
+					secondary: '#60A5FA', // Changed from #A75FE2 to a lighter blue
 				},
 			},
 			borderRadius: {
@@ -108,10 +108,10 @@ export default {
 				},
 				'glow': {
 					'0%, 100%': {
-						'box-shadow': '0 0 5px rgba(138, 43, 226, 0.3), 0 0 20px rgba(138, 43, 226, 0.1)'
+						'box-shadow': '0 0 5px rgba(59, 130, 246, 0.3), 0 0 20px rgba(59, 130, 246, 0.1)'
 					},
 					'50%': {
-						'box-shadow': '0 0 15px rgba(138, 43, 226, 0.5), 0 0 30px rgba(138, 43, 226, 0.2)'
+						'box-shadow': '0 0 15px rgba(59, 130, 246, 0.5), 0 0 30px rgba(59, 130, 246, 0.2)'
 					}
 				}
 			},
