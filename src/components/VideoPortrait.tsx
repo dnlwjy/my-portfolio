@@ -1,15 +1,21 @@
-
-{/*
-  This site is fully hand-coded by Daniel Wijaya.
-  Built with React, Tailwind CSS, and 💻.
-*/}
-
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { withCursorFollow } from "@/utils/withCursorFollow";
+import { cn } from "@/lib/utils";
 
-const VideoPortraitBase = () => {
+interface VideoPortraitProps {
+  delay?: number;
+  blurAnimation?: boolean;
+}
+
+const VideoPortraitBase = ({ delay = 0, blurAnimation = false }: VideoPortraitProps) => {
   return (
-    <div className="relative mx-auto w-[333px] h-[443px] object-cover -z-10 pointer-events-none">
+    <div
+      className={cn(
+    "relative mx-auto w-[333px] h-[443px] object-cover -z-10 pointer-events-none",
+    blurAnimation && "blur-animation"
+  )}
+  style={{ animationDelay: `${delay}ms` }}
+    >
       <AspectRatio ratio={1}>
         <video
           autoPlay
@@ -35,5 +41,4 @@ const VideoPortraitBase = () => {
 };
 
 const VideoPortrait = withCursorFollow(VideoPortraitBase);
-
 export default VideoPortrait;

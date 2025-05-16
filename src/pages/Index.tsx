@@ -1,7 +1,5 @@
-
 {/*
-  This site is fully hand-coded by Daniel Wijaya.
-  Built with React, Tailwind CSS, and 💻.
+  Proudly built by Daniel Wijaya
 */}
 
 import Navbar from "@/components/Navbar";
