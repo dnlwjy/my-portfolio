@@ -2,7 +2,6 @@
 import type { Config } from "tailwindcss";
 
 export default {
-	darkMode: ["class"],
 	content: [
 		"./pages/**/*.{ts,tsx}",
 		"./components/**/*.{ts,tsx}",
@@ -13,7 +12,6 @@ export default {
 	theme: {
 		container: {
 			center: true,
-			padding: '2rem',
 			screens: {
 				'sm': '360px',
 				'md': '810px',
@@ -27,64 +25,11 @@ export default {
 				inter: ['Inter', 'sans-serif']
 			},
 			colors: {
-				border: 'hsl(var(--border))',
-				input: 'hsl(var(--input))',
-				ring: 'hsl(var(--ring))',
-				background: 'hsl(var(--background))',
-				foreground: 'hsl(var(--foreground))',
-				primary: {
-					DEFAULT: 'hsl(var(--primary))',
-					foreground: 'hsl(var(--primary-foreground))'
-				},
-				secondary: {
-					DEFAULT: 'hsl(var(--secondary))',
-					foreground: 'hsl(var(--secondary-foreground))'
-				},
-				destructive: {
-					DEFAULT: 'hsl(var(--destructive))',
-					foreground: 'hsl(var(--destructive-foreground))'
-				},
-				muted: {
-					DEFAULT: 'hsl(var(--muted))',
-					foreground: 'hsl(var(--muted-foreground))'
-				},
-				accent: {
-					DEFAULT: 'hsl(var(--accent))',
-					foreground: 'hsl(var(--accent-foreground))'
-				},
-				popover: {
-					DEFAULT: 'hsl(var(--popover))',
-					foreground: 'hsl(var(--popover-foreground))'
-				},
-				card: {
-					DEFAULT: 'hsl(var(--card))',
-					foreground: 'hsl(var(--card-foreground))'
-				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
-				},
-				// Custom portfolio colors
-				dark: {
-					DEFAULT: '#121212', // Updated from #1A1F2C to #121212
-					secondary: '#1E1E1E', // Adjusted to match new background
-					accent: '#2D2D2D', // Adjusted to match new background
-				},
-				highlight: {
-					DEFAULT: '#3B82F6', // Changed from #8A2BE2 (purple) to #3B82F6 (blue)
-					secondary: '#60A5FA', // Changed from #A75FE2 to a lighter blue
-				},
-			},
-			borderRadius: {
-				lg: 'var(--radius)',
-				md: 'calc(var(--radius) - 2px)',
-				sm: 'calc(var(--radius) - 4px)'
+				black: '#121212',
+				white: '#ffffff',
+				gray: '#898989',
+				darkgray: '#252525',
+				blue: '#3B82F6'
 			},
 			keyframes: {
 				'accordion-down': {
@@ -105,12 +50,10 @@ export default {
 				},
 				'fade-in': {
 					'0%': {
-						opacity: '0',
-						transform: 'translateY(10px)'
+						opacity: '0'
 					},
 					'100%': {
-						opacity: '1',
-						transform: 'translateY(0)'
+						opacity: '1'
 					}
 				},
 				'glow': {
@@ -137,7 +80,7 @@ export default {
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'fade-in': 'fade-in 0.5s ease-out',
+				'fade-in': 'fade-in 1s ease-out forwards',
 				'glow': 'glow 2s ease-in-out infinite',
 				'blur-motion': 'blur-motion 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards'
 			}

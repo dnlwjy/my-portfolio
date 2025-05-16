@@ -142,7 +142,7 @@ const ProductDetailContent = ({ productId }: { productId: string | undefined }) 
       <div className="py-20 text-center">
         <h2 className="text-2xl font-bold mb-4">Product Not Found</h2>
         <p className="text-gray-400 mb-8">The product you're looking for doesn't exist or has been removed.</p>
-        <Button onClick={() => navigate(-1)} variant="outline" className="inline-flex items-center">
+        <Button onClick={() => navigate(-1)} variant="primary" className="inline-flex items-center">
           <ArrowLeft className="mr-2 h-4 w-4" />
           Back to Shop
         </Button>
@@ -154,7 +154,7 @@ const ProductDetailContent = ({ productId }: { productId: string | undefined }) 
     <section className="py-20">
       <Button 
         onClick={() => navigate(-1)} 
-        variant="ghost" 
+        variant="primary" 
         className="mb-8 flex items-center hover:bg-transparent hover:text-highlight"
       >
         <ArrowLeft className="mr-2 h-4 w-4" />

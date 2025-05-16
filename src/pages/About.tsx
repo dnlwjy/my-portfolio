@@ -1,5 +1,3 @@
-
-import { ThemeProvider } from "@/components/ThemeProvider";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -43,7 +41,6 @@ const AboutPage = () => {
   ];
 
   return (
-    <ThemeProvider>
       <div className="min-h-screen bg-[#121212] text-white">
         <Navbar />
         <div className="ml-16 md:ml-16">
@@ -71,17 +68,17 @@ const AboutPage = () => {
                 </p>
                 
                 <div className="flex gap-4">
-                  <Button variant="outline" size="icon" className="rounded-full" asChild>
+                  <Button variant="primary" className="rounded-full" asChild>
                     <a href="https://github.com" target="_blank" rel="noopener noreferrer">
                       <Github size={20} />
                     </a>
                   </Button>
-                  <Button variant="outline" size="icon" className="rounded-full" asChild>
+                  <Button variant="primary" className="rounded-full" asChild>
                     <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
                       <Linkedin size={20} />
                     </a>
                   </Button>
-                  <Button variant="outline" size="icon" className="rounded-full" asChild>
+                  <Button variant="primary" className="rounded-full" asChild>
                     <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
                       <Twitter size={20} />
                     </a>
@@ -145,7 +142,6 @@ const AboutPage = () => {
           <Footer />
         </div>
       </div>
-    </ThemeProvider>
   );
 };
 

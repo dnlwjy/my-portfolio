@@ -4,7 +4,6 @@
   Built with React, Tailwind CSS, and 💻.
 */}
 
-import { ThemeProvider } from "@/components/ThemeProvider";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import MyStack from "@/components/MyStack";
@@ -15,21 +14,17 @@ import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <ThemeProvider>
-      <div className="min-h-screen bg-[#121212] text-white">
+      <div>
         <Navbar />
-        <div className="ml-16 md:ml-16"> {/* Add margin to accommodate sidebar */}
-          <div className="max-w-[840px] mx-auto px-4">
-            <Hero />
-            <MyStack />
-            <Projects />
-            <Shop />
-            <Contact />
-          </div>
-          <Footer />
-        </div>
+        <main>
+          <Hero />
+          <MyStack />
+          <Projects />
+          <Shop />
+          <Contact />
+        </main>
+        <Footer />
       </div>
-    </ThemeProvider>
   );
 };
 

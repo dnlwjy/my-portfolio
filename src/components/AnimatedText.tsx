@@ -25,7 +25,7 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({
   return (
     <span 
       className={cn(
-        "inline-block opacity-0 animate-fade-in", 
+        "inline-block animate-fade-in", 
         gradient && "text-gradient",
         blurAnimation && "blur-animation",
         className
