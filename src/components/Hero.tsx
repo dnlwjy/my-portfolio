@@ -26,7 +26,7 @@ const Hero = () => {
           <h1 className="sm:text-[72px] text-[48px] font-bold mb-6 tracking-tight">
             <AnimatedText text="I'm Daniel." delay={200} blurAnimation={true} />
             <span className="block">
-              <AnimatedText text="Experiences that" delay={400} blurAnimation={true} />
+              <AnimatedText text="Designer and developer." delay={400} blurAnimation={true} />
             </span>
           </h1>
           
