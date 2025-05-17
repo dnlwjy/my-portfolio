@@ -22,7 +22,7 @@ const Hero = () => {
             </span>
           </h1>
           
-          <div className="flex flex-row justify-center gap-4 opacity-0 animate-fade-in z-10" style={{ animationDelay: '1350ms', animationFillMode: 'forwards' }}>
+          <div className="flex justify-center gap-4 opacity-0 animate-fade-in z-10" style={{ animationDelay: '1350ms', animationFillMode: 'forwards' }}>
             <Button
             variant="primary"
             onClick={() => {
@@ -33,7 +33,7 @@ const Hero = () => {
             </Button>
             <Button
             variant="secondary">
-              Contact me
+              About me
             </Button>
           </div>
 

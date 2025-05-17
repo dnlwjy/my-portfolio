@@ -22,7 +22,7 @@ main {
   }
   
   h1 {
-    @apply font-playfair text-[48px] tracking-tight leading-[1.1] font-normal text-white
+    @apply font-playfair text-[48px] tracking-[-1px] leading-[1.1] font-normal text-white
   }
   @screen lg {
     h1 {
