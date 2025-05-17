@@ -35,7 +35,7 @@ const VideoPortraitBase = ({ delay = 0, blurAnimation = false }: VideoPortraitPr
   );
 };
 
-const VideoPortraitWrapper = () => {
+const VideoPortraitWrapper = ({ delay, blurAnimation }: VideoPortraitProps) => {
   const [enabled, setEnabled] = useState(true);
 
   useEffect(() => {
@@ -45,7 +45,6 @@ const VideoPortraitWrapper = () => {
       setEnabled(!e.matches); // disable if <= 810px
     };
 
-    // initial check
     setEnabled(!mediaQuery.matches);
 
     mediaQuery.addEventListener("change", handler);
@@ -53,7 +52,8 @@ const VideoPortraitWrapper = () => {
   }, []);
 
   const Component = enabled ? withCursorFollow(VideoPortraitBase) : VideoPortraitBase;
-  return <Component />;
+  return <Component delay={delay} blurAnimation={blurAnimation} />;
 };
+
 
 export default VideoPortraitWrapper;
