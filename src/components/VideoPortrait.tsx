@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { withCursorFollow } from "@/utils/withCursorFollow";
 import { cn } from "@/lib/utils";
@@ -35,12 +35,25 @@ const VideoPortraitBase = ({ delay = 0, blurAnimation = false }: VideoPortraitPr
   );
 };
 
-// Helper untuk cek apakah user di mobile
-const isMobile = () => {
-  if (typeof window === "undefined") return false;
-  return /Mobi|Android/i.test(navigator.userAgent);
+const VideoPortraitWrapper = () => {
+  const [enabled, setEnabled] = useState(true);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(max-width: 810px)");
+
+    const handler = (e: MediaQueryListEvent) => {
+      setEnabled(!e.matches); // disable if <= 810px
+    };
+
+    // initial check
+    setEnabled(!mediaQuery.matches);
+
+    mediaQuery.addEventListener("change", handler);
+    return () => mediaQuery.removeEventListener("change", handler);
+  }, []);
+
+  const Component = enabled ? withCursorFollow(VideoPortraitBase) : VideoPortraitBase;
+  return <Component />;
 };
 
-const VideoPortrait = isMobile() ? VideoPortraitBase : withCursorFollow(VideoPortraitBase);
-
-export default VideoPortrait;
+export default VideoPortraitWrapper;
