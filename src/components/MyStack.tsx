@@ -1,19 +1,13 @@
-
-{/*
-  This site is fully hand-coded by Daniel Wijaya.
-  Built with React, Tailwind CSS, and 💻.
-*/}
-
 import React from "react";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { 
-  Code, 
-  FileCode, 
-  Terminal, 
-  Database, 
+import {
+  Code,
+  FileCode,
+  Terminal,
+  Database,
   Layout, 
-  Layers, 
+  Layers,
   PenTool,
   Server
 } from "lucide-react";

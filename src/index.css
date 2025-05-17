@@ -9,7 +9,7 @@
 
 /* global style */
 body {
-  @apply bg-black w-full;
+  @apply bg-black w-full overflow-x-hidden;
 }
 
 main {
