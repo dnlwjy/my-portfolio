@@ -40,5 +40,11 @@ const VideoPortraitBase = ({ delay = 0, blurAnimation = false }: VideoPortraitPr
   );
 };
 
+// Helper untuk cek apakah user di mobile
+const isMobile = () => {
+  if (typeof window === "undefined") return false;
+  return /Mobi|Android/i.test(navigator.userAgent);
+};
+
 const VideoPortrait = withCursorFollow(VideoPortraitBase);
 export default VideoPortrait;

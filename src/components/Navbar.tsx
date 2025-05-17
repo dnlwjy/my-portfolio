@@ -37,8 +37,7 @@ const Navbar = () => {
       {/* Desktop Sidebar */}
       <nav
         className={cn(
-          "fixed left-0 top-0 h-full w-16 z-50 flex flex-col bg-dark-secondary transition-all duration-300",
-          isScrolled ? "shadow-md" : ""
+          "fixed left-0 top-0 h-screen w-16 z-50 flex flex-col transition-all duration-300",
         )}
       >
         <div className="flex flex-col items-center py-6 h-full justify-between">
