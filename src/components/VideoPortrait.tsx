@@ -40,11 +40,12 @@ const VideoPortraitBase = ({ delay = 0, blurAnimation = false }: VideoPortraitPr
   );
 };
 
-// Helper untuk cek apakah user di mobile
-const isMobile = () => {
+// disable di mobile & tablet
+const isMobileOrTablet = () => {
   if (typeof window === "undefined") return false;
-  return /Mobi|Android/i.test(navigator.userAgent);
+  const ua = navigator.userAgent;
+  return /Mobi|Android|Tablet|iPad/i.test(ua);
 };
 
-const VideoPortrait = withCursorFollow(VideoPortraitBase);
+const VideoPortrait = isMobileOrTablet() ? VideoPortraitBase : withCursorFollow(VideoPortraitBase);
 export default VideoPortrait;
