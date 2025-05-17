@@ -40,12 +40,11 @@ const VideoPortraitBase = ({ delay = 0, blurAnimation = false }: VideoPortraitPr
   );
 };
 
-// disable di mobile & tablet
-const isMobileOrTablet = () => {
+// Disable di mobile
+const isMobile = () => {
   if (typeof window === "undefined") return false;
-  const ua = navigator.userAgent;
-  return /Mobi|Android|Tablet|iPad/i.test(ua);
+  return /Mobi|Android/i.test(navigator.userAgent);
 };
 
-const VideoPortrait = isMobileOrTablet() ? VideoPortraitBase : withCursorFollow(VideoPortraitBase);
+const VideoPortrait = withCursorFollow(VideoPortraitBase);
 export default VideoPortrait;
