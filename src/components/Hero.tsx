@@ -8,7 +8,7 @@ const Hero = () => {
 
   useEffect(() => {
     const checkMobile = () => {
-      setIsMobile(window.innerWidth < 810); // breakpoint md kamu
+      setIsMobile(window.innerWidth < 810);
     };
 
     checkMobile();
@@ -20,7 +20,7 @@ const Hero = () => {
   return (
     <section id="home" className="h-screen w-full flex p-6 items-center justify-center">
       <div className="w-full text-center max-w-[840px]">
-        <div className="h-[320px] -z-20">
+        <div className="md:h-[320px] h-[365px] -z-20">
           <VideoPortrait delay={300} blurAnimation={true} />
         </div>
 
@@ -33,7 +33,7 @@ const Hero = () => {
                   <AnimatedText text="Designer and" delay={700} blurAnimation={true} />
                 </span>
                 <span className="block">
-                  <AnimatedText text="developer" delay={1100} blurAnimation={true} />
+                  <AnimatedText text="developer." delay={1100} blurAnimation={true} />
                 </span>
               </>
             ) : (
@@ -47,8 +47,8 @@ const Hero = () => {
           </h1>
 
           <div
-            className="flex justify-center gap-4 opacity-0 animate-fade-in z-10"
-            style={{ animationDelay: "1350ms", animationFillMode: "forwards" }}
+            className="flex justify-center gap-3 opacity-0 animate-fade-in z-10"
+            style={{ animationDelay: "1800ms", animationFillMode: "forwards" }}
           >
             <Button
               variant="primary"

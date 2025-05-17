@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { Menu, X, Facebook, Twitter, Instagram } from "lucide-react";
 import { Link } from "react-router-dom";
 import logoSvg from "../assets/logo.svg";
+import { motion } from "framer-motion";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -37,13 +38,20 @@ const Navbar = () => {
       {/* Desktop Sidebar */}
       <nav
         className={cn(
-          "fixed left-0 top-0 h-screen w-16 z-50 flex flex-col transition-all duration-300",
+          "fixed left-0 top-0 h-screen w-20 z-50 flex flex-col transition-all duration-300",
         )}
       >
         <div className="flex flex-col items-center py-6 h-full justify-between">
           <div className="flex flex-col items-center">
-            <Link to="/" className="mb-12">
-              <img src={logoSvg} alt="DW Logo" className="w-10 h-10 hover:scale-110 transition-transform duration-300" />
+            
+            <Link to="/">
+              <motion.img
+                src="/uploads/dw-logo.svg"
+                alt="DW Logo"
+                className="w-13 h-13"
+                whileHover={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              />
             </Link>
 
             <div className="flex flex-col space-y-12">
