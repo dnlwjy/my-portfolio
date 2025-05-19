@@ -2,6 +2,7 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
+import svgr from "vite-plugin-svgr";
 
 export default defineConfig(({ mode }) => ({
   server: {
@@ -11,6 +12,7 @@ export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
     mode === 'development' && componentTagger(),
+    svgr(),   // import svg as ReactComponent
   ].filter(Boolean),
   resolve: {
     alias: {
@@ -18,12 +20,10 @@ export default defineConfig(({ mode }) => ({
     },
   },
   optimizeDeps: {
-    include: ["framer-motion"],  // optimasi dev server framer-motion
+    include: ["framer-motion"],  // framer motion
   },
   build: {
-    minify: 'esbuild', // default tapi pastikan aktif
-    rollupOptions: {
-      // kalau mau, bisa tambahkan tree shaking optimizations disini
-    },
+    minify: 'esbuild',
+    rollupOptions: {},
   },
 }));

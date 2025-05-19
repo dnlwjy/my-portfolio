@@ -1,50 +1,36 @@
-
 import { useState, useEffect } from "react";
-import { cn } from "@/lib/utils";
-import { Menu, X, Facebook, Twitter, Instagram } from "lucide-react";
 import { Link } from "react-router-dom";
 import logoSvg from "../assets/logo.svg";
 import { motion } from "framer-motion";
+import Navlink from "@/components/ui/NavLink";
+import SocialIcon from "@/components/ui/SocialIcon";
+import Framer from "../assets/framer.svg?react";
+import Linkedin from "../assets/linkedin.svg?react";
+import Github from "../assets/github.svg?react";
+
+const navLinks = [
+  { name: "About", href: "/about" },
+  { name: "Projects", href: "/projects" },
+  { name: "Shop", href: "/#shop" },
+  { name: "Contact", href: "/contact" },
+];
+
+const SocialLinks = [
+  { icon: Framer, href: "https://facebook.com", label: "Framer" },
+  { icon: Linkedin, href: "https://twitter.com", label: "Twitter" },
+  { icon: Github, href: "https://instagram.com", label: "Github" },
+];
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const navLinks = [
-    { name: "Home", href: "/" },
-    { name: "About", href: "/about" },
-    { name: "Projects", href: "/projects" },
-    { name: "Shop", href: "/#shop" },
-    { name: "Contact", href: "/contact" },
-  ];
-
-  const socialLinks = [
-    { icon: Facebook, href: "https://facebook.com", label: "Facebook" },
-    { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
-    { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
-  ];
-
   return (
-    <>
-      {/* Desktop Sidebar */}
-      <nav
-        className={cn(
-          "fixed left-0 top-0 h-screen w-20 z-50 flex flex-col transition-all duration-300",
-        )}
-      >
-        <div className="flex flex-col items-center py-6 h-full justify-between">
-          <div className="flex flex-col items-center">
+    <header className="fixed left-0 top-0 h-screen w-32 z-50 flex flex-col py-16 justify-between items-center">
+
+          <nav className="flex flex-col space-y-10 items-center" aria-label="Main navigation">
             
-            <Link to="/">
+            <Link to="/" aria-label="Homepage">
               <motion.img
                 src="/uploads/dw-logo.svg"
                 alt="DW Logo"
@@ -54,42 +40,33 @@ const Navbar = () => {
               />
             </Link>
 
-            <div className="flex flex-col space-y-12">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  to={link.href}
-                  className="text-gray-300 hover:text-highlight transition-colors duration-300 group flex flex-col items-center"
-                >
-                  <span className={cn(
-                    "inline-block whitespace-nowrap text-sm font-inter tracking-wider transform group-hover:text-highlight relative",
-                    link.name !== "Home" && "origin-left -rotate-90",
-                    "after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-highlight after:bottom-1/2 after:left-0 after:transform after:translate-y-1/2 group-hover:after:w-full after:transition-all after:duration-300"
-                  )}>
-                    {link.name}
-                  </span>
-                </Link>
-              ))}
-            </div>
-          </div>
-          
-          {/* Social Media Links */}
-          <div className="flex flex-col space-y-6 mb-6">
-            {socialLinks.map((link) => (
-              <a
-                key={link.label}
+            {navLinks.map((link) => (
+              <Navlink
+                key={link.name}
+                name={link.name}
                 href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-300 hover:text-highlight transition-colors duration-300"
-                aria-label={link.label}
-              >
-                <link.icon size={20} />
-              </a>
+                style={{ writingMode: "sideways-lr"}}
+                onClick={() => console.log(`${link.name} clicked`)}
+              />
             ))}
-          </div>
-        </div>
-      </nav>
+
+          </nav>
+          
+          <nav className="flex flex-col space-y-6" aria-label="Social media">
+            {SocialLinks.map((link) => {
+              const Icon = link.icon;
+                return (
+                  <SocialIcon
+                    icon={link.icon}
+                    label={link.label}
+                    key={link.label}
+                    href={link.href}
+                    aria-label={link.label}
+                  />
+              );
+            })}
+          </nav>
+
 
       {/* Mobile Menu Button */}
       <div className="fixed top-4 left-4 z-50 md:hidden">
@@ -97,7 +74,6 @@ const Navbar = () => {
           className="text-gray-300 hover:text-highlight bg-dark-secondary/70 p-2 rounded-md backdrop-blur-sm"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
@@ -122,7 +98,7 @@ const Navbar = () => {
             
             {/* Mobile Social Links */}
             <div className="flex space-x-6 mt-8">
-              {socialLinks.map((link) => (
+              {SocialLinks.map((link) => (
                 <a
                   key={link.label}
                   href={link.href}
@@ -131,14 +107,13 @@ const Navbar = () => {
                   className="text-gray-300 hover:text-highlight transition-colors duration-300"
                   aria-label={link.label}
                 >
-                  <link.icon size={24} />
                 </a>
               ))}
             </div>
           </div>
         </div>
       )}
-    </>
+    </header>
   );
 };
 

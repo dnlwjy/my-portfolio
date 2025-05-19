@@ -1,7 +1,3 @@
-{/*
-  Proudly built by Daniel Wijaya
-*/}
-
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import MyStack from "@/components/MyStack";
@@ -12,8 +8,10 @@ import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-      <div>
+      <>
+      <header>
         <Navbar />
+      </header>
         <main>
           <Hero />
           <MyStack />
@@ -21,8 +19,10 @@ const Index = () => {
           <Shop />
           <Contact />
         </main>
-        <Footer />
-      </div>
+        <footer>
+          <Footer />
+        </footer>
+      </>
   );
 };
 
