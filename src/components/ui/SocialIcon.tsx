@@ -1,5 +1,4 @@
 import React from "react";
-import { motion } from "framer-motion";
 
 type SocialIconProps = {
   icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
@@ -7,23 +6,16 @@ type SocialIconProps = {
   label: string;
 };
 
-const SocialIcon: React.FC<SocialIconProps> = ({ icon: Icon, href, label }) => {
+const SocialIcon = ({ icon: Icon, href, label }: SocialIconProps) => {
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="text-gray-300 hover:text-highlight transition-colors duration-300"
+      className="text-gray hover:text-white transition-colors duration-300"
       aria-label={label}
     >
-        <motion.div
-        transition={{ type: "spring", stiffness: 300, damping: 20 }}
-        style={{ display: "inline-block" }}
-      >
-      <Icon
-      className="w-6 h-6"
-      style={{ fill: "currentColor" }} />
-      </motion.div>
+      <Icon className="w-6 h-6"/>
     </a>
   );
 };

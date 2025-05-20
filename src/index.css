@@ -24,7 +24,7 @@ main {
   h1 {
     @apply font-playfair text-[48px] tracking-[-1px] leading-[1.1] font-normal text-white
   }
-  @screen lg {
+  @screen md {
     h1 {
       font-size: 72px;
     }
@@ -57,6 +57,42 @@ main {
     z-index: -1;
     animation: pulse 2s infinite;
   }
+
+  .hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.hamburger span {
+  display: block;
+  height: 4px;
+  width: 100%;
+  background-color: black;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+/* Animasi ke bentuk X */
+.hamburger.open span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
 }
 
 @keyframes blurUp {
@@ -72,24 +108,9 @@ main {
   }
 }
 
-@keyframes pulse {
-  0% {
-    opacity: 0.4;
-    transform: scale(0.98);
-  }
-  50% {
-    opacity: 0.6;
-    transform: scale(1);
-  }
-  100% {
-    opacity: 0.4;
-    transform: scale(0.98);
-  }
-}
-
 .blur-animation {
-  animation: blurUp 0.8s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  animation: blurUp 0.8s cubic-bezier(0.5, 1, 1, 1) forwards;
   transform-origin: center;
   opacity: 0;
-  filter: blur(15px);
+  filter: blur(10px);
 }

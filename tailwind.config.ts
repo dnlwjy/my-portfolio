@@ -10,13 +10,13 @@ export default {
 	],
 	prefix: "",
 	theme: {
-		container: {
-			center: true,
-			screens: {
+		screens: {
 				'sm': '360px',
 				'md': '810px',
 				'lg': '1400px'
-			}
+			},
+		container: {
+			center: true,
 		},
 		extend: {
 			fontFamily: {
