@@ -45,7 +45,7 @@ const Hero = () => {
             >
               Contact me
             </Button>
-            <Button variant="secondary">About me</Button>
+            <Button variant="secondary">View Github</Button>
           </div>
         </div>
       </div>
