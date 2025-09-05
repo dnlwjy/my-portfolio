@@ -13,8 +13,8 @@ const NavLink = ({ name, to, className = "", style, onClick }: NavLinkProps) => 
     <Link
       to={to}
       onClick={onClick}
-      style={style} // css biasa buat sideways
-      className={`text-gray hover:text-white font-inter font-medium ${className}`}
+      style={style}
+      className={`text-gray hover:text-white font-inter text-md font-medium ${className}`}
     >
       {name}
     </Link>

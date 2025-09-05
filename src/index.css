@@ -30,10 +30,30 @@ main {
     }
   }
 
+  h2 {
+    @apply font-playfair text-[24px] tracking-[-1px] leading-[1.1] font-normal text-white
+  }
+  @screen md {
+    h2 {
+      font-size: 32px;
+    }
+  }
+
+    h3 {
+    @apply font-playfair text-[18px] tracking-[-1px] leading-[1.1] font-normal text-white
+  }
+  @screen md {
+    h3 {
+      font-size: 20px;
+    }
+  }
+
   p {
-    font-family: 'Inter', sans-serif;
+    @apply font-inter text-[18px] tracking-normal leading-[1.5] font-normal text-gray;
   }
 }
+
+
 
 @layer utilities {
   .glass-card {

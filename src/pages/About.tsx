@@ -3,7 +3,6 @@ import Footer from "@/components/Footer";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
 import { Github, Linkedin, Twitter } from "lucide-react";
 import AnimatedText from "@/components/AnimatedText";
 
@@ -87,8 +86,6 @@ const AboutPage = () => {
               </div>
             </div>
             
-            <Separator className="my-16 bg-gray-800" />
-            
             <section className="mb-16">
               <h2 className="text-3xl font-bold mb-6">Experience</h2>
               <div className="space-y-6">
@@ -107,8 +104,6 @@ const AboutPage = () => {
               </div>
             </section>
             
-            <Separator className="my-16 bg-gray-800" />
-            
             <section className="mb-16">
               <h2 className="text-3xl font-bold mb-6">Education</h2>
               <Card className="bg-dark-secondary border-gray-800">
@@ -122,9 +117,7 @@ const AboutPage = () => {
                 </CardContent>
               </Card>
             </section>
-            
-            <Separator className="my-16 bg-gray-800" />
-            
+             
             <section>
               <h2 className="text-3xl font-bold mb-6">Skills & Tools</h2>
               <div className="flex flex-wrap gap-3 mb-8">

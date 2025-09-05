@@ -2,7 +2,6 @@
 import { ArrowRight, Mail, Github, Linkedin } from "lucide-react";
 import { useState, useRef } from "react";
 import { useToast } from "@/hooks/use-toast";
-import { Separator } from "@/components/ui/separator";
 import { supabase } from "@/integrations/supabase/client";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -88,7 +87,6 @@ const Contact = () => {
 
   return (
     <section id="contact" className="py-20 bg-dark-secondary relative overflow-hidden">
-      <Separator className="mb-20 bg-gray-800" />
       <div className="absolute right-0 bottom-0 w-96 h-96 bg-highlight/5 rounded-full filter blur-3xl -z-0" />
       
       <div className="container mx-auto px-4 relative z-10">
