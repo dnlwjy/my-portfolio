@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import NavLink from "@/components/ui/NavLink";
 import SocialIcon from "@/components/ui/SocialIcon";
@@ -25,10 +25,10 @@ const Navbar = () => {
 
   return (
     <header className="
-    fixed z-50 left-0 top-0 lg:h-screen h-24 w-full lg:w-40 flex flex-row lg:flex-col lg:py-16 px-6 justify-between items-center
+    fixed z-50 left-0 top-0 md:h-screen h-24 w-full md:w-32 flex flex-row md:flex-col md:py-12 px-6 justify-between items-center
     ">
 
-          <nav className="flex lg:flex-col lg:space-y-10 items-center justify-between w-full" aria-label="Main navigation">
+          <nav className="flex md:flex-col md:space-y-10 items-center justify-between w-full" aria-label="Main navigation">
 
             <Link to="/" aria-label="Homepage">
               <img
@@ -38,14 +38,14 @@ const Navbar = () => {
             </Link>
 
             {/* Hamburger */}
-            <div className="lg:hidden">
+            <div className="md:hidden">
               <Hamburger
                 isOpen={mobileMenuOpen}
                 toggle={() => setMobileMenuOpen(!mobileMenuOpen)}
                 />
             </div>
 
-            <ul className="flex-col space-y-8 hidden lg:flex">
+            <ul className="flex-col space-y-8 hidden md:flex">
               {navLinks.map((link) => (
                 <li key={link.name}>
                   <NavLink
@@ -60,7 +60,7 @@ const Navbar = () => {
 
           </nav>
           
-          <nav className="hidden lg:flex" aria-label="Social media">
+          <nav className="hidden md:flex" aria-label="Social media">
             <ul className="flex flex-col space-y-6">
             {SocialLinks.map((link) => (
               <li key={link.label}>

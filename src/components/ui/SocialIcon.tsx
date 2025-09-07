@@ -1,3 +1,5 @@
+import React from "react";
+
 type SocialIconProps = {
   icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   href: string;

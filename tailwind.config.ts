@@ -13,7 +13,7 @@ export default {
 		screens: {
 				'sm': '360px',
 				'md': '810px',
-				'lg': '1152px'
+				'lg': '1400px'
 			},
 		container: {
 			center: true,

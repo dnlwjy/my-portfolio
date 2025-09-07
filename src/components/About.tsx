@@ -1,4 +1,11 @@
+
+{/*
+  This site is fully hand-coded by Daniel Wijaya.
+  Built with React, Tailwind CSS, and 💻.
+*/}
+
 import { Code, Palette, Settings } from "lucide-react";
+import { Separator } from "@/components/ui/separator";
 
 const About = () => {
   const skills = [
@@ -14,6 +21,7 @@ const About = () => {
 
   return (
     <section id="about" className="py-20 bg-dark-secondary relative overflow-hidden">
+      <Separator className="mb-20 bg-gray-800" />
       <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-72 h-72 bg-highlight/5 rounded-full filter blur-3xl -z-0" />
       
       <div className="container mx-auto px-4 relative z-10">

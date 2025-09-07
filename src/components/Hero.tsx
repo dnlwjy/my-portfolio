@@ -1,8 +1,21 @@
+import React, { useState, useEffect } from "react";
 import AnimatedText from "./AnimatedText";
 import VideoPortrait from "./VideoPortrait";
 import Button from "@/components/ui/button";
 
 const Hero = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 810);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   return (
     <section id="home" className="h-screen w-full flex p-4 items-center justify-center">
@@ -26,19 +39,13 @@ const Hero = () => {
             <Button
               variant="primary"
               onClick={() => {
-                const el = document.getElementById("contact");
+                const el = document.getElementById("projects");
                 if (el) el.scrollIntoView({ behavior: "smooth" });
               }}
             >
               Contact me
             </Button>
-            <Button
-              variant="secondary"
-              onClick={() => {
-              window.open("https://github.com/dnlwjy?tab=repositories", "_blank");
-           }}>
-              View Github
-            </Button>
+            <Button variant="secondary">View Github</Button>
           </div>
         </div>
       </div>
