@@ -1,5 +1,5 @@
 import ItemCard from "@/components/ui/ItemCard";
-import figma from "@/assets/placeholder.png";
+import moment from "@/assets/image24.png";
 
 const Projects = () => {
 
@@ -13,27 +13,28 @@ const Projects = () => {
 
         <div className="grid grid-cols-2 gap-4">
           <ItemCard
-            title="Figma"
+            title="moment"
             description="Collaborative design and prototyping tool."
-            image={figma}
+            image={moment}
+            url="#"
+            price={19.99}
+          />
+          <ItemCard
+            title="moment"
+            description="Collaborative design and prototyping tool."
+            image={moment}
             url="#"
           />
           <ItemCard
-            title="Figma"
+            title="moment"
             description="Collaborative design and prototyping tool."
-            image={figma}
+            image={moment}
             url="#"
           />
           <ItemCard
-            title="Figma"
+            title="moment"
             description="Collaborative design and prototyping tool."
-            image={figma}
-            url="#"
-          />
-          <ItemCard
-            title="Figma"
-            description="Collaborative design and prototyping tool."
-            image={figma}
+            image={moment}
             url="#"
           />
         </div>

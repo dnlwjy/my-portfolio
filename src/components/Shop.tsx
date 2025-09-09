@@ -1,5 +1,5 @@
 import ItemCard from "@/components/ui/ItemCard";
-import figma from "@/assets/placeholder.png";
+import figma from "@/assets/image24.png";
 
 const Projects = () => {
 
@@ -7,7 +7,7 @@ const Projects = () => {
     <section id="projects" className="md:py-20 p-6 flex flex-col gap-10 mx-auto w-full">
  
         <div className="flex items-center gap-6">
-          <h2>Projects</h2>
+          <h2>Shop</h2>
           <hr className="flex-grow h-0.5 bg-darkgray" />
         </div>
 
