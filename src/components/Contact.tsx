@@ -2,7 +2,6 @@
 import { ArrowRight, Mail, Github, Linkedin } from "lucide-react";
 import { useState, useRef } from "react";
 import { useToast } from "@/hooks/use-toast";
-import { Separator } from "@/components/ui/separator";
 import { supabase } from "@/integrations/supabase/client";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
@@ -11,6 +10,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import ReCAPTCHA from "react-google-recaptcha";
+import ContactCard from "./ui/ContactCard";
 
 // Configuration
 const RECAPTCHA_SITE_KEY = "6Ld3wTIrAAAAAAZdro17b1BoqdzbudrhayMGT9NZ";
@@ -41,10 +41,10 @@ const Contact = () => {
 
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
     setIsSubmitting(true);
-    
+
     try {
       console.log("Submitting form data:", data);
-      
+
       // Submit form data to Supabase
       const { error } = await supabase
         .from('form_submissions')
@@ -56,17 +56,17 @@ const Contact = () => {
             recaptcha_token: data.recaptcha
           }
         ]);
-      
+
       if (error) {
         console.error('Error submitting form:', error);
         throw error;
       }
-      
+
       toast({
         title: "Message sent!",
         description: "Thanks for reaching out. I'll get back to you soon.",
       });
-      
+
       // Reset form and reCAPTCHA after successful submission
       form.reset();
       recaptchaRef.current?.reset();
@@ -87,113 +87,124 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-dark-secondary relative overflow-hidden">
-      <Separator className="mb-20 bg-gray-800" />
-      <div className="absolute right-0 bottom-0 w-96 h-96 bg-highlight/5 rounded-full filter blur-3xl -z-0" />
-      
-      <div className="container mx-auto px-4 relative z-10">
+    <section id="contact" className="py-20 p-6 flex flex-col gap-10 mx-auto w-full">
 
-          <div className="flex flex-col p-0 gap-4 text-center">
-            <h2>Get In Touch</h2>
-            <p>Have a project in mind or want to discuss potential collaborations? I'd love to hear from you!</p>
-          </div>
-          
-          <div className="grid md:grid-cols-5 gap-8 items-start">
-            
-            <div className="md:col-span-3">
-              <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="glass-card rounded-xl p-6 space-y-4">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <FormField
-                      control={form.control}
-                      name="name"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-sm font-medium text-gray-400">Name</FormLabel>
-                          <FormControl>
-                            <Input
-                              {...field}
-                              className="w-full bg-dark border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-highlight/50"
-                              placeholder="Your name"
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    
-                    <FormField
-                      control={form.control}
-                      name="email"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-sm font-medium text-gray-400">Email</FormLabel>
-                          <FormControl>
-                            <Input
-                              {...field}
-                              type="email"
-                              className="w-full bg-dark border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-highlight/50"
-                              placeholder="Your email"
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                  </div>
-                  
-                  <FormField
-                    control={form.control}
-                    name="message"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-sm font-medium text-gray-400">Message</FormLabel>
-                        <FormControl>
-                          <Textarea
-                            {...field}
-                            rows={5}
-                            className="w-full bg-dark border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:ring-2 focus:ring-highlight/50"
-                            placeholder="Your message"
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  
-                  <FormField
-                    control={form.control}
-                    name="recaptcha"
-                    render={() => (
-                      <FormItem>
-                        <FormControl>
-                          <div className="flex justify-center md:justify-start">
-                            <ReCAPTCHA
-                              ref={recaptchaRef}
-                              sitekey={RECAPTCHA_SITE_KEY}
-                              onChange={handleReCaptchaChange}
-                              theme="dark"
-                            />
-                          </div>
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="bg-highlight hover:bg-highlight-secondary text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 flex items-center justify-center disabled:opacity-70"
-                  >
-                    {isSubmitting ? "Sending..." : "Send Message"}
-                    {!isSubmitting && <ArrowRight size={16} className="ml-2" />}
-                  </button>
-                </form>
-              </Form>
-            </div>
-          </div>
+      <div className="flex items-center gap-6">
+        <h2>Contact</h2>
+        <hr className="flex-grow h-0.5 bg-darkgray" />
       </div>
+
+      <div className="flex flex-col md:flex-row gap-6 w-full">
+
+        <ContactCard
+          title="Contact details"
+          contactlinks={[
+            { title: "wijayadaniel19@gmail.com", link: "mailto:wijayadaniel19@gmail.com", external: true },
+            { title: "+62 811 1388 895", link: "tel:+628111388895", external: true },
+          ]}
+        />
+
+        <ContactCard
+          title="Address"
+          address={"Puri Kencana K1/19\nJakarta, Indonesia"}
+        />
+
+      </div>
+
+      <div className="w-full">
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="rounded-lg p-4 gap-6">
+            <div className="grid md:grid-cols-2 gap-4">
+              <FormField
+                control={form.control}
+                name="name"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="font-inter text-[14px] font-medium text-white">Name</FormLabel>
+                    <FormControl>
+                      <Input
+                        {...field}
+                        className="w-full h-12 bg-darkgray border border-white/20 rounded-lg p-4 text-white focus:outline-none focus:ring-2 focus:ring-highlight/50"
+                        placeholder="John Doe"
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="font-inter text-[14px] font-medium text-white">Email</FormLabel>
+                    <FormControl>
+                      <Input
+                        {...field}
+                        type="email"
+                        className="w-full h-12 bg-darkgray border border-white/20 rounded-lg p-4 text-white focus:outline-none focus:ring-2 focus:ring-highlight/50"
+                        placeholder="Your email"
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+
+              <FormField
+                control={form.control}
+                name="message"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel className="font-inter text-[14px] font-medium text-white">Message</FormLabel>
+                    <FormControl>
+                      <Textarea
+                        {...field}
+                        rows={5}
+                        className="w-full bg-darkgray border border-white/20 rounded-lg p-4 text-white focus:outline-none focus:ring-2 focus:ring-highlight/50"
+                        placeholder="Your message"
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+            </div>
+            <FormField
+              control={form.control}
+              name="recaptcha"
+              render={() => (
+                <FormItem>
+                  <FormControl>
+                    <div className="flex justify-start mt-8">
+                      <ReCAPTCHA
+                        ref={recaptchaRef}
+                        sitekey={RECAPTCHA_SITE_KEY}
+                        onChange={handleReCaptchaChange}
+                        theme="dark"
+                        size="normal"
+                      />
+                    </div>
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="bg-blue px-8 rounded-full transition-all font-medium duration-300 h-12 flex items-center border-t border-white/5 text-white hover:text-black hover:bg-white"
+            >
+              {isSubmitting ? "Sending..." : "Send Message"}
+              {!isSubmitting && <ArrowRight size={16} className="ml-2" />}
+            </button>
+          </form>
+        </Form>
+      </div>
+
     </section>
   );
 };

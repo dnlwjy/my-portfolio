@@ -1,11 +1,4 @@
-
-{/*
-  This site is fully hand-coded by Daniel Wijaya.
-  Built with React, Tailwind CSS, and 💻.
-*/}
-
 import { ChevronUp } from "lucide-react";
-import { Separator } from "@/components/ui/separator";
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -14,7 +7,6 @@ const Footer = () => {
 
   return (
     <footer className="bg-dark py-12 relative">
-      <Separator className="mb-12 bg-gray-800" />
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-6 md:mb-0">

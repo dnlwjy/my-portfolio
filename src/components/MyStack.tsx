@@ -16,7 +16,7 @@ const MyStack = () => {
           <hr className="flex-grow h-0.5 bg-darkgray" />
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-start">
           <MyStackCard
             image={figma}
             title="Figma"

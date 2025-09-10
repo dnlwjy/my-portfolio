@@ -11,7 +11,7 @@ const Projects = () => {
           <hr className="flex-grow h-0.5 bg-darkgray" />
         </div>
 
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-x-4 gap-y-8">
           <ItemCard
             title="Figma"
             description="Collaborative design and prototyping tool."

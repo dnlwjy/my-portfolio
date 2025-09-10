@@ -25,32 +25,42 @@ main {
     @apply font-playfair text-[48px] tracking-[-1px] leading-[1.1] font-normal text-white
   }
   @screen md {
-    h1 {
-      font-size: 72px;
-    }
+  h1 {
+    @apply text-[72px];
   }
+}
 
   h2 {
     @apply font-playfair text-[24px] tracking-[-1px] leading-[1.1] font-normal text-white
   }
   @screen md {
-    h2 {
-      font-size: 32px;
-    }
+  h2 {
+    @apply text-[32px];
   }
+}
 
-    h3 {
+  h3 {
     @apply font-playfair text-[18px] tracking-[-1px] leading-[1.1] font-normal text-white
   }
   @screen md {
-    h3 {
-      font-size: 20px;
-    }
+  h3 {
+    @apply text-[20px];
   }
+}
 
   p {
-    @apply font-inter text-[18px] tracking-normal leading-[1.5] font-normal text-gray;
+    @apply font-inter text-[16px] tracking-normal leading-[1.5] font-medium text-gray;
   }
+  @screen md {
+  p {
+    @apply text-[18px];
+  }
+}
+
+a {
+  @apply font-inter text-gray font-medium text-[16px] transition-colors duration-300 hover:text-white;
+}
+
 }
 
 
