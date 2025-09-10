@@ -179,7 +179,7 @@ const Contact = () => {
               render={() => (
                 <FormItem>
                   <FormControl>
-                    <div className="flex justify-start mt-8">
+                    <div className="flex justify-start my-8">
                       <ReCAPTCHA
                         ref={recaptchaRef}
                         sitekey={RECAPTCHA_SITE_KEY}
