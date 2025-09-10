@@ -28,7 +28,8 @@ const VideoPortraitBase = ({ delay = 0, blurAnimation = false }: VideoPortraitPr
       <div
         className="absolute inset-0"
         style={{
-          background: "radial-gradient(circle at center, rgba(18,18,18,0) 85%, #121212 100%)",
+          background:
+      "radial-gradient(farthest-side at center, #12121200 80%, #121212 99%, #121212 100%)",
         }}
       ></div>
     </div>

@@ -19,11 +19,11 @@ const ItemCard =({
   return (
     <div className="flex flex-col text-center gap-6">
 
-      <div className="w-full aspect-[4/3] overflow-hidden rounded-2xl bg-white">
+      <div className="w-full aspect-[4/3] overflow-hidden rounded-2xl">
         <img
           src={image}
           alt={title}
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover transition-opacity duration-300 ease-in-out hover:opacity-50"
         />
       </div>
 
