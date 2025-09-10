@@ -27,6 +27,7 @@ const Navbar = () => {
           <img
             src="/uploads/dw-logo.svg"
             alt="DW logo"
+            aria-label="Back to home"
             className="w-13 h-13 hover:scale-95 duration-300 ease-out" />
         </Link>
 

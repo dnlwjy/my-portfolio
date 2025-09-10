@@ -113,8 +113,8 @@ const Contact = () => {
 
       <div className="w-full">
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="rounded-lg p-4 gap-6">
-            <div className="grid md:grid-cols-2 gap-4">
+          <form onSubmit={form.handleSubmit(onSubmit)} className="rounded-lg gap-6">
+            <div className="flex flex-col gap-6">
               <FormField
                 control={form.control}
                 name="name"
@@ -124,7 +124,7 @@ const Contact = () => {
                     <FormControl>
                       <Input
                         {...field}
-                        className="w-full h-12 bg-darkgray border border-white/20 rounded-lg p-4 text-white focus:outline-none focus:ring-2 focus:ring-highlight/50"
+                        className="w-full text-[16px] h-12 bg-darkgray border border-white/10 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-highlight/50"
                         placeholder="John Doe"
                       />
                     </FormControl>
@@ -143,7 +143,7 @@ const Contact = () => {
                       <Input
                         {...field}
                         type="email"
-                        className="w-full h-12 bg-darkgray border border-white/20 rounded-lg p-4 text-white focus:outline-none focus:ring-2 focus:ring-highlight/50"
+                        className="w-full text-[16px] h-12 bg-darkgray border border-white/10 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-highlight/50"
                         placeholder="Your email"
                       />
                     </FormControl>
@@ -163,7 +163,7 @@ const Contact = () => {
                       <Textarea
                         {...field}
                         rows={5}
-                        className="w-full bg-darkgray border border-white/20 rounded-lg p-4 text-white focus:outline-none focus:ring-2 focus:ring-highlight/50"
+                        className="w-full text-[16px] bg-darkgray border border-white/10 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-highlight/50"
                         placeholder="Your message"
                       />
                     </FormControl>
@@ -172,6 +172,7 @@ const Contact = () => {
                 )}
               />
             </div>
+
             <FormField
               control={form.control}
               name="recaptcha"
