@@ -23,3 +23,7 @@ dist-ssr
 *.sln
 *.sw?
 
+# Environment files (keep secrets out of repo)
+.env
+.env.local
+.env.*.local
