@@ -17,7 +17,7 @@ const ContactCard = ({
 }: ContactCardProps) => {
     return (
         <div
-            className={`flex flex-col w-full p-8 items-start gap-2 bg-darkgray bg-opacity-50 rounded-2xl h-fit`}
+            className={`flex flex-col w-full p-7 items-start gap-2 bg-darkgray bg-opacity-50 rounded-2xl h-fit`}
         >
             <p>{title}</p>
 
@@ -32,10 +32,8 @@ const ContactCard = ({
                                 link={linkItem.link}
                                 external={linkItem.external}
                                 style={{
-                                    fontSize: "18px",
                                     color: "white",
-                                    textDecoration: "underline",
-                                    display: "inline-block",
+                                    width: "fit-content",
                                 }}
                             />
                         ))}

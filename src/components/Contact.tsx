@@ -114,8 +114,8 @@ const Contact = ({ variant = "1st" }: ContactProps) => {
         <ContactCard
           title="Contact details"
           contactlinks={[
-            { title: "wijayadaniel19@gmail.com", link: "mailto:wijayadaniel19@gmail.com", external: true },
-            { title: "+62 811 1388 895", link: "tel:+628111388895", external: true },
+            { title: "wijayadaniel19@gmail.com ↗", link: "mailto:wijayadaniel19@gmail.com", external: true },
+            { title: "+62 811 1388 895 ↗", link: "tel:+628111388895", external: true },
           ]}
         />
 
