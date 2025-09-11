@@ -17,7 +17,7 @@ const ContactCard = ({
 }: ContactCardProps) => {
     return (
         <div
-            className={`flex flex-col w-full p-8 items-start gap-2 bg-darkgray bg-opacity-60 rounded-2xl h-fit`}
+            className={`flex flex-col w-full p-8 items-start gap-2 bg-darkgray bg-opacity-50 rounded-2xl h-fit`}
         >
             <p className="text-[16px]">{title}</p>
 
