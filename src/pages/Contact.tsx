@@ -7,7 +7,7 @@ const ContactPage = () => {
       <div>
         <Navbar />
         <main>
-          <Contact />
+          <Contact variant="2nd" />
           <Footer />
         </main>
       </div>

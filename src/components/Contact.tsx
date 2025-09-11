@@ -23,7 +23,14 @@ const formSchema = z.object({
   recaptcha: z.string().min(1, { message: "Please complete the reCAPTCHA verification." })
 });
 
-const Contact = () => {
+interface ContactProps {
+  variant?: "1st" | "2nd";
+}
+
+const Contact = ({ variant = "1st" }: ContactProps) => {
+  const showFirst = variant === "2nd";
+  const showSecond = !showFirst;
+  
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const recaptchaRef = useRef<ReCAPTCHA>(null);
@@ -88,11 +95,19 @@ const Contact = () => {
 
   return (
     <section id="contact" className="py-20 p-6 flex flex-col gap-10 mx-auto w-full">
+      
+      {showFirst &&(
+      <div className="flex text-center justify-center items-center gap-6">
+        <h1><span className="text-gray">Any Quetions?</span><br />I'm All Ears</h1>
+      </div>
+      )}
 
+      {showSecond && (
       <div className="flex items-center gap-6">
         <h2>Contact</h2>
         <hr className="flex-grow h-0.5 bg-darkgray" />
       </div>
+      )}
 
       <div className="flex flex-col md:flex-row gap-6 w-full">
 
@@ -120,11 +135,10 @@ const Contact = () => {
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="font-inter text-[14px] font-medium text-white">Name</FormLabel>
+                    <FormLabel>Name</FormLabel>
                     <FormControl>
                       <Input
                         {...field}
-                        className="w-full text-[16px] h-12 bg-darkgray border border-white/10 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-highlight/50"
                         placeholder="John Doe"
                       />
                     </FormControl>
@@ -138,12 +152,11 @@ const Contact = () => {
                 name="email"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="font-inter text-[14px] font-medium text-white">Email</FormLabel>
+                    <FormLabel>Email</FormLabel>
                     <FormControl>
                       <Input
                         {...field}
                         type="email"
-                        className="w-full text-[16px] h-12 bg-darkgray border border-white/10 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-highlight/50"
                         placeholder="Your email"
                       />
                     </FormControl>
@@ -158,12 +171,11 @@ const Contact = () => {
                 name="message"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel className="font-inter text-[14px] font-medium text-white">Message</FormLabel>
+                    <FormLabel>Message</FormLabel>
                     <FormControl>
                       <Textarea
                         {...field}
                         rows={5}
-                        className="w-full text-[16px] bg-darkgray border border-white/10 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-highlight/50"
                         placeholder="Your message"
                       />
                     </FormControl>

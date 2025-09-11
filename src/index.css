@@ -16,49 +16,29 @@ main {
   @apply flex flex-col items-center justify-center w-full;
 }
 
-  html {
-    @apply scroll-smooth;
-    font-family: 'Inter', sans-serif;
-  }
+html {
+  @apply scroll-smooth;
+  font-family: 'Inter', sans-serif;
+}
   
-  h1 {
-    @apply font-playfair text-[48px] tracking-[-1px] leading-[1.1] font-normal text-white
-  }
-  @screen md {
-  h1 {
-    @apply text-[72px];
-  }
+h1 {
+  @apply font-playfair text-[48px] md:text-[72px] tracking-[-1px] leading-[1.1] font-normal text-white
 }
 
-  h2 {
-    @apply font-playfair text-[24px] tracking-[-1px] leading-[1.1] font-normal text-white
-  }
-  @screen md {
-  h2 {
-    @apply text-[32px];
-  }
+h2 {
+  @apply font-playfair text-[24px] md:text-[32px] tracking-[-1px] leading-[1.1] font-normal text-white
 }
 
-  h3 {
-    @apply font-playfair text-[18px] tracking-[-1px] leading-[1.1] font-normal text-white
-  }
-  @screen md {
-  h3 {
-    @apply text-[20px];
-  }
+h3 {
+  @apply font-playfair text-[18px] md:text-[20px] tracking-[-1px] leading-[1.1] font-normal text-white
 }
 
-  p {
-    @apply font-inter text-[16px] tracking-normal leading-[1.5] font-medium text-gray;
-  }
-  @screen md {
-  p {
-    @apply text-[18px];
-  }
+p {
+  @apply font-inter text-[18px] md:text-[20px] tracking-normal leading-[1.5] font-medium text-gray;
 }
 
 a {
-  @apply font-inter text-gray font-medium text-[16px] transition-colors duration-300 hover:text-white;
+  @apply font-inter text-gray font-medium text-[18px] transition-colors duration-300 hover:text-white;
 }
 
 }

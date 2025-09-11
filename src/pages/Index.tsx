@@ -17,7 +17,7 @@ const Index = () => {
           <MyStack />
           <Projects />
           <Shop />
-          <Contact />
+          <Contact/>
         </main>
         <footer>
           <Footer />
