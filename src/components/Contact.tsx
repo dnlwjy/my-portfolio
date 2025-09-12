@@ -97,7 +97,7 @@ const Contact = ({ variant = "1st" }: ContactProps) => {
     <section id="contact" className="py-20 p-6 flex flex-col gap-10 mx-auto w-full">
       
       {showFirst &&(
-      <div className="flex text-center justify-center items-center gap-6">
+      <div className="flex text-center justify-center items-center gap-6 mb-10">
         <h1><span className="text-gray">Any Quetions?</span><br />I'm All Ears</h1>
       </div>
       )}

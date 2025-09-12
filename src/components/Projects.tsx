@@ -16,26 +16,26 @@ const Projects = () => {
             title="moment"
             description="Collaborative design and prototyping tool."
             image={moment}
-            url="#"
+            url="project1"
             price={19.99}
           />
           <ItemCard
             title="moment"
             description="Collaborative design and prototyping tool."
             image={moment}
-            url="#"
+            url="project2"
           />
           <ItemCard
             title="moment"
             description="Collaborative design and prototyping tool."
             image={moment}
-            url="#"
+            url="project3"
           />
           <ItemCard
             title="moment"
             description="Collaborative design and prototyping tool."
             image={moment}
-            url="#"
+            url="project4"
           />
         </div>
     </section>

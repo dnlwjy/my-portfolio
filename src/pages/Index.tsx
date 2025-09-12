@@ -8,21 +8,17 @@ import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-      <>
-      <header>
-        <Navbar />
-      </header>
-        <main>
-          <Hero />
-          <MyStack />
-          <Projects />
-          <Shop />
-          <Contact/>
-        </main>
-        <footer>
-          <Footer />
-        </footer>
-      </>
+    <>
+      <Navbar />
+      <main>
+        <Hero />
+        <MyStack />
+        <Projects />
+        <Shop />
+        <Contact />
+      </main>
+      <Footer />
+    </>
   );
 };
 

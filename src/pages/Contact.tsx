@@ -4,13 +4,13 @@ import Footer from "@/components/Footer";
 
 const ContactPage = () => {
   return (
-      <div>
+      <>
         <Navbar />
-        <main>
+        <main className="py-28">
           <Contact variant="2nd" />
-          <Footer />
         </main>
-      </div>
+        <Footer />
+      </>
   );
 };
 

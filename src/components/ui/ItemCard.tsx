@@ -1,5 +1,6 @@
 import PriceTag from "../PriceTag";
 import placeholder from "@/assets/placeholder.png";
+import { Link } from "react-router-dom";
 
 interface ProjectCardProps {
   title: string;
@@ -20,11 +21,13 @@ const ItemCard = ({
     <div className="flex flex-col text-center gap-4">
 
       <div className="w-full aspect-[4/3] overflow-hidden rounded-2xl">
-        <img
-          src={image}
-          alt={title}
-          className="w-full h-full object-cover transition-opacity duration-300 ease-in-out hover:opacity-50"
-        />
+        <Link to={url}>
+          <img
+            src={image}
+            alt={title}
+            className="w-full h-full object-cover transition-opacity duration-300 ease-in-out hover:opacity-50"
+          />
+        </Link>
       </div>
 
       <div className="flex items-start">
