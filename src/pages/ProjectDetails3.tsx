@@ -1,5 +1,7 @@
 import Navbar from "@/components/Navbar";
 import ProjectDetails from "@/components/ProjectDetails";
+import moment from "@/assets/image24.png";
+import Footer from "@/components/Footer";
 
 const ProjectDetails3 = () => {
   return (
@@ -15,6 +17,7 @@ const ProjectDetails3 = () => {
         />
         
     </main>
+    <Footer />
     </>
   );
 };
