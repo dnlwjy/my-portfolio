@@ -20,7 +20,7 @@ const Resources = ({
             <img
                 src={image}
                 alt={title}
-                className="w-[56px] h-[56px] object-cover rounded-lg"
+                className="w-[56px] h-[56px] object-cover rounded-md"
             />
 
             <div className="flex flex-col gap-2">

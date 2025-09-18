@@ -1,8 +1,20 @@
 import Navbar from "@/components/Navbar";
 import image from "@/assets/about.jpg";
 import Footer from "@/components/Footer";
-import { Link as RouterLink } from "react-router-dom";
 import figma from "@/assets/figma.svg";
+import framer from "@/assets/framer.svg";
+import tailwind from "@/assets/tailwind.svg";
+import js from "@/assets/js.svg";
+import ts from "@/assets/ts.svg";
+import react from "@/assets/react.svg";
+import benq from "@/assets/benq-27-inch.png"
+import keychron from "@/assets/keychron.png"
+import mouse from "@/assets/mouse.png"
+import minisforum from "@/assets/minisforum.png"
+import zenbook from "@/assets/zenbook.png"
+import kanata from "@/assets/kanata.png"
+import nitori from "@/assets/nitori.png"
+
 import Resources from "@/components/ui/Resources";
 
 const About = () => {
@@ -34,8 +46,7 @@ const About = () => {
             </p>
 
             <p>
-              If you’re interested in the software and hardware I use, you may check out my{" "}
-              <RouterLink to="/about#resources" className="text-white text-[20px] transition-colors duration-300 hover:text-gray">resources page</RouterLink >. Meanwhile, you can also explore my other passion in music composing{" "}
+              If you’re interested in the software and hardware I use, you may check out my stack and setup below. Meanwhile, you can also explore my other passion in music composing{" "}
               <a href="https://open.spotify.com/artist/0VyiZOjAOfYc0gV7EbT4v0"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -60,29 +71,29 @@ const About = () => {
               image={figma}
             />
             <Resources
-              title="Figma"
+              title="Framer"
               description="Collaborative design and prototyping tool."
-              image={figma}
+              image={framer}
             />
             <Resources
-              title="Figma"
+              title="HTML/Tailwind CSS"
               description="Collaborative design and prototyping tool."
-              image={figma}
+              image={tailwind}
             />
             <Resources
-              title="Figma"
+              title="JavaScript"
               description="Collaborative design and prototyping tool."
-              image={figma}
+              image={js}
             />
             <Resources
-              title="Figma"
+              title="TypeScript"
               description="Collaborative design and prototyping tool."
-              image={figma}
+              image={ts}
             />
             <Resources
-              title="Figma"
+              title="React"
               description="Collaborative design and prototyping tool."
-              image={figma}
+              image={react}
             />
           </div>
         </section>
@@ -98,37 +109,37 @@ const About = () => {
             <Resources
               title="Minisforum UM series"
               description="Collaborative design and prototyping tool."
-              image={figma}
+              image={minisforum}
             />
             <Resources
               title="BenQ 27 inch"
               description="Collaborative design and prototyping tool."
-              image={figma}
+              image={benq}
             />
             <Resources
               title="Logitech G series"
               description="Collaborative design and prototyping tool."
-              image={figma}
+              image={mouse}
             />
             <Resources
               title="Keychron B6 Pro"
               description="Collaborative design and prototyping tool."
-              image={figma}
+              image={keychron}
             />
             <Resources
-              title="ROG laptop"
+              title="Zenbook 14 OLED"
               description="Collaborative design and prototyping tool."
-              image={figma}
+              image={zenbook}
             />
             <Resources
               title="Kanata's Adjustable Desk"
               description="Collaborative design and prototyping tool."
-              image={figma}
+              image={kanata}
             />
             <Resources
               title="Nitori Gaming Chair"
               description="Collaborative design and prototyping tool."
-              image={figma}
+              image={nitori}
             />
           </div>
         </section>
