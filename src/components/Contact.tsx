@@ -1,5 +1,5 @@
 
-import { ArrowRight, Mail, Github, Linkedin } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { useState, useRef } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
@@ -23,13 +23,7 @@ const formSchema = z.object({
   recaptcha: z.string().min(1, { message: "Please complete the reCAPTCHA verification." })
 });
 
-interface ContactProps {
-  variant?: "1st" | "2nd";
-}
-
-const Contact = ({ variant = "1st" }: ContactProps) => {
-  const showFirst = variant === "2nd";
-  const showSecond = !showFirst;
+const Contact = () => {
   
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -94,20 +88,11 @@ const Contact = ({ variant = "1st" }: ContactProps) => {
   };
 
   return (
-    <section id="contact" className="py-20 p-6 flex flex-col gap-10 mx-auto w-full">
+    <section id="contact" className="pt-20 pb-40 p-6 flex flex-col gap-10 mx-auto w-full">
       
-      {showFirst &&(
       <div className="flex text-center justify-center items-center gap-6 mb-10">
-        <h1><span className="text-gray">Any Quetions?</span><br />I'm All Ears</h1>
+        <h2 className="text-[48px] md:text-[72px]"><span className="text-gray">Any Questions?</span><br />I'm All Ears</h2>
       </div>
-      )}
-
-      {showSecond && (
-      <div className="flex items-center gap-6">
-        <h2>Contact</h2>
-        <hr className="flex-grow h-0.5 bg-darkgray" />
-      </div>
-      )}
 
       <div className="flex flex-col md:flex-row gap-6 w-full">
 
