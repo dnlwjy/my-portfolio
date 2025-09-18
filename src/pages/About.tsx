@@ -2,13 +2,15 @@ import Navbar from "@/components/Navbar";
 import image from "@/assets/about.jpg";
 import Footer from "@/components/Footer";
 import { Link as RouterLink } from "react-router-dom";
+import figma from "@/assets/figma.svg";
+import Resources from "@/components/ui/Resources";
 
 const About = () => {
   return (
     <>
       <Navbar />
-      <main>
-        <section id="about" className="flex flex-col py-40 px-6 gap-20 mx-auto w-full text-center">
+      <main className="p-6 pt-20">
+        <section id="about" className="flex flex-col py-20 gap-20 mx-auto w-full text-center">
 
           <h1><span className="text-gray">A bit more</span><br />about me.
           </h1>
@@ -33,7 +35,7 @@ const About = () => {
 
             <p>
               If you’re interested in the software and hardware I use, you may check out my{" "}
-              <RouterLink to="/resources" className="text-white text-[20px] transition-colors duration-300 hover:text-gray">resources page</RouterLink >. Meanwhile, you can also explore my other passion in music composing{" "}
+              <RouterLink to="/about#resources" className="text-white text-[20px] transition-colors duration-300 hover:text-gray">resources page</RouterLink >. Meanwhile, you can also explore my other passion in music composing{" "}
               <a href="https://open.spotify.com/artist/0VyiZOjAOfYc0gV7EbT4v0"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -42,6 +44,93 @@ const About = () => {
 
           </div>
 
+        </section>
+
+        <section id="resources" className="flex flex-col py-20 gap-10 mx-auto w-full">
+
+          <div className="flex items-center gap-6">
+            <h2>My Stacks</h2>
+            <hr className="flex-grow h-0.5 bg-darkgray" />
+          </div>
+
+          <div className="grid grid-cols-2 gap-x-4 gap-y-8">
+            <Resources
+              title="Figma"
+              description="Collaborative design and prototyping tool."
+              image={figma}
+            />
+            <Resources
+              title="Figma"
+              description="Collaborative design and prototyping tool."
+              image={figma}
+            />
+            <Resources
+              title="Figma"
+              description="Collaborative design and prototyping tool."
+              image={figma}
+            />
+            <Resources
+              title="Figma"
+              description="Collaborative design and prototyping tool."
+              image={figma}
+            />
+            <Resources
+              title="Figma"
+              description="Collaborative design and prototyping tool."
+              image={figma}
+            />
+            <Resources
+              title="Figma"
+              description="Collaborative design and prototyping tool."
+              image={figma}
+            />
+          </div>
+        </section>
+
+        <section id="resources" className="flex flex-col py-20 gap-10 mx-auto w-full">
+
+          <div className="flex items-center gap-6">
+            <h2>Desk setup</h2>
+            <hr className="flex-grow h-0.5 bg-darkgray" />
+          </div>
+
+          <div className="grid grid-cols-2 gap-x-4 gap-y-8">
+            <Resources
+              title="Minisforum UM series"
+              description="Collaborative design and prototyping tool."
+              image={figma}
+            />
+            <Resources
+              title="BenQ 27 inch"
+              description="Collaborative design and prototyping tool."
+              image={figma}
+            />
+            <Resources
+              title="Logitech G series"
+              description="Collaborative design and prototyping tool."
+              image={figma}
+            />
+            <Resources
+              title="Keychron B6 Pro"
+              description="Collaborative design and prototyping tool."
+              image={figma}
+            />
+            <Resources
+              title="ROG laptop"
+              description="Collaborative design and prototyping tool."
+              image={figma}
+            />
+            <Resources
+              title="Kanata's Adjustable Desk"
+              description="Collaborative design and prototyping tool."
+              image={figma}
+            />
+            <Resources
+              title="Nitori Gaming Chair"
+              description="Collaborative design and prototyping tool."
+              image={figma}
+            />
+          </div>
         </section>
       </main>
       <Footer />

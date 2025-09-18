@@ -40,16 +40,16 @@ const Navbar = () => {
 
         <ul className="flex-col space-y-8 hidden lg:flex">
           <li>
-            <LinkButton title="About" link="/about" style={{ writingMode: "sideways-lr" }} />
+            <LinkButton title="About" link="/about" style={{ writingMode: "sideways-lr", fontSize: "18px"}} />
           </li>
           <li>
-            <LinkButton title="Projects" link="/projects" style={{ writingMode: "sideways-lr" }} />
+            <LinkButton title="Projects" link="/projects" style={{ writingMode: "sideways-lr", fontSize: "18px"}} />
           </li>
           <li>
-            <LinkButton title="Shop" link="/shop" style={{ writingMode: "sideways-lr" }} />
+            <LinkButton title="Shop" link="/shop" style={{ writingMode: "sideways-lr", fontSize: "18px" }} />
           </li>
           <li>
-            <LinkButton title="Contact" link="/contact" style={{ writingMode: "sideways-lr" }} />
+            <LinkButton title="Contact" link="/contact" style={{ writingMode: "sideways-lr", fontSize: "18px" }} />
           </li>
         </ul>
 

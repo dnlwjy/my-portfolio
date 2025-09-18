@@ -19,10 +19,10 @@ const ContactCard = ({
         <div
             className={`flex flex-col w-full p-7 items-start gap-2 bg-darkgray bg-opacity-50 rounded-2xl h-fit`}
         >
-            <p>{title}</p>
+            <p className="text-[18px]">{title}</p>
 
             {address ? (
-                <p className="text-white break-words whitespace-pre-line">{address}</p>
+                <p className="text-white">{address}</p>
             ) : (
                 contactlinks && (
                     <div className="flex flex-col gap-1 w-full">

@@ -24,7 +24,7 @@ const formSchema = z.object({
 });
 
 const Contact = () => {
-  
+
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const recaptchaRef = useRef<ReCAPTCHA>(null);
@@ -88,8 +88,8 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-40 p-6 flex flex-col gap-10 mx-auto w-full">
-      
+    <section id="contact" className="md:py-20 p-6 flex flex-col gap-10 mx-auto w-full">
+
       <div className="flex text-center justify-center items-center gap-6 mb-10">
         <h2 className="text-[48px] md:text-[72px]"><span className="text-gray">Any Questions?</span><br />I'm All Ears</h2>
       </div>
@@ -106,7 +106,7 @@ const Contact = () => {
 
         <ContactCard
           title="Address"
-          address={"Puri Kencana K1/19\nJakarta, Indonesia"}
+          address={"Puri Kencana K1 / 19\n, Kembangan, Jakarta, Indonesia"}
         />
 
       </div>
@@ -149,7 +149,6 @@ const Contact = () => {
                   </FormItem>
                 )}
               />
-
 
               <FormField
                 control={form.control}

@@ -6,10 +6,8 @@ const ContactPage = () => {
   return (
     <>
       <Navbar />
-      <main>
-        <section>
-          <Contact />
-        </section>
+      <main className="py-20">
+        <Contact />
       </main>
       <Footer />
     </>

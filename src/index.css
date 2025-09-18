@@ -38,7 +38,7 @@ p {
 }
 
 a {
-  @apply font-inter text-gray font-medium text-[18px] transition-colors duration-300 hover:text-white;
+  @apply font-inter text-gray font-medium text-[20px] transition-colors duration-300 hover:text-white;
 }
 
 }
