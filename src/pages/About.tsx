@@ -8,7 +8,7 @@ const About = () => {
     <>
       <Navbar />
       <main>
-        <section id="about" className="flex flex-col sm:py-60 py-40 gap-20 mx-auto w-full text-center">
+        <section id="about" className="flex flex-col py-40 px-6 gap-20 mx-auto w-full text-center">
 
           <h1><span className="text-gray">A bit more</span><br />about me.
           </h1>
