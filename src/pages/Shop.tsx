@@ -41,9 +41,9 @@ const AllShop = () => {
                         />
                     </div>
 
-
                 </section>
             </main>
+            <Footer />
         </>
     )
 }
