@@ -31,7 +31,7 @@ const ItemCard = ({
       </div>
 
       <div className="flex items-start">
-        <div className="flex flex-col p-0 gap-2 text-start">
+        <div className="flex flex-col p-0 gap-2 text-start w-full">
           <h3>{title}</h3>
           <p className="text-[16px]">{description}</p>
         </div>
