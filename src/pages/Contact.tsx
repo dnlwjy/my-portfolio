@@ -4,13 +4,15 @@ import Footer from "@/components/Footer";
 
 const ContactPage = () => {
   return (
-      <>
-        <Navbar />
-        <main>
-          <Contact/>
-        </main>
-        <Footer />
-      </>
+    <>
+      <Navbar />
+      <main>
+        <section>
+          <Contact />
+        </section>
+      </main>
+      <Footer />
+    </>
   );
 };
 

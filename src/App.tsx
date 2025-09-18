@@ -9,6 +9,7 @@ import ProjectDetails1 from "./pages/ProjectDetails1";
 import ProjectDetails2 from "./pages/ProjectDetails2";
 import ProjectDetails3 from "./pages/ProjectDetails3";
 import ProjectDetails4 from "./pages/ProjectDetails4";
+import Resources from "./pages/resources";
 import About from "./pages/About";
 import NotFound from "./pages/NotFound";
 
@@ -28,6 +29,7 @@ const App = () => (
           <Route path="/project2" element={<ProjectDetails2 />} />
           <Route path="/project3" element={<ProjectDetails3/>} />
           <Route path="/project4" element={<ProjectDetails4 />} />
+          <Route path="/resources" element={<Resources />} />
           <Route path="/about" element={<About />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
