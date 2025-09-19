@@ -7,14 +7,16 @@ export default {
 		"./components/**/*.{ts,tsx}",
 		"./app/**/*.{ts,tsx}",
 		"./src/**/*.{ts,tsx}",
+		"./studio/**/*.{ts,tsx,js,jsx}",
+		"!./studio/node_modules/**/*",
 	],
 	prefix: "",
 	theme: {
 		screens: {
-				'sm': '360px',
-				'md': '810px',
-				'lg': '1152px'
-			},
+			'sm': '360px',
+			'md': '810px',
+			'lg': '1152px'
+		},
 		container: {
 			center: true,
 		},

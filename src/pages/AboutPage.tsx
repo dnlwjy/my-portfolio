@@ -17,7 +17,7 @@ import nitori from "@/assets/nitori.png"
 
 import Resources from "@/components/ui/Resources";
 
-const About = () => {
+const AboutPage = () => {
   return (
     <>
       <Navbar />
@@ -149,4 +149,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default AboutPage;

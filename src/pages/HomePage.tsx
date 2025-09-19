@@ -6,15 +6,15 @@ import Shop from "@/components/Shop";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
-const Index = () => {
+const HomePage = () => {
   return (
     <>
       <Navbar />
       <main>
         <Hero />
         <MyStack />
-        <Projects />
-        <Shop />
+        <Projects h1={false} maxItems={6}/>
+        <Shop h1={false} maxItems={6}/>
         <Contact />
       </main>
       <Footer />
@@ -22,4 +22,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default HomePage;

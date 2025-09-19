@@ -3,15 +3,12 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import ProjectDetails1 from "./pages/ProjectDetails1";
-import ProjectDetails2 from "./pages/ProjectDetails2";
-import ProjectDetails3 from "./pages/ProjectDetails3";
-import ProjectDetails4 from "./pages/ProjectDetails4";
-import AllShop from "./pages/Shop";
-import Projects from "./pages/Projects";
-import About from "./pages/About";
-import NotFound from "./pages/NotFound";
+import HomePage from "./pages/HomePage";
+import ProjectDetailsPage from "./pages/ProjectDetailsPage";
+import ShopPage from "./pages/ShopPage";
+import ProjectsPage from "./pages/ProjectsPage";
+import AboutPage from "./pages/AboutPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 const queryClient = new QueryClient();
 
@@ -21,19 +18,16 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-      <div className="max-w-[900px] mx-auto">
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/project1" element={<ProjectDetails1 />} />
-          <Route path="/project2" element={<ProjectDetails2 />} />
-          <Route path="/project3" element={<ProjectDetails3/>} />
-          <Route path="/project4" element={<ProjectDetails4 />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/shop" element={<AllShop />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </div>
+        <div className="max-w-[900px] mx-auto">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/projects" element={<ProjectsPage />} />
+            <Route path="/projects/:slug" element={<ProjectDetailsPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/shop" element={<ShopPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </div>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
