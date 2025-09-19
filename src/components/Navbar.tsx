@@ -43,13 +43,13 @@ const Navbar = () => {
             <LinkButton title="About" link="/about" style={{ writingMode: "sideways-lr", fontSize: "18px" }} />
           </li>
           <li>
-            <LinkButton title="Projects" link="/#projects" style={{ writingMode: "sideways-lr", fontSize: "18px" }} />
+            <LinkButton title="Projects" link="/projects" style={{ writingMode: "sideways-lr", fontSize: "18px" }} />
           </li>
           <li>
             <LinkButton title="Shop" link="/shop" style={{ writingMode: "sideways-lr", fontSize: "18px" }} />
           </li>
           <li>
-            <LinkButton title="Contact" link="/contact" style={{ writingMode: "sideways-lr", fontSize: "18px" }} />
+            <LinkButton title="Contact" link="/#contact" style={{ writingMode: "sideways-lr", fontSize: "18px" }} />
           </li>
         </ul>
 
