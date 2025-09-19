@@ -72,27 +72,27 @@ const About = () => {
             />
             <Resources
               title="Framer"
-              description="Collaborative design and prototyping tool."
+              description="Interactive prototyping and rapid no-code web builder."
               image={framer}
             />
             <Resources
               title="HTML/Tailwind CSS"
-              description="Collaborative design and prototyping tool."
+              description="Semantic markup and utility-first styling."
               image={tailwind}
             />
             <Resources
               title="JavaScript"
-              description="Collaborative design and prototyping tool."
+              description="Core language for dynamic web interactions."
               image={js}
             />
             <Resources
               title="TypeScript"
-              description="Collaborative design and prototyping tool."
+              description="Strongly typed superset of JavaScript for safer code."
               image={ts}
             />
             <Resources
               title="React"
-              description="Collaborative design and prototyping tool."
+              description="Component-based library for building UIs."
               image={react}
             />
           </div>
