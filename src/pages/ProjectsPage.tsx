@@ -3,7 +3,6 @@ import Footer from "@/components/Footer";
 import CMSList from "@/components/CMSList"
 
 const ProjectsPage = () => {
-
     return (
         <>
             <Header />
