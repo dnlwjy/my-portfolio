@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import Navbar from "@/components/Navbar";
+import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Button from "@/components/ui/button";
 
@@ -8,7 +8,7 @@ const NotFoundPage = () => {
 
   return (
     <>
-      <Navbar />
+      <Header />
       <main>
         <section className="h-screen flex items-center justify-center w-full">
           <div className="flex flex-col gap-8 text-center w-full justify-center items-center max-w-[640px]">

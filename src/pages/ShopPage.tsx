@@ -1,13 +1,13 @@
-import Navbar from "@/components/Navbar";
+import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Shop from "@/components/Shop"
+import CMSList from "@/components/CMSList"
 
 const ShopPage = () => {
     return (
         <>
-            <Navbar />
+            <Header />
             <main className="py-20">
-                <Shop h1={true} />
+                <CMSList collection="shop" h1={true} />
             </main>
             <Footer />
         </>

@@ -4,7 +4,6 @@ import { HashLink } from "react-router-hash-link";
 interface LinkButtonProps {
   title: string;
   link: string;
-  external?: boolean;
   style?: React.CSSProperties;
 }
 
@@ -14,12 +13,7 @@ const LinkButton = ({ title, link, style }: LinkButtonProps) => {
 
   if (isExternal) {
     return (
-      <a
-        href={link}
-        target="_blank"
-        rel="noopener noreferrer"
-        style={style}
-      >
+      <a href={link} target="_blank" rel="noopener noreferrer" style={style}>
         {title}
       </a>
     );

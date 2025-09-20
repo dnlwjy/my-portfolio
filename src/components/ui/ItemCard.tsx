@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import PriceTag from "../PriceTag";
+import PriceTag from "./PriceTag";
 import placeholder from "@/assets/placeholder.png";
 
 interface ProjectCardProps {

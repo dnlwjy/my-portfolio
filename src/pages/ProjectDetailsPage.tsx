@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Navbar from "@/components/Navbar";
+import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { client, urlFor } from "@/sanityClient";
 import { PortableText } from '@portabletext/react';
@@ -35,7 +35,7 @@ const ProjectDetailsPage = () => {
 
   return (
     <>
-      <Navbar />
+      <Header />
       <main className="p-6 pt-20">
         <section>
           {project.coverImage && (

@@ -10,17 +10,17 @@ export const projects = defineType({
     {
       name: "description",
       title: "Description",
-      type: "text" // tetap pakai text untuk ringkas, atau ganti richText di bawah
+      type: "text"
     },
     {
       name: "content",
       title: "Content",
       type: "array",
       of: [
-        { type: "block" }, // untuk rich text: bold, italic, headings
-        { type: "image" }, // untuk menyisipkan gambar
+        { type: "block" },
+        { type: "image" },
         {
-          type: "object", // untuk custom link
+          type: "object",
           name: "link",
           fields: [
             { name: "text", type: "string", title: "Link Text" },
@@ -30,6 +30,5 @@ export const projects = defineType({
       ],
     },
     { name: "coverImage", title: "Cover Image", type: "image" },
-    { name: "price", title: "Price", type: "number" },
   ],
 });

@@ -88,19 +88,19 @@ const Contact = () => {
   };
 
   return (
-    <section className="py-40 p-6 flex flex-col gap-10 mx-auto w-full">
+    <section id="contact" className="py-40 p-6 flex flex-col gap-10 mx-auto w-full">
 
       <div className="flex text-center justify-center items-center gap-6 mb-10">
         <h2 className="text-[48px] md:text-[72px]"><span className="text-gray">Any Questions?</span><br />I'm All Ears</h2>
       </div>
 
-      <div id="contact" className="flex flex-col md:flex-row gap-6 w-full">
+      <div className="flex flex-col md:flex-row gap-6 w-full">
 
         <ContactCard
           title="Contact details"
           contactlinks={[
-            { title: "wijayadaniel19@gmail.com ↗", link: "mailto:wijayadaniel19@gmail.com", external: true },
-            { title: "+62 811 1388 895 ↗", link: "tel:+628111388895", external: true },
+            { title: "wijayadaniel19@gmail.com ↗", link: "mailto:wijayadaniel19@gmail.com"},
+            { title: "+62 811 1388 895 ↗", link: "tel:+628111388895"},
           ]}
         />
 

@@ -1,4 +1,4 @@
-import AnimatedText from "./AnimatedText";
+import AnimatedText from "./ui/AnimatedText";
 import VideoPortrait from "./VideoPortrait";
 import Button from "@/components/ui/button";
 

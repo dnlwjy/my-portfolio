@@ -1,4 +1,4 @@
-import Navbar from "@/components/Navbar";
+import Header from "@/components/Header";
 import image from "@/assets/about.jpg";
 import Footer from "@/components/Footer";
 import figma from "@/assets/figma.svg";
@@ -14,13 +14,12 @@ import minisforum from "@/assets/minisforum.png"
 import zenbook from "@/assets/zenbook.png"
 import kanata from "@/assets/kanata.png"
 import nitori from "@/assets/nitori.png"
-
 import Resources from "@/components/ui/Resources";
 
 const AboutPage = () => {
   return (
     <>
-      <Navbar />
+      <Header />
       <main className="p-6 pt-20">
         <section id="about" className="flex flex-col py-20 gap-20 mx-auto w-full text-center">
 

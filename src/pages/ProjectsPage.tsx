@@ -1,15 +1,14 @@
-import Navbar from "@/components/Navbar";
+import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Projects from "@/components/Projects"
+import CMSList from "@/components/CMSList"
 
 const ProjectsPage = () => {
 
     return (
         <>
-            <Navbar />
+            <Header />
             <main className="py-20">
-                <Projects
-                    h1={true} />
+                <CMSList collection="projects" h1={true} />
             </main>
             <Footer />
         </>
