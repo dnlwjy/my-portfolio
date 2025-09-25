@@ -1,7 +1,7 @@
 import { defineType } from "sanity";
 
 export const projects = defineType({
-  name: "projects",
+  name: "projects", // collection name
   title: "Projects",
   type: "document",
   fields: [
