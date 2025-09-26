@@ -7,17 +7,23 @@ interface CMSItem {
   title: string;
   description: string;
   coverImage: any;
-  slug?: { current: string };
+  slug: { current: string };
   price?: number;
 }
 
 interface CMSListProps {
-  h1?: boolean;
+  h1: boolean;
   maxItems?: number;
   collection: string;
+  showPrice?: boolean;
 }
 
-const CMSList = ({ h1 = true, maxItems, collection }: CMSListProps) => {
+const CMSList = ({
+  h1 = true,
+  maxItems,
+  collection,
+  showPrice = false
+}: CMSListProps) => {
   const [items, setItems] = useState<CMSItem[]>([]);
 
   useEffect(() => {
@@ -75,7 +81,7 @@ const CMSList = ({ h1 = true, maxItems, collection }: CMSListProps) => {
               description={item.description}
               coverImage={urlFor(item.coverImage).url()}
               url={`/${collection}/${item.slug?.current || "#"}`}
-              price={item.price}
+              price={showPrice ? item.price : undefined}
             />
           ))}
         </div>
