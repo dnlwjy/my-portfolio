@@ -2,5 +2,6 @@ import { projects } from "./projects";
 import { stack } from "./mystacks";
 import { shop } from "./shop";
 import { contact } from "./contact";
+import { desksetup } from "./desksetup";
 
-export const schemaTypes = [projects, stack, shop, contact];
+export const schemaTypes = [projects, stack, shop, contact, desksetup];

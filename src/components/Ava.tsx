@@ -3,12 +3,12 @@ import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { withCursorFollow } from "@/utils/withCursorFollow";
 import { cn } from "@/lib/utils";
 
-interface VideoPortraitProps {
+interface AvaProps {
   delay?: number;
   blurAnimation?: boolean;
 }
 
-const VideoPortraitBase = ({ delay = 0, blurAnimation = false }: VideoPortraitProps) => {
+const AvaBase = ({ delay = 0, blurAnimation = false }: AvaProps) => {
   return (
     <div
       className={cn(
@@ -36,7 +36,7 @@ const VideoPortraitBase = ({ delay = 0, blurAnimation = false }: VideoPortraitPr
   );
 };
 
-const VideoPortraitWrapper = ({ delay, blurAnimation }: VideoPortraitProps) => {
+const VideoPortraitWrapper = ({ delay, blurAnimation }: AvaProps) => {
   const [enabled, setEnabled] = useState(true);
 
   useEffect(() => {
@@ -52,7 +52,7 @@ const VideoPortraitWrapper = ({ delay, blurAnimation }: VideoPortraitProps) => {
     return () => mediaQuery.removeEventListener("change", handler);
   }, []);
 
-  const Component = enabled ? withCursorFollow(VideoPortraitBase) : VideoPortraitBase;
+  const Component = enabled ? withCursorFollow(AvaBase) : AvaBase;
   return <Component delay={delay} blurAnimation={blurAnimation} />;
 };
 

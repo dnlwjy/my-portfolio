@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import PriceTag from "./PriceTag";
-import placeholder from "@/assets/placeholder.png";
 
 interface ProjectCardProps {
   title: string;
@@ -13,7 +12,7 @@ interface ProjectCardProps {
 const ItemCard = ({
   title,
   description,
-  coverImage = placeholder,
+  coverImage,
   url = "#",
   price,
 }: ProjectCardProps) => {

@@ -1,5 +1,3 @@
-import figma from "@/assets/figma.svg";
-
 interface ResourcesProps {
     title: string;
     description: string;
@@ -11,7 +9,7 @@ interface ResourcesProps {
 const Resources = ({
     title = "This is title",
     description = 'Dsss',
-    image = figma,
+    image,
     link = 'Learn more',
     url = '#',
 }: ResourcesProps) => {

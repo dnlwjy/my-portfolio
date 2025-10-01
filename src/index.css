@@ -24,13 +24,14 @@ html {
 h1 {
   @apply font-playfair text-[48px] md:text-[72px] tracking-[-1px] leading-[1.1] font-normal text-white
 }
-
 h2 {
   @apply font-playfair text-[24px] md:text-[32px] tracking-[-1px] leading-[1.1] font-normal text-white
 }
-
 h3 {
   @apply font-playfair text-[18px] md:text-[20px] tracking-[-1px] leading-[1.1] font-normal text-white
+}
+h6 {
+  @apply font-inter text-[24px] md:text-[32px] tracking-[-1px] leading-[1.5] font-normal text-white
 }
 
 p {

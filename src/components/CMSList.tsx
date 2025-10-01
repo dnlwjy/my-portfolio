@@ -37,7 +37,7 @@ const CMSList = ({
           slug,
           price
         }`,
-        { collection }
+        {collection}
       )
       .then((data) => setItems(data))
       .catch(console.error);
