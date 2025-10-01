@@ -7,7 +7,7 @@ const ProjectsPage = () => {
         <>
             <Header />
             <main className="py-20">
-                <CMSList collection="projects" h1={true} />
+                <CMSList collection="projects" title1="Selected" title2="Projects"/>
             </main>
             <Footer />
         </>

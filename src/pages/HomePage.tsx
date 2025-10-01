@@ -12,8 +12,8 @@ const HomePage = () => {
       <main>
         <Hero />
         <MyStackList maxItems={6} />
-        <CMSList collection="projects" h1={false} maxItems={6}/>
-        <CMSList collection="shop" h1={false} maxItems={6} showPrice={true}/>
+        <CMSList collection="projects" maxItems={6}/>
+        <CMSList collection="shop" maxItems={6} showPrice={true}/>
         <Contact />
       </main>
       <Footer />

@@ -7,7 +7,7 @@ const ShopPage = () => {
         <>
             <Header />
             <main className="py-20">
-                <CMSList collection="shop" h1={true} />
+                <CMSList collection="shop" title1="Welcome to" title2="my store"/>
             </main>
             <Footer />
         </>

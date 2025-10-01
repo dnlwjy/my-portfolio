@@ -1,9 +1,10 @@
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import Header from "@/components/Header";
-import image from "@/assets/about.jpg";
 import Footer from "@/components/Footer";
 import Resources from "@/components/ui/Resources";
 import { client, urlFor } from "@/sanityClient";
-import { useEffect, useState } from "react";
+import image from "@/assets/about.jpg";
 
 interface AboutPageItem {
   _id: string;
@@ -14,12 +15,13 @@ interface AboutPageItem {
 }
 
 interface AboutPageProps {
-  collection?: string;
   maxItems?: number;
 }
 
 const AboutPage = ({ maxItems }: AboutPageProps) => {
+  const location = useLocation();
   const [items, setItems] = useState<AboutPageItem[]>([]);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     client.fetch(
@@ -27,9 +29,19 @@ const AboutPage = ({ maxItems }: AboutPageProps) => {
         _id, _type, name, description, image
       }`
     )
-      .then(data => setItems(data))
+      .then(data => {
+        setItems(data);
+        setLoaded(true);
+      })
       .catch(console.error);
   }, []);
+
+  useEffect(() => {
+    if (loaded && location.hash) {
+      const el = document.querySelector(location.hash);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [loaded, location]);
 
   const displayedItems = maxItems ? items.slice(0, maxItems) : items;
 
@@ -39,12 +51,7 @@ const AboutPage = ({ maxItems }: AboutPageProps) => {
       <main className="p-6 pt-20">
         <section id="about" className="flex flex-col py-20 gap-20 mx-auto w-full text-center">
           <h1><span className="text-gray">A bit more</span><br />about me.</h1>
-
-          <img
-            src={image}
-            className="w-full h-full object-cover rounded-2xl"
-          />
-
+          <img src={image} className="w-full h-full object-cover rounded-2xl" />
           <div className="flex flex-col gap-6 text-start">
             <p className="md:text-[32px] text-[24px] tracking-[-1px] leading-[1.5] font-normal text-white">
               Hello! I'm Daniel, a passionate designer & developer with a focus for creating engaging and user-friendly web experiences...

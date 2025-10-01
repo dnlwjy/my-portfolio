@@ -38,11 +38,12 @@ const MyStackList = ({
         <h2>My Stack</h2>
         <hr className="flex-grow h-0.5 bg-darkgray" />
         <HashLink
-  to="/about#my-stacks"
-  className="text-[16px] text-blue transition-colors duration-300 hover:text-white"
->
-  View all
-</HashLink>
+          smooth
+          to="/about#my-stacks"
+          className="text-[16px] text-blue transition-colors duration-300 hover:text-white"
+        >
+          View all
+        </HashLink>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-start">
