@@ -17,6 +17,12 @@ interface ProjectDetailsData {
 }
 
 const serializers: PortableTextComponents = {
+  block: {
+    normal: ({ children }) => <p className="font-normal">{children}</p>,
+    h1: ({ children }) => <h1>{children}</h1>,
+    h2: ({ children }) => <h2>{children}</h2>,
+    h3: ({ children }) => <h3>{children}</h3>,
+  },
   types: {
     image: ({ value }) => {
       return (
@@ -71,43 +77,49 @@ const ProjectDetailsPage = () => {
   return (
     <>
       <Header />
-      <main className="md:py-60 py-40 mx-auto items-start gap-20">
+      <main>
+        <section
+          id={project.title || "project-details"}
+          className="flex flex-col md:py-60 py-40 mx-auto items-start gap-20">
 
-        <div className="flex flex-col gap-6">
-          <LinkButton title="‹  Back" link="/projects" />
+          <div className="flex flex-col gap-6">
+            <LinkButton title="‹  Back" link="/projects" />
 
-          <h1>{project.title}</h1>
+            <h1>{project.title}</h1>
 
-          <div className="flex flex-wrap gap-2">
-            {project.tags?.map((tag, i) => (
-              <Tag key={i} title={tag} />
-            ))}
-            {project.year && <Tag title={project.year.toString()} />}
+            <div className="flex flex-wrap gap-2">
+              {project.tags?.map((tag, i) => (
+                <Tag key={i} title={tag} />
+              ))}
+              {project.year && <Tag title={project.year.toString()} />}
+            </div>
+
           </div>
 
-        </div>
+          {project.coverImage && (
+            <img
+              src={urlFor(project.coverImage).url()}
+              alt={project.title}
+              className="w-full rounded-2xl"
+            />
+          )}
 
-        {project.coverImage && (
-          <img
-            src={urlFor(project.coverImage).url()}
-            alt={project.title}
-            className="w-full rounded-2xl"
-          />
-        )}
+          <div className="flex flex-col gap-6">
+            {project.description && (
+              <PortableText
+                value={project.description}
+                components={serializers}
+              />
+            )}
 
-        {project.description && (
-          <PortableText
-            value={project.description}
-            components={serializers}
-          />
-        )}
-
-        {project.content && (
-          <PortableText
-            value={project.content}
-            components={serializers}
-          />
-        )}
+            {project.content && (
+              <PortableText
+                value={project.content}
+                components={serializers}
+              />
+            )}
+          </div>
+        </section>
       </main>
       <Footer />
     </>
