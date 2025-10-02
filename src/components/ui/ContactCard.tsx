@@ -6,11 +6,15 @@ interface ContactCardProps {
   contact?: string;
   address?: string;
   style?: React.CSSProperties;
+  aria?: string;
 }
 
-const ContactCard = ({ title, contactlinks, contact, address, style }: ContactCardProps) => {
+const ContactCard = ({ title, contactlinks, contact, address, style, aria }: ContactCardProps) => {
   return (
-    <div className="flex flex-col w-full p-7 items-start gap-2 bg-darkgray bg-opacity-50 rounded-2xl h-fit" style={style}>
+    <div
+    className="flex flex-col w-full p-7 items-start gap-2 bg-darkgray bg-opacity-50 rounded-2xl h-fit"
+    style={style}
+    aria-label={aria}>
       <p className="text-[18px]">{title}</p>
 
       {address && <p className="text-white">{address}</p>}

@@ -32,7 +32,7 @@ const MyStackList = ({
   return (
     <section
       id="my-stack"
-      className="py-20 p-6 flex flex-col gap-10 mx-auto w-full">
+      className="py-20 flex flex-col gap-10 mx-auto w-full">
 
       <div className="flex items-center gap-6">
         <h2>My Stack</h2>

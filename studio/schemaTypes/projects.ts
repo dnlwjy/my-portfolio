@@ -1,12 +1,25 @@
 import { defineType } from "sanity";
 
 export const projects = defineType({
-  name: "projects", // collection name
+  name: "projects",
   title: "Projects",
   type: "document",
   fields: [
     { name: "title", title: "Title", type: "string" },
     { name: "slug", title: "Slug", type: "slug", options: { source: "title" } },
+    {
+      name: "year",
+      title: "Year",
+      type: "number",
+      validation: (Rule) => Rule.min(2020).max(new Date().getFullYear())
+    },
+    {
+      name: "tags",
+      title: "Tags",
+      type: "array",
+      of: [{ type: "string" }],
+      validation: (Rule) => Rule.max(4), // max 4 tags
+    },
     {
       name: "description",
       title: "Description",

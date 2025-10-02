@@ -88,7 +88,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-40 p-6 flex flex-col gap-10 mx-auto w-full">
+    <section id="contact" aria-label="Get in touch" className="py-40 flex flex-col gap-10 mx-auto w-full">
 
       <div className="flex text-center justify-center items-center gap-6 mb-10">
         <h2 className="text-[48px] md:text-[72px]"><span className="text-gray">Any Questions?</span><br />I'm All Ears</h2>
@@ -98,6 +98,7 @@ const Contact = () => {
 
         <ContactCard
           title="Contact details"
+          aria="My email and my phone number"
           contactlinks={[
             { title: "wijayadaniel19@gmail.com ↗", link: "mailto:wijayadaniel19@gmail.com"},
             { title: "+62 811 1388 895 ↗", link: "tel:+628111388895"},
@@ -106,6 +107,7 @@ const Contact = () => {
 
         <ContactCard
           title="Address"
+          aria="My address"
           address={"Puri Kencana K1 / 19\n, Kembangan, Jakarta, Indonesia"}
         />
 

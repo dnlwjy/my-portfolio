@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import PriceTag from "./PriceTag";
+import Tag from "./Tag";
 
 interface ProjectCardProps {
   title: string;
@@ -33,7 +33,7 @@ const ItemCard = ({
           <h3>{title}</h3>
           <p className="text-[16px]">{description}</p>
         </div>
-        {price !== undefined && <PriceTag price={price} />}
+        {price !== undefined && <Tag price={price} />}
       </div>
     </div>
   );
