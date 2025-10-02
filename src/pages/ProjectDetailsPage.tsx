@@ -23,7 +23,7 @@ const serializers: PortableTextComponents = {
     h1: ({ children }) => <h1>{children}</h1>,
     h2: ({ children }) => <h2>{children}</h2>,
     h3: ({ children }) => <h3>{children}</h3>,
-    h6: ({ children }) => <h6 className="my-10">{children}</h6>,
+    h6: ({ children }) => <h6 className="my-6">{children}</h6>,
   },
   types: {
     image: ({ value }) => {
@@ -31,7 +31,7 @@ const serializers: PortableTextComponents = {
         <img
           src={urlFor(value).url()}
           alt={value.alt || "Project image"}
-          className="rounded-lg my-4 mb-12 border border-white/5"
+          className="rounded-lg mt-4 mb-12 border border-white/5"
         />
       );
     },
@@ -86,9 +86,9 @@ const ProjectDetailsPage = () => {
 
           <div className="flex flex-col gap-6">
             <LinkButton
-            title="‹  Back"
-            link="/projects"
-            style={{ fontSize: "14px" }}
+              title="‹  Back"
+              link="/projects"
+              style={{ fontSize: "14px" }}
             />
 
             <h1>{project.title}</h1>
@@ -106,7 +106,7 @@ const ProjectDetailsPage = () => {
             <img
               src={urlFor(project.coverImage).url()}
               alt={project.title}
-              className="w-full rounded-2xl"
+              className="w-full rounded-2xl border border-white/5"
             />
           )}
 
@@ -126,9 +126,11 @@ const ProjectDetailsPage = () => {
             )}
           </div>
         </section>
+
         <section>
-          <CMSList collection="projects" maxItems={2}/>
+          <CMSList collection="projects" maxItems={2} />
         </section>
+        
       </main>
       <Footer />
     </>
