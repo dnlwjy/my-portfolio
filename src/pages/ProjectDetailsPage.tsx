@@ -6,6 +6,7 @@ import Tag from "@/components/ui/Tag";
 import Footer from "@/components/Footer";
 import { client, urlFor } from "@/sanityClient";
 import { PortableText, PortableTextComponents } from '@portabletext/react';
+import CMSList from "@/components/CMSList";
 
 interface ProjectDetailsData {
   title: string;
@@ -22,6 +23,7 @@ const serializers: PortableTextComponents = {
     h1: ({ children }) => <h1>{children}</h1>,
     h2: ({ children }) => <h2>{children}</h2>,
     h3: ({ children }) => <h3>{children}</h3>,
+    h6: ({ children }) => <h6 className="my-10">{children}</h6>,
   },
   types: {
     image: ({ value }) => {
@@ -29,7 +31,7 @@ const serializers: PortableTextComponents = {
         <img
           src={urlFor(value).url()}
           alt={value.alt || "Project image"}
-          className="rounded-lg"
+          className="rounded-lg my-4 mb-12 border border-white/5"
         />
       );
     },
@@ -83,7 +85,11 @@ const ProjectDetailsPage = () => {
           className="flex flex-col md:py-60 py-40 mx-auto items-start gap-20">
 
           <div className="flex flex-col gap-6">
-            <LinkButton title="‹  Back" link="/projects" />
+            <LinkButton
+            title="‹  Back"
+            link="/projects"
+            style={{ fontSize: "14px" }}
+            />
 
             <h1>{project.title}</h1>
 
@@ -104,7 +110,7 @@ const ProjectDetailsPage = () => {
             />
           )}
 
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-4">
             {project.description && (
               <PortableText
                 value={project.description}
@@ -119,6 +125,9 @@ const ProjectDetailsPage = () => {
               />
             )}
           </div>
+        </section>
+        <section>
+          <CMSList collection="projects" maxItems={2}/>
         </section>
       </main>
       <Footer />
