@@ -5,16 +5,12 @@ import { cn } from "@/lib/utils";
 
 interface AvaProps {
   delay?: number;
-  blurAnimation?: boolean;
 }
 
-const AvaBase = ({ delay = 0, blurAnimation = false }: AvaProps) => {
+const AvaBase = ({ delay = 0, }: AvaProps) => {
   return (
     <div
-      className={cn(
-        "relative mx-auto w-[333px] h-[443px] object-cover -z-10 pointer-events-none",
-        blurAnimation && "blur-animation"
-      )}
+      className="relative mx-auto w-[333px] h-[443px] object-cover -z-10 pointer-events-none blur-animation"
       style={{ animationDelay: `${delay}ms` }}
     >
       <AspectRatio ratio={1}>
@@ -36,7 +32,7 @@ const AvaBase = ({ delay = 0, blurAnimation = false }: AvaProps) => {
   );
 };
 
-const VideoPortraitWrapper = ({ delay, blurAnimation }: AvaProps) => {
+const VideoPortraitWrapper = ({ delay, }: AvaProps) => {
   const [enabled, setEnabled] = useState(true);
 
   useEffect(() => {
@@ -53,7 +49,7 @@ const VideoPortraitWrapper = ({ delay, blurAnimation }: AvaProps) => {
   }, []);
 
   const Component = enabled ? withCursorFollow(AvaBase) : AvaBase;
-  return <Component delay={delay} blurAnimation={blurAnimation} />;
+  return <Component delay={delay} />;
 };
 
 

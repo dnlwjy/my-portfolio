@@ -7,6 +7,19 @@ export const shop = defineType({
   fields: [
     { name: "title", title: "Title", type: "string" },
     { name: "slug", title: "Slug", type: "slug", options: { source: "title" } },
+    { name: "coverImage", title: "Cover Image", type: "image" },
+    { name: "price",
+      title: "Price",
+      type: "number",
+      validation: (Rule) => Rule.min(0).error("Bro, harga masa bisa minus"),
+    },
+    {
+      name: "tags",
+      title: "Tags",
+      type: "array",
+      of: [{ type: "string" }],
+      validation: (Rule) => Rule.max(4),
+    },
     {
       name: "description",
       title: "Description",
@@ -29,7 +42,12 @@ export const shop = defineType({
         },
       ],
     },
-    { name: "coverImage", title: "Cover Image", type: "image" },
-    { name: "price", title: "Price", type: "number" },
+    { name: "checkout",
+      title: "Checkout Link",
+      type: "url",
+      validation: (Rule) => Rule.uri({
+        scheme: ['http', 'https']
+      }).error("Masukin yang bener bro"),
+    }
   ],
 });

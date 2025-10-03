@@ -7,6 +7,7 @@ export const projects = defineType({
   fields: [
     { name: "title", title: "Title", type: "string" },
     { name: "slug", title: "Slug", type: "slug", options: { source: "title" } },
+    { name: "coverImage", title: "Cover Image", type: "image" },
     {
       name: "year",
       title: "Year",
@@ -18,7 +19,7 @@ export const projects = defineType({
       title: "Tags",
       type: "array",
       of: [{ type: "string" }],
-      validation: (Rule) => Rule.max(4), // max 4 tags
+      validation: (Rule) => Rule.max(4),
     },
     {
       name: "description",
@@ -42,6 +43,5 @@ export const projects = defineType({
         },
       ],
     },
-    { name: "coverImage", title: "Cover Image", type: "image" },
   ],
 });

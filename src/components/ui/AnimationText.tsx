@@ -1,30 +1,26 @@
-import React from "react";
 import { cn } from "@/lib/utils";
 
-interface AnimatedTextProps {
+interface AnimationTextProps {
   text: string;
   className?: string;
   gradient?: boolean;
   delay?: number;
-  blurAnimation?: boolean;
 }
 
-const AnimatedText: React.FC<AnimatedTextProps> = ({ 
+const AnimationText = ({ 
   text,
   className,
   gradient = false,
   delay = 0,
-  blurAnimation = false
-}) => {
+}: AnimationTextProps) => {
   return (
     <span className={cn("inline-block", className)}>
       {[...text].map((char, index) => (
         <span
           key={index}
           className={cn(
-            "inline-block animate-slide-in-left",
-            gradient && "text-gradient",
-            blurAnimation && "blur-animation"
+            "inline-block animate-slide-in-left blur-animation",
+            gradient && "text-gradient"
           )}
           style={{
             animationDelay: `${delay + index * 30}ms`,
@@ -39,4 +35,4 @@ const AnimatedText: React.FC<AnimatedTextProps> = ({
   );
 };
 
-export default AnimatedText;
+export default AnimationText;

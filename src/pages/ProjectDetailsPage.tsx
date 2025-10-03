@@ -52,6 +52,7 @@ const serializers: PortableTextComponents = {
 };
 
 const ProjectDetailsPage = () => {
+
   const { slug } = useParams<{ slug: string }>();
   const [project, setProject] = useState<ProjectDetailsData | null>(null);
 
@@ -82,7 +83,7 @@ const ProjectDetailsPage = () => {
       <main>
         <section
           id={project.title || "project-details"}
-          className="flex flex-col md:py-60 py-40 mx-auto items-start gap-20">
+          className="flex flex-col py-40 mx-auto items-start gap-20">
 
           <div className="flex flex-col gap-6">
             <LinkButton

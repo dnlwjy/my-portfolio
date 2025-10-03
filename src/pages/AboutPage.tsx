@@ -5,7 +5,6 @@ import Footer from "@/components/Footer";
 import Resources from "@/components/ui/Resources";
 import { client, urlFor } from "@/sanityClient";
 import image from "@/assets/me.jpg";
-import Tag from "@/components/ui/Tag";
 
 interface AboutPageItem {
   _id: string;
@@ -50,11 +49,8 @@ const AboutPage = ({ maxItems }: AboutPageProps) => {
     <>
       <Header />
       <main className="pt-20">
-        <section id="about" className="flex flex-col py-20 gap-20 mx-auto w-full text-center">
-          <div className="flex flex-col gap-4 items-center">
-            <Tag title="About" />
+        <section id="about" className="flex flex-col py-40 gap-20 mx-auto w-full text-center">
             <h1><span className="text-gray">A bit more</span><br />about me.</h1>
-          </div>
           <img src={image} className="w-full h-full object-cover rounded-2xl" />
           <div className="flex flex-col gap-6 text-start">
             <p className="md:text-[32px] text-[24px] tracking-[-1px] leading-[1.5] font-normal text-white">

@@ -17,7 +17,7 @@ export function Button({
   const Comp = asChild ? Slot : "button"
 
   const baseClasses=
-  "px-8 rounded-full transition-all font-medium duration-300 h-12 flex items-center border-t border-white/5 text-white hover:text-black hover:bg-white"
+  "px-8 rounded-full transition-all font-medium duration-300 h-12 flex items-center justify-center border-t border-white/5 text-white hover:text-black hover:bg-white"
 
   const variantClasses = {
     primary: "bg-blue",
@@ -29,7 +29,7 @@ export function Button({
     className={cn(baseClasses, variantClasses[variant], className)}
     {...props}
     >
-    {children}  
+    {children}
 
     </Comp>
   )
