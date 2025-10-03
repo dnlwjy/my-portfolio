@@ -1,17 +1,13 @@
-import AnimationGroup from "./AnimationGroup";
-
-
-interface LoadingScreenProps {
-    name: string,
-}
-
-const LoadingScreen = ({
-    name,
-}: LoadingScreenProps) => {
+const LoadingScreen = () => {
     return (
         <div className="flex justify-center items-center h-screen">
-            <h1>{name}</h1>
+            <img
+            src="/uploads/dw-logo.svg"
+            alt="Daniel's Logo"
+            className="w-40 h-40"
+          />
         </div>
+
     );
 };
 

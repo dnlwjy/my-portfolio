@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ItemCard from "@/components/ui/ItemCard";
 import { client, urlFor } from "@/sanityClient";
+import AnimationGroup from "./ui/AnimationGroup";
 
 interface CMSItem {
   _id: string;
@@ -62,7 +63,7 @@ const CMSList = ({
           </h1>
         </div>
       ) || (
-      <div className="flex items-center gap-6">
+      <AnimationGroup delay={300} className="flex items-center gap-6 overflow-visible">
         <h2>
           {collection.charAt(0).toUpperCase() + collection.slice(1)}
         </h2>
@@ -73,19 +74,23 @@ const CMSList = ({
         >
           View all
         </a>
-      </div>
+      </AnimationGroup>
         )}
 
       <div className="grid grid-cols-2 gap-x-4 gap-y-8">
-        {displayedItems.map((item) => (
+        {displayedItems.map((item, index) => (
+          <AnimationGroup
+          key={item._id}
+          delay={index * 300 + 500}
+          direction="up">
           <ItemCard
-            key={item._id}
             title={item.title}
             description={item.description}
             coverImage={urlFor(item.coverImage).url()}
             url={`/${collection}/${item.slug?.current || "#"}`}
             price={showPrice ? item.price : undefined}
           />
+          </AnimationGroup>
         ))}
       </div>
     </section>

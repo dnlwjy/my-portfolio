@@ -9,7 +9,7 @@ const Hero = () => {
     <section id="home" className="h-screen w-full flex p-4 items-center justify-center">
       <div className="w-full text-center max-w-[840px]">
         <div className="md:h-[320px] h-[365px] -z-20">
-          <Ava delay={300} />
+          <Ava/>
         </div>
 
         <div className="flex flex-col gap-12 items-center">
@@ -24,8 +24,9 @@ const Hero = () => {
           </h1>
 
           <AnimationGroup
-            delay="900ms"
-            className="flex justify-center gap-3 blur-animation z-10"
+            delay={1300}
+            direction="up"
+            className="flex justify-center gap-3"
           >
             <Button
               variant="primary"

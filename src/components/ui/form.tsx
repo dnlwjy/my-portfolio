@@ -9,9 +9,9 @@ import {
   FormProvider,
   useFormContext,
 } from "react-hook-form"
-
 import { cn } from "@/lib/utils"
 import { Label } from "@/components/ui/label"
+import AnimationGroup from "./AnimationGroup"
 
 const Form = FormProvider
 
@@ -78,7 +78,9 @@ const FormItem = React.forwardRef<
 
   return (
     <FormItemContext.Provider value={{ id }}>
+      <AnimationGroup delay={300} direction="up">
       <div ref={ref} className={cn("space-y-2", className)} {...props} />
+      </AnimationGroup>
     </FormItemContext.Provider>
   )
 })

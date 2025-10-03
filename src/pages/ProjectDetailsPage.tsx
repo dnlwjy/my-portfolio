@@ -78,7 +78,7 @@ const ProjectDetailsPage = () => {
 
   if (!project)
     return (
-      <LoadingScreen name="Wait a bit..." />
+      <LoadingScreen/>
     );
 
   return (

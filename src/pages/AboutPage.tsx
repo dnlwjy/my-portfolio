@@ -5,6 +5,8 @@ import Footer from "@/components/Footer";
 import Resources from "@/components/ui/Resources";
 import { client, urlFor } from "@/sanityClient";
 import image from "@/assets/me.jpg";
+import AnimationText from "@/components/ui/AnimationText";
+import AnimationGroup from "@/components/ui/AnimationGroup";
 
 interface AboutPageItem {
   _id: string;
@@ -50,13 +52,30 @@ const AboutPage = ({ maxItems }: AboutPageProps) => {
       <Header />
       <main className="pt-20">
         <section id="about" className="flex flex-col py-40 gap-20 mx-auto w-full text-center">
-            <h1><span className="text-gray">A bit more</span><br />about me.</h1>
-          <img src={image} className="w-full h-full object-cover rounded-2xl" />
-          <div className="flex flex-col gap-6 text-start">
+          <h1>
+            <AnimationText
+              text="A bit more"
+              className="text-gray"
+              delay={300} />
+            <br />
+
+            <AnimationText
+              text="about me."
+              delay={600} />
+          </h1>
+
+          <AnimationGroup
+            delay={600}>
+            <img src={image} className="w-full h-full object-cover rounded-2xl" />
+          </AnimationGroup>
+
+          <AnimationGroup
+            delay={600}
+            className="flex flex-col gap-6 text-start">
             <p className="md:text-[32px] text-[24px] tracking-[-1px] leading-[1.5] font-normal text-white">
               Hello! I'm Daniel, a passionate designer & developer with a focus for creating engaging and user-friendly web experiences...
             </p>
-          </div>
+          </AnimationGroup>
         </section>
 
         <section id="my-stacks" className="flex flex-col py-20 gap-10 mx-auto w-full">

@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { useParams } from "react-router-dom";
-import LinkButton from "@/components/ui/LinkButton";
+import { Link, useParams } from "react-router-dom";
 import { client, urlFor } from "@/sanityClient";
 import CMSList from "@/components/CMSList";
 import Button from "@/components/ui/Button";
 import LoadingScreen from "@/components/ui/LoadingScreen";
+import AnimationGroup from "@/components/ui/AnimationGroup";
 
 interface ShopDetailsProp {
     title: string;
@@ -15,7 +15,7 @@ interface ShopDetailsProp {
     tags: string[];
 }
 
-const ShopPage = () => {
+const ShopDetailsPage = () => {
 
     const { slug } = useParams<{ slug: string }>();
     const [shop, setShop] = useState<ShopDetailsProp | null>(null);
@@ -37,39 +37,27 @@ const ShopPage = () => {
 
     if (!shop)
         return (
-            <LoadingScreen name="Wait a bit..." />
+            <LoadingScreen />
         );
 
     return (
         <>
             <Header />
             <main>
-                <section className="flex flex-col py-40 mx-auto items-start gap-6">
 
-                    <LinkButton
-                        title="‹  Back"
-                        link="/shop"
-                        style={{ fontSize: "14px" }}
-                    />
+                <section className="flex flex-col py-40 gap-10">
 
-                    <div className="flex gap-10 w-full">
-                        {shop.coverImage && (
-                            <img
-                                src={urlFor(shop.coverImage).url()}
-                                alt={shop.title}
-                                className="object-cover w-1/2 rounded-2xl border border-white/5"
-                            />
-                        )}
-
-                        <div className="flex flex-col gap-10 py-6">
-                            <div className="flex flex-col gap-4 w-1/2">
+                    <div className="flex sm:flex-row flex-col mx-auto items-start gap-6 w-full">
+                        <AnimationGroup
+                            delay={600}
+                            direction="right"
+                            className="flex-1 flex flex-col gap-10 py-6"
+                        >
+                            <div className="flex flex-col gap-4">
                                 <h1 className="text-wrap">asdsadsadd asdas</h1>
                                 <p>dasdassaddadasdas</p>
                             </div>
-                            <div
-                                className="flex flex-col justify-start gap-3 blur-animation z-10"
-                                style={{ animationDelay: "900ms", animationFillMode: "forwards" }}
-                            >
+                            <div className="flex flex-col justify-start gap-3">
                                 <Button
                                     variant="primary"
                                     onClick={() => {
@@ -83,15 +71,38 @@ const ShopPage = () => {
                                     variant="secondary"
                                     onClick={() => {
                                         window.open("https://github.com/dnlwjy?tab=repositories", "_blank");
-                                    }}>
+                                    }}
+                                >
                                     Preview
                                 </Button>
                             </div>
-                        </div>
+                        </AnimationGroup>
+
+                        <AnimationGroup
+                            delay={300}
+                            direction="left"
+                            className="flex-1 flex items-center justify-center"
+                        >
+                            {shop.coverImage && (
+                                <div className="w-full aspect-square">
+                                    <img
+                                        src={urlFor(shop.coverImage).url()}
+                                        alt={shop.title}
+                                        className="object-cover w-full h-full rounded-2xl border border-white/5"
+                                    />
+                                </div>
+                            )}
+                        </AnimationGroup>
+
+                        
                     </div>
 
+                    <div className="w-full h-[800px] bg-red-500">
+                        
+                    </div>
 
                 </section>
+
 
                 <section>
                     <CMSList collection="shop" maxItems={2} />
@@ -102,4 +113,4 @@ const ShopPage = () => {
     )
 }
 
-export default ShopPage;
+export default ShopDetailsPage;

@@ -1,4 +1,3 @@
-
 import { ArrowRight } from "lucide-react";
 import { useState, useRef } from "react";
 import { useToast } from "@/hooks/use-toast";
@@ -11,6 +10,8 @@ import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import ReCAPTCHA from "react-google-recaptcha";
 import ContactCard from "./ui/ContactCard";
+import AnimationText from "./ui/AnimationText";
+import AnimationGroup from "./ui/AnimationGroup";
 
 // Configuration
 const RECAPTCHA_SITE_KEY = "6Ld3wTIrAAAAAAZdro17b1BoqdzbudrhayMGT9NZ";
@@ -91,7 +92,14 @@ const Contact = () => {
     <section id="contact" aria-label="Get in touch" className="py-40 flex flex-col gap-10 mx-auto w-full">
 
       <div className="flex text-center justify-center items-center gap-6 mb-10">
-        <h2 className="text-[48px] md:text-[72px]"><span className="text-gray">Any Questions?</span><br />I'm All Ears</h2>
+        <h2 className="text-[48px] md:text-[72px]">
+          <AnimationText
+              text="Any Questions?"
+              className="text-gray"
+              delay={300} />
+          <br />
+          <AnimationText text="I'm All Ears" delay={600} />
+        </h2>
       </div>
 
       <div className="flex flex-col md:flex-row gap-6 w-full">
@@ -192,14 +200,16 @@ const Contact = () => {
               )}
             />
 
+            <AnimationGroup delay={300}>
             <button
               type="submit"
               disabled={isSubmitting}
               className="bg-blue px-8 rounded-full transition-all font-medium duration-300 h-12 flex items-center border-t border-white/5 text-white hover:text-black hover:bg-white"
             >
-              {isSubmitting ? "Sending..." : "Send Message"}
+              {isSubmitting ? "Sending..." : "Submit"}
               {!isSubmitting && <ArrowRight size={16} className="ml-2" />}
             </button>
+            </AnimationGroup>
           </form>
         </Form>
       </div>
