@@ -6,6 +6,7 @@ import LinkButton from "@/components/ui/LinkButton";
 import { client, urlFor } from "@/sanityClient";
 import CMSList from "@/components/CMSList";
 import Button from "@/components/ui/Button";
+import LoadingScreen from "@/components/ui/LoadingScreen";
 
 interface ShopDetailsProp {
     title: string;
@@ -34,7 +35,10 @@ const ShopPage = () => {
             .catch(console.error);
     }, [slug]);
 
-if (!shop) return <div className="text-center h-100vh">Loading...</div>;
+    if (!shop)
+        return (
+            <LoadingScreen name="Wait a bit..." />
+        );
 
     return (
         <>

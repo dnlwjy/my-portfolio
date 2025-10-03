@@ -7,6 +7,7 @@ import Footer from "@/components/Footer";
 import { client, urlFor } from "@/sanityClient";
 import { PortableText, PortableTextComponents } from '@portabletext/react';
 import CMSList from "@/components/CMSList";
+import LoadingScreen from "@/components/ui/LoadingScreen";
 
 interface ProjectDetailsData {
   title: string;
@@ -75,7 +76,10 @@ const ProjectDetailsPage = () => {
       .catch(console.error);
   }, [slug]);
 
-  if (!project) return <div className="text-white text-center mt-20">Loading...</div>;
+  if (!project)
+    return (
+      <LoadingScreen name="Wait a bit..." />
+    );
 
   return (
     <>
@@ -131,7 +135,7 @@ const ProjectDetailsPage = () => {
         <section>
           <CMSList collection="projects" maxItems={2} />
         </section>
-        
+
       </main>
       <Footer />
     </>

@@ -1,7 +1,7 @@
 import AnimationText from "./ui/AnimationText";
 import Ava from "./Ava";
 import Button from "@/components/ui/Button";
-import AnimationGeneral from "./ui/AnimationGeneral";
+import AnimationGroup from "./ui/AnimationGroup";
 
 const Hero = () => {
 
@@ -23,7 +23,7 @@ const Hero = () => {
             </span>
           </h1>
 
-          <AnimationGeneral
+          <AnimationGroup
             delay="900ms"
             className="flex justify-center gap-3 blur-animation z-10"
           >
@@ -43,7 +43,7 @@ const Hero = () => {
               }}>
               View Github
             </Button>
-          </AnimationGeneral>
+          </AnimationGroup>
         </div>
       </div>
     </section>

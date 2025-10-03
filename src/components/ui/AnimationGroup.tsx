@@ -1,16 +1,16 @@
 import React from "react";
 
-interface AnimatedGeneralProps {
+interface AnimationGroupProps {
   delay?: string;
   children: React.ReactNode;
   className?: string;
 }
 
-const AnimatedGeneral = ({
+const AnimationGroup = ({
   delay = "0s",
   children,
   className = "",
-}: AnimatedGeneralProps) => {
+}: AnimationGroupProps) => {
   return (
     <div
       className={className}
@@ -24,4 +24,4 @@ const AnimatedGeneral = ({
   );
 };
 
-export default AnimatedGeneral;
+export default AnimationGroup;
