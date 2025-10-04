@@ -93,7 +93,7 @@ const CMSList = ({
         )}
 
       <div className={`grid grid-cols-1 ${
-    cols === 2 ? "md:grid-cols-2" : "sm:grid-cols-3"
+    cols === 2 ? "md:grid-cols-2" : "md:grid-cols-3"
   } gap-x-4 gap-y-8`}>
         {displayedItems.map((item, index) => {
           const props = mapFields(item);
