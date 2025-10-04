@@ -13,10 +13,8 @@ import ContactCard from "./ui/ContactCard";
 import AnimationText from "./ui/AnimationText";
 import AnimationGroup from "./ui/AnimationGroup";
 
-// Configuration
 const RECAPTCHA_SITE_KEY = "6Ld3wTIrAAAAAAZdro17b1BoqdzbudrhayMGT9NZ";
 
-// Create schema for form validation
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters." }),
   email: z.string().email({ message: "Please enter a valid email address." }),
@@ -30,7 +28,6 @@ const Contact = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const recaptchaRef = useRef<ReCAPTCHA>(null);
 
-  // Initialize form
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -47,7 +44,7 @@ const Contact = () => {
     try {
       console.log("Submitting form data:", data);
 
-      // Submit form data to Supabase
+      // Submit to Supabase
       const { error } = await supabase
         .from('form_submissions')
         .insert([
@@ -89,10 +86,9 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" aria-label="Get in touch" className="py-40 flex flex-col gap-10 mx-auto w-full">
+    <section id="contact" aria-label="Get in touch" className="py-40 text-center justify-center items-center flex flex-col gap-10 mx-auto w-full">
 
-      <div className="flex text-center justify-center items-center gap-6 mb-10">
-        <h2 className="text-[48px] md:text-[72px]">
+        <h2 className="text-[48px] md:text-[72px] mb-10">
           <AnimationText
               text="Any Questions?"
               className="text-gray"
@@ -100,9 +96,10 @@ const Contact = () => {
           <br />
           <AnimationText text="I'm All Ears" delay={600} />
         </h2>
-      </div>
 
-      <div className="flex flex-col md:flex-row gap-6 w-full">
+      <AnimationGroup
+        delay={300}
+        className="flex flex-col md:flex-row gap-6 w-full text-start">
 
         <ContactCard
           title="Contact details"
@@ -119,9 +116,11 @@ const Contact = () => {
           address={"Puri Kencana K1 / 19\n, Kembangan, Jakarta, Indonesia"}
         />
 
-      </div>
+      </AnimationGroup>
 
-      <div className="w-full">
+      <AnimationGroup
+        delay={300}
+        className="w-full text-start">
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="rounded-lg gap-6">
             <div className="flex flex-col gap-6">
@@ -200,7 +199,6 @@ const Contact = () => {
               )}
             />
 
-            <AnimationGroup delay={300}>
             <button
               type="submit"
               disabled={isSubmitting}
@@ -209,10 +207,9 @@ const Contact = () => {
               {isSubmitting ? "Sending..." : "Submit"}
               {!isSubmitting && <ArrowRight size={16} className="ml-2" />}
             </button>
-            </AnimationGroup>
           </form>
         </Form>
-      </div>
+      </AnimationGroup>
 
     </section>
   );

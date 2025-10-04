@@ -39,7 +39,7 @@ const AnimationGroup = ({
       className={className}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, amount: 0.3 }} // if only 30% seen
+      viewport={{ once: true, amount: 0 }} // if only x% seen
       variants={variants}
     >
       {children}

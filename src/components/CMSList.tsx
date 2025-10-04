@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import ItemCard from "@/components/ui/ItemCard";
 import { client, urlFor } from "@/sanityClient";
 import AnimationGroup from "./ui/AnimationGroup";
+import AnimationText from "./ui/AnimationText";
 
 interface CMSItem {
   _id: string;
@@ -57,9 +58,15 @@ const CMSList = ({
       {title1 && (
         <div className="flex text-center justify-center items-center gap-6 mb-10">
           <h1>
-            <span className="text-gray">{title1}</span>
+            <AnimationText 
+            text={title1}
+            className="text-gray"
+            delay={100} />
             <br />
-            <span className="text-white">{title2}</span>
+            <AnimationText
+              text={title2 || ""}
+              className="text-white"
+              delay={300} />
           </h1>
         </div>
       ) || (
@@ -81,7 +88,7 @@ const CMSList = ({
         {displayedItems.map((item, index) => (
           <AnimationGroup
           key={item._id}
-          delay={index * 300 + 500}
+          delay={index * 200 + 300}
           direction="up">
           <ItemCard
             title={item.title}

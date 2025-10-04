@@ -32,19 +32,22 @@ const Header = () => {
         </div>
 
         <ul className="flex-col space-y-8 hidden lg:flex">
-          {["About", "Projects", "Shop", "Contact"].map((title) => {
-            const link = title === "Contact" ? "/#contact" : `/${title.toLowerCase()}`;
-            return (
-              <li key={link}>
-                <LinkButton
-                  title={title}
-                  link={link}
-                  style={{ writingMode: "sideways-lr", fontSize: "18px" }}
-                />
-              </li>
-            );
-          })}
+          {[
+            { title: "About", link: "/about" },
+            { title: "Projects", link: "/projects" },
+            { title: "Shop", link: "/shop" },
+            { title: "Contact", link: "/#contact" }
+          ].map(({ title, link }) => (
+            <li key={link}>
+              <LinkButton
+                title={title}
+                link={link}
+                style={{ writingMode: "sideways-lr", fontSize: "18px" }}
+              />
+            </li>
+          ))}
         </ul>
+
       </nav>
 
       <nav className="hidden lg:flex" aria-label="Social media">

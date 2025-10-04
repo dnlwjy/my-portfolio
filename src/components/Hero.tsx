@@ -19,7 +19,9 @@ const Hero = () => {
               className="text-gray"
               delay={300} />
             <span>
-              <AnimationText text="Designer and developer." delay={600} />
+              <AnimationText
+              text="Designer and developer."
+              delay={600} />
             </span>
           </h1>
 
