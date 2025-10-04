@@ -116,7 +116,7 @@ const ShopDetailsPage = () => {
 
 
                 <section>
-                    <CMSList collection="shop" maxItems={2} />
+                    <CMSList collection="shop" maxItems={2} excludeSlug={slug}/>
                 </section>
             </main>
             <Footer />

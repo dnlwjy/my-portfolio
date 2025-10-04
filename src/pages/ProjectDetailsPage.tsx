@@ -104,7 +104,7 @@ const ProjectDetailsPage = () => {
         </section>
 
         <section>
-          <CMSList collection="projects" maxItems={2} />
+          <CMSList collection="projects" maxItems={2} excludeSlug={slug}/>
         </section>
 
       </main>

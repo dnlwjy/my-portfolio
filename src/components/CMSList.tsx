@@ -20,6 +20,7 @@ interface CMSListProps {
   maxItems?: number;
   collection: string;
   showPrice?: boolean;
+  excludeSlug?: string;
 }
 
 const CMSList = ({
@@ -27,7 +28,8 @@ const CMSList = ({
   title2,
   maxItems,
   collection,
-  showPrice = false
+  showPrice = false,
+  excludeSlug
 }: CMSListProps) => {
   const [items, setItems] = useState<CMSItem[]>([]);
 
@@ -48,7 +50,9 @@ const CMSList = ({
       .catch(console.error);
   }, [collection]);
 
-  const displayedItems = maxItems ? items.slice(0, maxItems) : items;
+  const displayedItems = items
+    .filter(item => item.slug?.current !== excludeSlug)
+    .slice(0, maxItems);
 
   return (
     <section
@@ -58,10 +62,10 @@ const CMSList = ({
       {title1 && (
         <div className="flex text-center justify-center items-center gap-6 mb-10">
           <h1>
-            <AnimationText 
-            text={title1}
-            className="text-gray"
-            delay={100} />
+            <AnimationText
+              text={title1}
+              className="text-gray"
+              delay={100} />
             <br />
             <AnimationText
               text={title2 || ""}
@@ -70,33 +74,33 @@ const CMSList = ({
           </h1>
         </div>
       ) || (
-      <AnimationGroup delay={300} className="flex items-center gap-6 overflow-visible">
-        <h2>
-          {collection.charAt(0).toUpperCase() + collection.slice(1)}
-        </h2>
-        <hr className="flex-grow h-0.5 bg-darkgray" />
-        <a
-          href={`/${collection}`}
-          className="text-[16px] text-blue transition-colors duration-300 hover:text-white"
-        >
-          View all
-        </a>
-      </AnimationGroup>
+          <AnimationGroup delay={0} className="flex items-center gap-6 overflow-visible">
+            <h2>
+              {collection.charAt(0).toUpperCase() + collection.slice(1)}
+            </h2>
+            <hr className="flex-grow h-0.5 bg-darkgray" />
+            <a
+              href={`/${collection}`}
+              className="text-[16px] text-blue transition-colors duration-300 hover:text-white"
+            >
+              View all
+            </a>
+          </AnimationGroup>
         )}
 
       <div className="grid grid-cols-2 gap-x-4 gap-y-8">
         {displayedItems.map((item, index) => (
           <AnimationGroup
-          key={item._id}
-          delay={index * 200 + 100}
-          direction="up">
-          <ItemCard
-            title={item.title}
-            description={item.description}
-            coverImage={urlFor(item.coverImage).url()}
-            url={`/${collection}/${item.slug?.current || "#"}`}
-            price={showPrice ? item.price : undefined}
-          />
+            key={item._id}
+            delay={index * 200 + 100}
+            direction="up">
+            <ItemCard
+              title={item.title}
+              description={item.description}
+              coverImage={urlFor(item.coverImage).url()}
+              url={`/${collection}/${item.slug?.current || "#"}`}
+              price={showPrice ? item.price : undefined}
+            />
           </AnimationGroup>
         ))}
       </div>

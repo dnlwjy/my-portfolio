@@ -36,7 +36,7 @@ const MyStackList = ({
       className="py-20 flex flex-col gap-10 mx-auto w-full">
 
       <AnimationGroup
-        delay={300}
+        delay={0}
         className="flex items-center gap-6">
         <h2>My Stack</h2>
         <hr className="flex-grow h-0.5 bg-darkgray" />
@@ -52,15 +52,15 @@ const MyStackList = ({
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-start">
         {displayedItems.map((item, index) => (
           <AnimationGroup
-          key={item._id}
-          delay={index * 200 + 100}
-          direction="up">
-          <MyStackCard
             key={item._id}
-            image={urlFor(item.image).url()}
-            title={item.name}
-            description={item.description}
-          />
+            delay={index * 200 + 100}
+            direction="up">
+            <MyStackCard
+              key={item._id}
+              image={urlFor(item.image).url()}
+              title={item.name}
+              description={item.description}
+            />
           </AnimationGroup>
         ))}
       </div>
