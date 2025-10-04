@@ -88,7 +88,7 @@ const CMSList = ({
         {displayedItems.map((item, index) => (
           <AnimationGroup
           key={item._id}
-          delay={index * 200 + 300}
+          delay={index * 200 + 100}
           direction="up">
           <ItemCard
             title={item.title}

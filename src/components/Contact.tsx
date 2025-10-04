@@ -92,9 +92,9 @@ const Contact = () => {
           <AnimationText
               text="Any Questions?"
               className="text-gray"
-              delay={300} />
+              delay={200} />
           <br />
-          <AnimationText text="I'm All Ears" delay={600} />
+          <AnimationText text="I'm All Ears" delay={400} />
         </h2>
 
       <AnimationGroup

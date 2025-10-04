@@ -2,6 +2,7 @@ import MyStackCard from "@/components/ui/MyStackCard";
 import { client, urlFor } from "@/sanityClient";
 import { useEffect, useState } from "react";
 import { HashLink } from "react-router-hash-link";
+import AnimationGroup from "./ui/AnimationGroup";
 
 interface MyStackItem {
   _id: string;
@@ -34,7 +35,9 @@ const MyStackList = ({
       id="my-stack"
       className="py-20 flex flex-col gap-10 mx-auto w-full">
 
-      <div className="flex items-center gap-6">
+      <AnimationGroup
+        delay={300}
+        className="flex items-center gap-6">
         <h2>My Stack</h2>
         <hr className="flex-grow h-0.5 bg-darkgray" />
         <HashLink
@@ -44,16 +47,21 @@ const MyStackList = ({
         >
           View all
         </HashLink>
-      </div>
+      </AnimationGroup>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-start">
-        {displayedItems.map(item => (
+        {displayedItems.map((item, index) => (
+          <AnimationGroup
+          key={item._id}
+          delay={index * 200 + 100}
+          direction="up">
           <MyStackCard
             key={item._id}
             image={urlFor(item.image).url()}
             title={item.name}
             description={item.description}
           />
+          </AnimationGroup>
         ))}
       </div>
 
