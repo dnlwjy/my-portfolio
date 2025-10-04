@@ -21,6 +21,7 @@ interface CMSListProps {
   collection: string;
   showPrice?: boolean;
   excludeSlug?: string;
+  ViewAll?: boolean;
 }
 
 const CMSList = ({
@@ -29,7 +30,8 @@ const CMSList = ({
   maxItems,
   collection,
   showPrice = false,
-  excludeSlug
+  excludeSlug,
+  ViewAll = true
 }: CMSListProps) => {
   const [items, setItems] = useState<CMSItem[]>([]);
 
@@ -80,12 +82,14 @@ const CMSList = ({
               {collection.charAt(0).toUpperCase() + collection.slice(1)}
             </h2>
             <hr className="flex-grow h-0.5 bg-darkgray" />
+            {ViewAll && (
             <a
               href={`/${collection}`}
               className="text-[16px] text-blue transition-colors duration-300 hover:text-white"
             >
               View all
             </a>
+            )}
           </AnimationGroup>
         )}
 

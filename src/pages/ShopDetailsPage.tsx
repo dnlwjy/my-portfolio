@@ -63,10 +63,9 @@ const ShopDetailsPage = () => {
 
                             <div className="flex flex-col justify-start gap-3">
                                 <Button
-                                    variant="primary"
+                                    variant="secondary"
                                     onClick={() => {
-                                        const el = document.getElementById("contact");
-                                        if (el) el.scrollIntoView({ behavior: "smooth" });
+                                        window.open("https://github.com/dnlwjy?tab=repositories", "_blank");
                                     }}
                                 >
                                     Buy Now
@@ -116,7 +115,7 @@ const ShopDetailsPage = () => {
 
 
                 <section>
-                    <CMSList collection="shop" maxItems={2} excludeSlug={slug}/>
+                    <CMSList collection="shop" maxItems={2} excludeSlug={slug} />
                 </section>
             </main>
             <Footer />
