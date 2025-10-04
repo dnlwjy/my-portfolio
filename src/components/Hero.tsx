@@ -31,7 +31,6 @@ const Hero = () => {
             className="flex justify-center gap-3"
           >
             <Button
-              variant="primary"
               onClick={() => {
                 const el = document.getElementById("contact");
                 if (el) el.scrollIntoView({ behavior: "smooth" });

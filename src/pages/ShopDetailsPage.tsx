@@ -8,7 +8,7 @@ import Button from "@/components/ui/Button";
 import { PortableText } from '@portabletext/react';
 import LoadingScreen from "@/components/ui/LoadingScreen";
 import AnimationGroup from "@/components/ui/AnimationGroup";
-import serializers from "@/components/ui/Serializers";
+import Serializers from "@/lib/Serializers";
 
 interface ShopDetailsProp {
     title: string;
@@ -63,7 +63,6 @@ const ShopDetailsPage = () => {
 
                             <div className="flex flex-col justify-start gap-3">
                                 <Button
-                                    variant="secondary"
                                     onClick={() => {
                                         window.open("https://github.com/dnlwjy?tab=repositories", "_blank");
                                     }}
@@ -106,7 +105,7 @@ const ShopDetailsPage = () => {
                         {shop.content && (
                             <PortableText
                                 value={shop.content}
-                                components={serializers}
+                                components={Serializers}
                             />
                         )}
                     </AnimationGroup>

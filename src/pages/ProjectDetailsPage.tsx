@@ -8,7 +8,7 @@ import { PortableText } from '@portabletext/react';
 import CMSList from "@/components/CMSList";
 import LoadingScreen from "@/components/ui/LoadingScreen";
 import AnimationGroup from "@/components/ui/AnimationGroup";
-import Serializers from "@/components/ui/Serializers";
+import Serializers from "@/lib/Serializers";
 
 interface ProjectDetailsData {
   title: string;
