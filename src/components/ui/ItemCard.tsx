@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
-import Tag from "./Tag";
 
 interface ProjectCardProps {
   title: string;
   description: string;
-  coverImage: string;
+  image: string;
   url: string;
   price?: number;
 }
@@ -12,7 +11,7 @@ interface ProjectCardProps {
 const ItemCard = ({
   title,
   description,
-  coverImage,
+  image,
   url = "#",
   price,
 }: ProjectCardProps) => {
@@ -21,19 +20,16 @@ const ItemCard = ({
       <div className="w-full aspect-[4/3] overflow-hidden rounded-2xl">
         <Link to={url}>
           <img
-            src={coverImage}
+            src={image}
             alt={title}
             className="w-full h-full object-cover transition-opacity duration-300 ease-in-out hover:opacity-50"
           />
         </Link>
       </div>
-
-      <div className="flex items-start">
-        <div className="flex flex-col p-0 gap-2 text-start w-full">
-          <h3>{title}</h3>
-          <p className="text-[16px]">{description}</p>
-        </div>
-        {price !== undefined && <Tag price={price} />}
+      <div className="flex flex-col text-start gap-2">
+        <h3>{title}</h3>
+        <p className="text-[16px]">{description}</p>
+        {price && <span className="text-sm text-gray-400">${price}</span>}
       </div>
     </div>
   );

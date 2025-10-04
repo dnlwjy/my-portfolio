@@ -1,9 +1,9 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import MyStackList from "@/components/MyStackList";
-import CMSList from "@/components/CMSList";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import CMSList from "@/components/CMSList";
+import MyStackCard from "@/components/ui/MyStackCard";
 
 const HomePage = () => {
   return (
@@ -11,9 +11,9 @@ const HomePage = () => {
       <Header />
       <main>
         <Hero />
-        <MyStackList maxItems={6} />
-        <CMSList collection="projects" maxItems={6}/>
-        <CMSList collection="shop" maxItems={6} showPrice={true}/>
+        <CMSList collection="stack" maxItems={6} CardComponent={MyStackCard} cols={3}/>
+        <CMSList collection="projects" maxItems={4}/>
+        <CMSList collection="shop" maxItems={4} showPrice={true} />
         <Contact />
       </main>
       <Footer />
