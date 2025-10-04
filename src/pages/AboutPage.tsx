@@ -56,21 +56,21 @@ const AboutPage = ({ maxItems }: AboutPageProps) => {
             <AnimationText
               text="A bit more"
               className="text-gray"
-              delay={100} />
+              delay={0} />
             <br />
 
             <AnimationText
               text="about me."
-              delay={300} />
+              delay={100} />
           </h1>
 
           <AnimationGroup
-            delay={500}>
+            delay={300}>
             <img src={image} className="w-full h-full object-cover rounded-2xl" />
           </AnimationGroup>
 
           <AnimationGroup
-            delay={500}
+            delay={300}
             className="flex flex-col gap-6 text-start">
             <p className="md:text-[32px] text-[24px] tracking-[-1px] leading-[1.5] font-normal text-white">
               Hello! I'm Daniel, a passionate designer & developer with a focus for creating engaging and user-friendly web experiences...
@@ -79,41 +79,55 @@ const AboutPage = ({ maxItems }: AboutPageProps) => {
         </section>
 
         <section id="my-stacks" className="flex flex-col py-20 gap-10 mx-auto w-full">
-          <div className="flex items-center gap-6">
+          <AnimationGroup
+            delay={100}
+            className="flex items-center gap-6">
             <h2>My Stacks</h2>
             <hr className="flex-grow h-0.5 bg-darkgray" />
-          </div>
+          </AnimationGroup>
 
           <div className="grid grid-cols-2 gap-x-4 gap-y-8">
             {displayedItems
               .filter(item => item._type === "my-stack")
-              .map(item => (
-                <Resources
+              .map((item, index) => (
+                <AnimationGroup
                   key={item._id}
-                  image={item.image ? urlFor(item.image).url() : '/uploads/placeholder.svg'}
-                  title={item.name}
-                  description={item.description}
-                />
+                  delay={index * 150 + 100}
+                  direction="up">
+                  <Resources
+                    key={item._id}
+                    image={item.image ? urlFor(item.image).url() : '/uploads/placeholder.svg'}
+                    title={item.name}
+                    description={item.description}
+                  />
+                </AnimationGroup>
               ))}
           </div>
         </section>
 
         <section id="desk-setup" className="flex flex-col py-20 gap-10 mx-auto w-full">
-          <div className="flex items-center gap-6">
+          <AnimationGroup
+            delay={100}
+            className="flex items-center gap-6">
             <h2>Desk Setup</h2>
             <hr className="flex-grow h-0.5 bg-darkgray" />
-          </div>
+          </AnimationGroup>
 
           <div className="grid grid-cols-2 gap-x-4 gap-y-8">
             {displayedItems
               .filter(item => item._type === "desk-setup")
-              .map(item => (
+              .map((item, index) => (
+                <AnimationGroup
+                  key={item._id}
+                  delay={index * 150 + 100}
+                  direction="up">
                 <Resources
                   key={item._id}
                   image={item.image ? urlFor(item.image).url() : '/uploads/placeholder.svg'}
                   title={item.name}
                   description={item.description}
                 />
+                </AnimationGroup>
               ))}
           </div>
         </section>

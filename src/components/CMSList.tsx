@@ -65,17 +65,17 @@ const CMSList = ({
             <AnimationText
               text={title1}
               className="text-gray"
-              delay={100} />
+              delay={0} />
             <br />
 
             <AnimationText
               text={title2}
               className="text-white"
-              delay={300} />
+              delay={100} />
           </h1>
         </div>
       ) || (
-          <AnimationGroup delay={50} className="flex items-center gap-6 overflow-visible">
+          <AnimationGroup delay={100} className="flex items-center gap-6 overflow-visible">
             <h2>
               {collection.charAt(0).toUpperCase() + collection.slice(1)}
             </h2>
@@ -93,7 +93,7 @@ const CMSList = ({
         {displayedItems.map((item, index) => (
           <AnimationGroup
             key={item._id}
-            delay={index * 200 + 500}
+            delay={index * 150 + 100}
             direction="up">
             <ItemCard
               title={item.title}

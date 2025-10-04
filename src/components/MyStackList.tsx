@@ -36,7 +36,7 @@ const MyStackList = ({
       className="py-20 flex flex-col gap-10 mx-auto w-full">
 
       <AnimationGroup
-        delay={0}
+        delay={100}
         className="flex items-center gap-6">
         <h2>My Stack</h2>
         <hr className="flex-grow h-0.5 bg-darkgray" />
@@ -53,7 +53,7 @@ const MyStackList = ({
         {displayedItems.map((item, index) => (
           <AnimationGroup
             key={item._id}
-            delay={index * 200 + 100}
+            delay={index * 150 + 100}
             direction="up">
             <MyStackCard
               key={item._id}
