@@ -8,12 +8,14 @@ export const projects = defineType({
     { name: "title", title: "Title", type: "string" },
     { name: "slug", title: "Slug", type: "slug", options: { source: "title" } },
     { name: "coverImage", title: "Cover Image", type: "image" },
-    {
-      name: "year",
-      title: "Year",
-      type: "number",
-      validation: (Rule) => Rule.min(2020).max(new Date().getFullYear())
-    },
+    
+    { name: "role", title: "Role", type: "string",},
+    { name: "year", title: "Year", type: "number", validation: (Rule) => Rule.min(2020).max(new Date().getFullYear())},
+    { name: "client", title: "Client", type: "string",},
+    { name: "website", title: "Website", type: "url", validation: (Rule) => Rule.uri({
+      scheme: ['http', 'https']
+    }).error("Masukin yang bener bro"),},
+    
     {
       name: "tags",
       title: "Tags",

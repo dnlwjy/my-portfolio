@@ -9,12 +9,16 @@ import CMSList from "@/components/CMSList";
 import LoadingScreen from "@/components/ui/LoadingScreen";
 import AnimationGroup from "@/components/ui/AnimationGroup";
 import Serializers from "@/lib/Serializers";
+import ProjectSupport from "@/components/ui/ProjectSupport";
 
 interface ProjectDetailsData {
   title: string;
   description: any;
   coverImage: any;
+  role: string;
+  client: string;
   year: number;
+  website: string;
   content: any;
   tags: string[];
 }
@@ -32,7 +36,10 @@ const ProjectDetailsPage = () => {
     title,
     description,
     coverImage,
+    role,
+    client,
     year,
+    website,
     tags,
     content
   }`,
@@ -77,6 +84,15 @@ const ProjectDetailsPage = () => {
 
             </div>
 
+            <AnimationGroup delay={200} className="flex items-center gap-6 my-5">
+            <div className="grid md:grid-cols-2 grid-cols-1 gap-10 w-full">
+                <ProjectSupport title="Role" description={project.role || "-"} />
+                <ProjectSupport title="Client" description={project.client || "-"} />
+                <ProjectSupport title="Year" description={project.year || "-"} />
+                <ProjectSupport title="Website" description={project.website || "-"} />
+            </div>
+             </AnimationGroup>
+            
             <AnimationGroup
               delay={500}
             >
@@ -88,7 +104,7 @@ const ProjectDetailsPage = () => {
                 />
               )}
             </AnimationGroup>
-                
+
             <AnimationGroup
               delay={500}
               className="flex flex-col gap-4">
@@ -104,7 +120,7 @@ const ProjectDetailsPage = () => {
         </section>
 
         <section>
-          <CMSList collection="projects" maxItems={2} excludeSlug={slug}/>
+          <CMSList collection="projects" maxItems={2} excludeSlug={slug} />
         </section>
 
       </main>

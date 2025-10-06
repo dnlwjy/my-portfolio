@@ -4,7 +4,6 @@ import Footer from "@/components/Footer";
 import { useParams } from "react-router-dom";
 import { client, urlFor } from "@/sanityClient";
 import CMSList from "@/components/CMSList";
-import Button from "@/components/ui/Button";
 import { PortableText } from '@portabletext/react';
 import LoadingScreen from "@/components/ui/LoadingScreen";
 import AnimationGroup from "@/components/ui/AnimationGroup";
@@ -62,21 +61,6 @@ const ShopDetailsPage = () => {
                             </div>
 
                             <div className="flex flex-col justify-start gap-3">
-                                <Button
-                                    onClick={() => {
-                                        window.open("https://github.com/dnlwjy?tab=repositories", "_blank");
-                                    }}
-                                >
-                                    Buy Now
-                                </Button>
-                                <Button
-                                    variant="secondary"
-                                    onClick={() => {
-                                        window.open("https://github.com/dnlwjy?tab=repositories", "_blank");
-                                    }}
-                                >
-                                    Preview
-                                </Button>
                             </div>
                         </AnimationGroup>
 
