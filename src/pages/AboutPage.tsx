@@ -76,15 +76,17 @@ const AboutPage = ({ maxItems }: AboutPageProps) => {
             <h2 className="md:text-[32px] font-inter text-[24px] tracking-[-1px] leading-[1.5] font-normal text-white">
               Hello! I'm Daniel, a passionate designer & developer with a focus for creating engaging and user-friendly web experiences...
             </h2>
-            <p>
-              Believe it or not, before design I was a classical pianist student and wanted to be a composer but instead graduated with a degree in graphic design.
-            </p>
-            <p>
-              As both a designer and developer, I specialize in user and product quality. I excel in balancing good design and good performance. Besides, I also have a solid background in graphic design, bringing traditional design into a digitized world. I am passionate about staying updated with the latest technology and design trends.
-            </p>
-            <p>
-              If you’re interested in the software and hardware I use, you may check out my resources page. Meanwhile, you can also explore my other passion in music composing piano music.
-            </p>
+            <div className="flex flex-col gap-4">
+              <p>
+                Believe it or not, before design I was a classical pianist student and wanted to be a composer but instead graduated with a degree in graphic design.
+              </p>
+              <p>
+                As both a designer and developer, I specialize in user and product quality. I excel in balancing good design and good performance. Besides, I also have a solid background in graphic design, bringing traditional design into a digitized world. I am passionate about staying updated with the latest technology and design trends.
+              </p>
+              <p>
+                If you’re interested in the software and hardware I use, you may check out my resources page. Meanwhile, you can also explore my other passion in music composing piano music.
+              </p>
+            </div>
 
           </AnimationGroup>
         </section>

@@ -35,7 +35,7 @@ h6 {
 }
 
 p {
-  @apply font-inter text-[18px] md:text-[20px] tracking-normal leading-[1.7] font-normal text-gray;
+  @apply font-inter text-[18px] md:text-[20px] tracking-normal leading-[1.75] font-normal text-gray;
 }
 
 a {
