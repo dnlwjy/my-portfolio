@@ -7,7 +7,6 @@ import AnimationText from "./ui/AnimationText";
 interface CMSListProps {
   title1?: string;
   title2?: string;
-  subtitle?: string;
   maxItems?: number;
   collection: string;
   showPrice?: boolean;
