@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Button from "@/components/ui/Button";
 import AnimationGroup from "@/components/ui/AnimationGroup";
 
 const NotFoundPage = () => {
@@ -18,15 +17,6 @@ const NotFoundPage = () => {
               className="flex flex-col gap-4">
               <h1>I lost this page.</h1>
               <p>I searched high and low but couldn't find what you're looking for. Let's find a better place for you to go.</p>
-            </AnimationGroup>
-
-            <AnimationGroup
-              delay={600}>
-            <Button
-              onClick={() => navigate("/")}
-            >
-              Go home
-            </Button>
             </AnimationGroup>
           </div>
         </section>
