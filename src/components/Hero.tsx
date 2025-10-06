@@ -1,6 +1,6 @@
 import AnimationText from "./ui/AnimationText";
 import Ava from "./Ava";
-import { Button } from "@/components/ui/Button";
+import Button from "@/components/ui/Button";
 import AnimationGroup from "./ui/AnimationGroup";
 
 const Hero = () => {
