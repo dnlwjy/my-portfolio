@@ -72,7 +72,7 @@ const CMSList = ({
           <h1>
             <AnimationText text={title1} className="text-gray" delay={0} />
             <br />
-            <AnimationText text={title2} className="text-white" delay={100} />
+            <AnimationText text={title2} className="text-white" delay={200} />
           </h1>
         </div>
       ) || (

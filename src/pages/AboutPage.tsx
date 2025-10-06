@@ -62,16 +62,16 @@ const AboutPage = ({ maxItems }: AboutPageProps) => {
 
             <AnimationText
               text="about me."
-              delay={100} />
+              delay={200} />
           </h1>
 
           <AnimationGroup
-            delay={300}>
+            delay={500}>
             <img src={image} className="w-full h-full object-cover rounded-2xl" />
           </AnimationGroup>
 
           <AnimationGroup
-            delay={300}
+            delay={500}
             className="flex flex-col gap-6 text-start">
             <h2 className="md:text-[32px] font-inter text-[24px] tracking-[-1px] leading-[1.5] font-normal text-white">
               Hello! I'm Daniel, a passionate designer & developer with a focus for creating engaging and user-friendly web experiences...
