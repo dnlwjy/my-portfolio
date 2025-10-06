@@ -3,7 +3,7 @@ import Hero from "@/components/Hero";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import CMSList from "@/components/CMSList";
-import MyStackCard from "@/components/ui/MyStackCard";
+import ItemCard2 from "@/components/ui/ItemCard2";
 
 const HomePage = () => {
   return (
@@ -11,7 +11,7 @@ const HomePage = () => {
       <Header />
       <main>
         <Hero />
-        <CMSList collection="stack" maxItems={6} CardComponent={MyStackCard} cols={3}/>
+        <CMSList collection="stack" CardComponent={ItemCard2} cols={3} maxItems={6} ViewAll={false}/>
         <CMSList collection="projects" maxItems={4}/>
         <CMSList collection="shop" maxItems={4} showPrice={true} />
         <Contact />

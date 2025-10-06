@@ -1,14 +1,14 @@
-interface CardProps {
+interface ItemCard2Props {
   image: string;
   title: string;
   description: string;
 }
 
-const MyStackCard =({
+const ItemCard2 =({
   image = "/uploads/placeholder.svg",
   title = "Title",
   description = "Description",
-}: CardProps) => {
+}: ItemCard2Props) => {
   return (
     <div
       className="flex flex-col text-center p-2 rounded-2xl border border-darkgray"
@@ -26,4 +26,4 @@ const MyStackCard =({
   );
 };
 
-export default MyStackCard;
+export default ItemCard2;

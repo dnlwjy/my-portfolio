@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Resources from "@/components/ui/Resources";
+import ItemCard3 from "@/components/ui/ItemCard3";
 import { client, urlFor } from "@/sanityClient";
 import image from "@/assets/me.jpg";
 import AnimationText from "@/components/ui/AnimationText";
 import AnimationGroup from "@/components/ui/AnimationGroup";
+import CMSList from "@/components/CMSList";
 
 interface AboutPageItem {
   _id: string;
@@ -51,7 +52,7 @@ const AboutPage = ({ maxItems }: AboutPageProps) => {
     <>
       <Header />
       <main className="pt-20">
-        <section id="about" className="flex flex-col py-40 gap-20 mx-auto w-full text-center">
+        <section id="about" className="flex flex-col py-20 gap-20 mx-auto w-full text-center">
           <h1>
             <AnimationText
               text="A bit more"
@@ -72,65 +73,23 @@ const AboutPage = ({ maxItems }: AboutPageProps) => {
           <AnimationGroup
             delay={300}
             className="flex flex-col gap-6 text-start">
-            <p className="md:text-[32px] text-[24px] tracking-[-1px] leading-[1.5] font-normal text-white">
+            <h2 className="md:text-[32px] font-inter text-[24px] tracking-[-1px] leading-[1.5] font-normal text-white">
               Hello! I'm Daniel, a passionate designer & developer with a focus for creating engaging and user-friendly web experiences...
+            </h2>
+            <p>
+              Believe it or not, before design I was a classical pianist student and wanted to be a composer but instead graduated with a degree in graphic design.
             </p>
+            <p>
+              As both a designer and developer, I specialize in user and product quality. I excel in balancing good design and good performance. Besides, I also have a solid background in graphic design, bringing traditional design into a digitized world. I am passionate about staying updated with the latest technology and design trends.
+            </p>
+            <p>
+              If you’re interested in the software and hardware I use, you may check out my resources page. Meanwhile, you can also explore my other passion in music composing piano music.
+            </p>
+
           </AnimationGroup>
         </section>
-
-        <section id="my-stacks" className="flex flex-col py-20 gap-10 mx-auto w-full">
-          <AnimationGroup
-            delay={100}
-            className="flex items-center gap-6">
-            <h2>My Stacks</h2>
-            <hr className="flex-grow h-0.5 bg-darkgray" />
-          </AnimationGroup>
-
-          <div className="grid grid-cols-2 gap-x-4 gap-y-8">
-            {displayedItems
-              .filter(item => item._type === "my-stack")
-              .map((item, index) => (
-                <AnimationGroup
-                  key={item._id}
-                  delay={index * 150 + 100}
-                  direction="up">
-                  <Resources
-                    key={item._id}
-                    image={item.image ? urlFor(item.image).url() : '/uploads/placeholder.svg'}
-                    title={item.name}
-                    description={item.description}
-                  />
-                </AnimationGroup>
-              ))}
-          </div>
-        </section>
-
-        <section id="desk-setup" className="flex flex-col py-20 gap-10 mx-auto w-full">
-          <AnimationGroup
-            delay={100}
-            className="flex items-center gap-6">
-            <h2>Desk Setup</h2>
-            <hr className="flex-grow h-0.5 bg-darkgray" />
-          </AnimationGroup>
-
-          <div className="grid grid-cols-2 gap-x-4 gap-y-8">
-            {displayedItems
-              .filter(item => item._type === "desk-setup")
-              .map((item, index) => (
-                <AnimationGroup
-                  key={item._id}
-                  delay={index * 150 + 100}
-                  direction="up">
-                <Resources
-                  key={item._id}
-                  image={item.image ? urlFor(item.image).url() : '/uploads/placeholder.svg'}
-                  title={item.name}
-                  description={item.description}
-                />
-                </AnimationGroup>
-              ))}
-          </div>
-        </section>
+        <CMSList collection="stack" CardComponent={ItemCard3} cols={2} ViewAll={false} />
+        <CMSList collection="setup" CardComponent={ItemCard3} cols={2} ViewAll={false} />
       </main>
       <Footer />
     </>

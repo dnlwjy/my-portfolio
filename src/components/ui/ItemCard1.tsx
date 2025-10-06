@@ -8,7 +8,7 @@ interface ProjectCardProps {
   price?: number;
 }
 
-const ItemCard = ({
+const ItemCard1 = ({
   title,
   description,
   image,
@@ -35,4 +35,4 @@ const ItemCard = ({
   );
 };
 
-export default ItemCard;
+export default ItemCard1;

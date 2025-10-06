@@ -202,7 +202,7 @@ const Contact = () => {
             <button
               type="submit"
               disabled={isSubmitting}
-              className="bg-blue px-8 rounded-full transition-all font-medium duration-300 h-12 flex items-center border-t border-white/5 text-white hover:text-black hover:bg-white"
+              className="bg-blue px-8 rounded-full transition-all font-inter font-medium duration-300 h-12 flex items-center border-t border-white/5 text-white hover:text-black hover:bg-white"
             >
               {isSubmitting ? "Sending..." : "Submit"}
               {!isSubmitting && <ArrowRight size={16} className="ml-2" />}

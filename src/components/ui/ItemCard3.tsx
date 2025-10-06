@@ -1,4 +1,4 @@
-interface ResourcesProps {
+interface ItemCard3Props {
     title: string;
     description: string;
     image: string;
@@ -6,13 +6,13 @@ interface ResourcesProps {
     url?: string;
 }
 
-const Resources = ({
+const ItemCard3 = ({
     title = "This is title",
     description = 'Dsss',
     image,
     link = 'Learn more',
     url = '#',
-}: ResourcesProps) => {
+}: ItemCard3Props) => {
     return (
         <a className="flex gap-4 h-fit items-center">
             <img
@@ -30,4 +30,4 @@ const Resources = ({
     )
 }
 
-export default Resources;
+export default ItemCard3;

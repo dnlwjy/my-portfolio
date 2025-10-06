@@ -6,7 +6,19 @@ export const stack = defineType({
   type: "document",
   fields: [
     { name: "title", title: "Title", type: "string" },
-    { name: "description", title: "Description", type: "text" },
+    { name: "slug", title: "Slug", type: "slug", options: { source: "title" } },
     { name: "coverImage", title: "Cover Image", type: "image" },
+    {
+      name: "tags",
+      title: "Tags",
+      type: "array",
+      of: [{ type: "string" }],
+      validation: (Rule) => Rule.max(4),
+    },
+    {
+      name: "description",
+      title: "Description",
+      type: "text"
+    },
   ],
 });

@@ -1,12 +1,24 @@
 import { defineType } from "sanity";
 
-export const desksetup = defineType({
-  name: "desk-setup", // collection name
+export const setup = defineType({
+  name: "setup",
   title: "Desk Setup",
   type: "document",
   fields: [
-    { name: "name", title: "Name", type: "string" },
-    { name: "description", title: "Description", type: "string" },
-    { name: "image", title: "Image", type: "image" },
+    { name: "title", title: "Title", type: "string" },
+    { name: "slug", title: "Slug", type: "slug", options: { source: "title" } },
+    { name: "coverImage", title: "Cover Image", type: "image" },
+    {
+      name: "tags",
+      title: "Tags",
+      type: "array",
+      of: [{ type: "string" }],
+      validation: (Rule) => Rule.max(4),
+    },
+    {
+      name: "description",
+      title: "Description",
+      type: "text"
+    },
   ],
 });

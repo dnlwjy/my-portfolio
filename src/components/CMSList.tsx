@@ -1,5 +1,5 @@
 import { Component, useEffect, useState, ComponentType } from "react";
-import ItemCard from "@/components/ui/ItemCard";
+import ItemCard1 from "@/components/ui/ItemCard1";
 import { client, urlFor } from "@/sanityClient";
 import AnimationGroup from "./ui/AnimationGroup";
 import AnimationText from "./ui/AnimationText";
@@ -30,7 +30,7 @@ const CMSList = ({
   excludeSlug,
   ViewAll = true,
   cols = 2,
-  CardComponent = ItemCard,
+  CardComponent = ItemCard1,
 }: CMSListProps) => {
   const [items, setItems] = useState<SanityDoc[]>([]);
 
@@ -76,7 +76,7 @@ const CMSList = ({
           </h1>
         </div>
       ) || (
-          <AnimationGroup delay={100} className="flex items-center gap-6 overflow-visible">
+          <AnimationGroup delay={200} className="flex items-center gap-6 overflow-visible">
             <h2>
               {collection.charAt(0).toUpperCase() + collection.slice(1)}
             </h2>
