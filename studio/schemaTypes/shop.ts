@@ -48,6 +48,7 @@ export const shop = defineType({
       validation: (Rule) => Rule.uri({
         scheme: ['http', 'https']
       }).error("Masukin yang bener bro"),
-    }
+    },
+    { name: "preview", title: "Preview", type: "url" },
   ],
 });
