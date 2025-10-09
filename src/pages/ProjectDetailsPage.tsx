@@ -118,10 +118,8 @@ const ProjectDetailsPage = () => {
             </AnimationGroup>
           </div>
         </section>
-
-        <section>
-          <CMSList collection="projects" maxItems={2} excludeSlug={slug} />
-        </section>
+        
+        <CMSList collection="projects" maxItems={2} excludeSlug={slug} />
 
       </main>
       <Footer />
