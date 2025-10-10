@@ -83,13 +83,14 @@ const ShopDetailsPage = () => {
                             )}
                         </div>
 
-                        <div className="flex flex-col justify-start gap-3">
-                            <Button onClick={() => setCheckout(true)}>
+                        <div className="flex md:flex-row flex-col justify-start gap-3">
+                            <Button onClick={() => setCheckout(true)} className="w-full">
                                 Checkout
                             </Button>
                             <Button
                                 variant="secondary"
                                 onClick={() => window.open(shop.preview, "_blank")}
+                                className="w-full"
                             >
                                 Preview
                             </Button>
@@ -99,7 +100,7 @@ const ShopDetailsPage = () => {
                     <AnimationGroup
                         delay={300}
                         direction="up"
-                        className="flex-1 flex items-center justify-center"
+                        className="flex-1 flex items-center justify-center mb-10"
                     >
                         {/* Carousel: coverImage + images[] */}
                         {(shop.coverImage || (shop.images && shop.images.length > 0)) && (
@@ -179,7 +180,7 @@ const CarouselImages = ({ shop, title }: any) => {
             </div>
 
             {slides.length > 1 && (
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-2 mt-4">
+                <div className="grid grid-cols-4 gap-2 mt-4">
                     {slides.map((s: any, i: number) => (
                         <button
                             key={i}
