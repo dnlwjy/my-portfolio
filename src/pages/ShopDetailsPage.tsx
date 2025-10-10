@@ -62,7 +62,7 @@ const ShopDetailsPage = () => {
                 <section className="flex flex-col pt-40 gap-10">
                     <div className="flex flex-col mx-auto items-start gap-6 w-full">
                         <AnimationGroup
-                            delay={300}
+                            delay={200}
                             direction="up"
                             className="flex-1 flex flex-col gap-10 py-6"
                         >
@@ -93,7 +93,7 @@ const ShopDetailsPage = () => {
                         </AnimationGroup>
 
                         <AnimationGroup
-                            delay={600}
+                            delay={300}
                             direction="up"
                             className="flex-1 flex items-center justify-center"
                         >
@@ -109,7 +109,7 @@ const ShopDetailsPage = () => {
                         </AnimationGroup>
                     </div>
 
-                    <AnimationGroup delay={500} className="flex flex-col w-full gap-4">
+                    <AnimationGroup delay={300} className="flex flex-col w-full gap-4">
                         {shop.content && (
                             <PortableText value={shop.content} components={Serializers} />
                         )}
