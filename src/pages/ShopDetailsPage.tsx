@@ -136,7 +136,7 @@ export default ShopDetailsPage;
 const CarouselImages = ({ shop, title }: any) => {
     const slides: any[] = [];
     if (shop.coverImage) slides.push(shop.coverImage);
-    if (shop.images && shop.images.length) slides.push(...shop.images.slice(0, 4));
+    if (shop.images && shop.images.length) slides.push(...shop.images.slice(0, 3));
 
     const [index, setIndex] = useState(0);
 
