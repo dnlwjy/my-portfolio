@@ -9,6 +9,7 @@ interface CMSListProps {
   title2?: string;
   heading?: string;
   maxItems?: number;
+  featuredOnly?: boolean;
   collection: string;
   showPrice?: boolean;
   excludeSlug?: string;
@@ -26,6 +27,7 @@ const CMSList = ({
   title2,
   heading,
   maxItems,
+  featuredOnly = false,
   collection,
   showPrice = false,
   excludeSlug,
@@ -36,8 +38,12 @@ const CMSList = ({
   const [items, setItems] = useState<SanityDoc[]>([]);
 
   useEffect(() => {
+    const query = featuredOnly
+      ? `*[_type == $collection && featured == true]`
+      : `*[_type == $collection]`;
+
     client
-      .fetch(`*[_type == $collection]`, { collection })
+      .fetch(query, { collection })
       .then((data) => setItems(data))
       .catch(console.error);
   }, [collection]);

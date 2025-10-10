@@ -59,56 +59,44 @@ const ProjectDetailsPage = () => {
     <>
       <Header />
       <main>
-        <section
-          id={project.title || "project-details"}
-          className="flex flex-col pt-40 mx-auto items-start gap-20">
+        <section id={project.title} className="flex flex-col mx-auto pt-40 gap-10 w-full">
 
-          <div className="flex flex-col gap-10">
+          <AnimationGroup className="flex flex-col gap-4" delay={100}>
+            <div className="flex flex-wrap gap-2">
+              {project.tags?.map((tag, i) => (
+                <Tag key={i} title={tag} />))}
+            </div>
 
-            <AnimationGroup className="flex flex-col gap-4" delay={100}>
-              <div className="flex flex-wrap gap-2">
-                {project.tags?.map((tag, i) => (
-                  <Tag key={i} title={tag} />
+            <h1>{project.title}</h1>
+          </AnimationGroup>
 
-                ))}
-              </div>
+          <AnimationGroup delay={300} className="grid md:grid-cols-2 grid-cols-1 gap-10 w-full my-10">
+            <ProjectSupport title="Role" description={project.role || "-"} />
+            <ProjectSupport title="Client" description={project.client || "-"} />
+            <ProjectSupport title="Year" description={project.year || "-"} />
+            <ProjectSupport title="Website" description={project.website || "-"} />
+          </AnimationGroup>
 
-              <h1>
-                {project.title}
-              </h1>
-            </AnimationGroup>
+          <AnimationGroup delay={500}>
+            {project.coverImage && (
+              <img
+                src={urlFor(project.coverImage).url()}
+                alt={project.title}
+                className="w-full rounded-2xl border border-white/5"
+              />
+            )}
+          </AnimationGroup>
 
-            <AnimationGroup delay={300} className="grid md:grid-cols-2 grid-cols-1 gap-10 w-full my-10">
-              <ProjectSupport title="Role" description={project.role || "-"} />
-              <ProjectSupport title="Client" description={project.client || "-"} />
-              <ProjectSupport title="Year" description={project.year || "-"} />
-              <ProjectSupport title="Website" description={project.website || "-"} />
-            </AnimationGroup>
+          <AnimationGroup
+            delay={300}>
 
-            <AnimationGroup
-              delay={500}
-            >
-              {project.coverImage && (
-                <img
-                  src={urlFor(project.coverImage).url()}
-                  alt={project.title}
-                  className="w-full rounded-2xl border border-white/5"
-                />
-              )}
-            </AnimationGroup>
-
-            <AnimationGroup
-              delay={500}
-              className="flex flex-col gap-4">
-
-              {project.content && (
-                <PortableText
-                  value={project.content}
-                  components={Serializers}
-                />
-              )}
-            </AnimationGroup>
-          </div>
+            {project.content && (
+              <PortableText
+                value={project.content}
+                components={Serializers}
+              />
+            )}
+          </AnimationGroup>
         </section>
 
         <CMSList collection="projects" heading="More Projects" maxItems={2} excludeSlug={slug} />
