@@ -7,6 +7,7 @@ import AnimationText from "./ui/AnimationText";
 interface CMSListProps {
   title1?: string;
   title2?: string;
+  heading?: string;
   maxItems?: number;
   collection: string;
   showPrice?: boolean;
@@ -23,6 +24,7 @@ interface SanityDoc {
 const CMSList = ({
   title1,
   title2,
+  heading,
   maxItems,
   collection,
   showPrice = false,
@@ -77,7 +79,7 @@ const CMSList = ({
       ) || (
           <AnimationGroup delay={200} className="flex items-center gap-6 overflow-visible">
             <h2>
-              {collection.charAt(0).toUpperCase() + collection.slice(1)}
+              {heading ?? (collection.charAt(0).toUpperCase() + collection.slice(1))}
             </h2>
             <hr className="flex-grow h-0.5 bg-darkgray" />
             {ViewAll && (

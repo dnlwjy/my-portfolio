@@ -28,7 +28,18 @@ const ItemCard1 = ({
       </div>
       <div className="flex flex-col text-start gap-2">
         <h3>{title}</h3>
-        <p className="text-[16px]">{description}</p>
+        <p
+          className="text-[16px]"
+          style={{
+            display: '-webkit-box',
+            WebkitLineClamp: 3,
+            WebkitBoxOrient: 'vertical',
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+          }}
+        >
+          {description}
+        </p>
         {price && <span className="text-sm text-gray-400">${price}</span>}
       </div>
     </div>

@@ -111,7 +111,7 @@ const ProjectDetailsPage = () => {
           </div>
         </section>
 
-        <CMSList collection="projects" maxItems={2} excludeSlug={slug} />
+        <CMSList collection="projects" heading="More Projects" maxItems={2} excludeSlug={slug} />
 
       </main>
       <Footer />
