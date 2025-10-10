@@ -82,7 +82,7 @@ const ProjectDetailsPage = () => {
               <img
                 src={urlFor(project.coverImage).url()}
                 alt={project.title}
-                className="w-full rounded-2xl border border-white/5 mb-8"
+                className="w-full rounded-2xl border border-white/5 mb-5"
               />
             )}
           </AnimationGroup>

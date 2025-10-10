@@ -90,7 +90,6 @@ const ShopDetailsPage = () => {
                             <Button
                                 variant="secondary"
                                 onClick={() => window.open(shop.preview, "_blank")}
-                                className="w-full"
                             >
                                 Preview
                             </Button>
@@ -100,7 +99,7 @@ const ShopDetailsPage = () => {
                     <AnimationGroup
                         delay={300}
                         direction="up"
-                        className="flex-1 flex items-center justify-center mb-8"
+                        className="flex-1 flex items-center justify-center mb-5"
                     >
                         {/* Carousel: coverImage + images[] */}
                         {(shop.coverImage || (shop.images && shop.images.length > 0)) && (
