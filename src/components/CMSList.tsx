@@ -99,9 +99,8 @@ const CMSList = ({
           </AnimationGroup>
         )}
 
-      <div className={`grid grid-cols-1 ${
-    cols === 2 ? "md:grid-cols-2" : "md:grid-cols-3"
-  } gap-x-4 gap-y-8`}>
+      <div className={`grid grid-cols-1 ${cols === 2 ? "md:grid-cols-2" : "md:grid-cols-3"
+        } gap-x-4 gap-y-8`}>
         {displayedItems.map((item, index) => {
           const props = mapFields(item);
           return (

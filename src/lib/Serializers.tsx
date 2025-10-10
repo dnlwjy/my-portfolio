@@ -38,15 +38,15 @@ const serializers: PortableTextComponents = {
     em: ({ children }) => <em>{children}</em>,
     code: ({ children }) => <code className="bg-gray-800 px-1 py-0.5 rounded">{children}</code>,
     link: ({ value, children }) => (
-    <a
-      href={value?.href}
-      className="text-white hover:underline"
-      target={value?.blank ? "_blank" : "_self"}
-      rel={value?.blank ? "noopener noreferrer" : undefined}
-    >
-      {children}
-    </a>
-  ),
+      <a
+        href={value?.href}
+        className="text-white hover:underline"
+        target={value?.blank ? "_blank" : "_self"}
+        rel={value?.blank ? "noopener noreferrer" : undefined}
+      >
+        {children}
+      </a>
+    ),
   },
 };
 
