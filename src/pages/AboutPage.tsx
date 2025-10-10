@@ -67,26 +67,24 @@ const AboutPage = ({ maxItems }: AboutPageProps) => {
 
           <AnimationGroup
             delay={500}>
-            <img src={image} className="w-full h-full object-cover rounded-2xl" />
+            <img src={image} alt="Daniel Wijaya" className="w-full h-full object-cover rounded-2xl" />
           </AnimationGroup>
 
           <AnimationGroup
             delay={500}
             className="flex flex-col gap-6 text-start">
-            <h2 className="md:text-[32px] font-inter text-[24px] tracking-[-1px] leading-[1.5] font-normal text-white">
+            <p className="md:text-[32px] font-inter text-[24px] tracking-[-1px] leading-[1.5] font-normal text-white">
               Hello! I'm Daniel, a passionate designer & developer with a focus for creating engaging and user-friendly web experiences...
-            </h2>
-            <div className="flex flex-col gap-4">
-              <p>
-                Believe it or not, before design I was a classical pianist student and wanted to be a composer but instead graduated with a degree in graphic design.
-              </p>
-              <p>
-                As both a designer and developer, I specialize in user and product quality. I excel in balancing good design and good performance. Besides, I also have a solid background in graphic design, bringing traditional design into a digitized world. I am passionate about staying updated with the latest technology and design trends.
-              </p>
-              <p>
-                If you’re interested in the software and hardware I use, you may check out my resources page. Meanwhile, you can also explore my other passion in music <a href="https://open.spotify.com/album/03Plro1zFGUdv4JQfrSkfR" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray transition-colors duration-300">composing piano music</a>.
-              </p>
-            </div>
+            </p>
+            <p>
+              Believe it or not, before design I was a classical pianist student and wanted to be a composer but instead graduated with a degree in graphic design.
+            </p>
+            <p>
+              As both a designer and developer, I specialize in user and product quality. I excel in balancing good design and good performance. Besides, I also have a solid background in graphic design, bringing traditional design into a digitized world. I am passionate about staying updated with the latest technology and design trends.
+            </p>
+            <p>
+              If you’re interested in the software and hardware I use, you may check out my resources page. Meanwhile, you can also explore my other passion in music <a href="https://open.spotify.com/album/03Plro1zFGUdv4JQfrSkfR" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray transition-colors duration-300">composing piano music</a>.
+            </p>
           </AnimationGroup>
         </section>
         <CMSList collection="stack" heading="My Stack" CardComponent={ItemCard3} cols={2} ViewAll={false} />
