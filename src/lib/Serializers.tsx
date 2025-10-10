@@ -1,5 +1,5 @@
-import { PortableText, PortableTextComponents } from '@portabletext/react';
-import { client, urlFor } from "@/sanityClient";
+import { PortableTextComponents } from '@portabletext/react';
+import { urlFor } from "@/sanityClient";
 
 const serializers: PortableTextComponents = {
   block: {
@@ -7,7 +7,7 @@ const serializers: PortableTextComponents = {
     h1: ({ children }) => <h1>{children}</h1>,
     h2: ({ children }) => <h2>{children}</h2>,
     h3: ({ children }) => <h3>{children}</h3>,
-    h6: ({ children }) => <h6 className="my-6">{children}</h6>,
+    h6: ({ children }) => <h6 className="mt-6">{children}</h6>,
   },
   types: {
     image: ({ value }) => {

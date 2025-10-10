@@ -60,22 +60,22 @@ const ShopDetailsPage = () => {
             <Header />
             <main>
                 <section className="flex flex-col pt-40 gap-10">
-                    <div className="flex sm:flex-row flex-col mx-auto items-start gap-6 w-full">
+                    <div className="flex flex-col mx-auto items-start gap-6 w-full">
                         <AnimationGroup
                             delay={300}
-                            direction="right"
+                            direction="up"
                             className="flex-1 flex flex-col gap-10 py-6"
                         >
                             <div className="flex flex-col gap-4">
-                                <h2 className="text-wrap">{shop.title}</h2>
+                                <h1 className="text-wrap">{shop.title}</h1>
                                 <p>{shop.description}</p>
                                 {shop?.price && (
-                                    <h1 className="font-inter">
+                                    <h2 className="font-inter">
                                         {shop.price.toLocaleString("en-US", {
                                             style: "currency",
                                             currency: "USD",
                                         })}
-                                    </h1>
+                                    </h2>
                                 )}
                             </div>
 
@@ -94,7 +94,7 @@ const ShopDetailsPage = () => {
 
                         <AnimationGroup
                             delay={600}
-                            direction="left"
+                            direction="up"
                             className="flex-1 flex items-center justify-center"
                         >
                             {shop.coverImage && (
