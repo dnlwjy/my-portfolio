@@ -11,7 +11,7 @@ const HomePage = () => {
       <Header />
       <main>
         <Hero />
-        <CMSList collection="stack" CardComponent={ItemCard2} cols={3} maxItems={6} ViewAll={false}/>
+        <CMSList collection="stack" CardComponent={ItemCard2} cols={3} maxItems={6}/>
         <CMSList collection="projects" maxItems={4}/>
         <CMSList collection="shop" maxItems={4} showPrice={true} />
         <Contact />

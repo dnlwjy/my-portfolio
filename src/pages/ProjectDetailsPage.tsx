@@ -65,34 +65,26 @@ const ProjectDetailsPage = () => {
 
           <div className="flex flex-col gap-10">
 
-            <AnimationGroup
-              delay={100}
-            >
+            <AnimationGroup className="flex flex-col gap-4" delay={100}>
+              <div className="flex flex-wrap gap-2">
+                {project.tags?.map((tag, i) => (
+                  <Tag key={i} title={tag} />
+
+                ))}
+              </div>
+
               <h1>
                 {project.title}
               </h1>
             </AnimationGroup>
 
-            <div className="flex flex-wrap gap-2">
-              {project.tags?.map((tag, i) => (
-                <AnimationGroup
-                  delay={i * 100 + 200}
-                  direction="up">
-                  <Tag key={i} title={tag} />
-                </AnimationGroup>
-              ))}
+            <AnimationGroup delay={300} className="grid md:grid-cols-2 grid-cols-1 gap-10 w-full my-10">
+              <ProjectSupport title="Role" description={project.role || "-"} />
+              <ProjectSupport title="Client" description={project.client || "-"} />
+              <ProjectSupport title="Year" description={project.year || "-"} />
+              <ProjectSupport title="Website" description={project.website || "-"} />
+            </AnimationGroup>
 
-            </div>
-
-            <AnimationGroup delay={200} className="flex items-center gap-6 my-5">
-            <div className="grid md:grid-cols-2 grid-cols-1 gap-10 w-full">
-                <ProjectSupport title="Role" description={project.role || "-"} />
-                <ProjectSupport title="Client" description={project.client || "-"} />
-                <ProjectSupport title="Year" description={project.year || "-"} />
-                <ProjectSupport title="Website" description={project.website || "-"} />
-            </div>
-             </AnimationGroup>
-            
             <AnimationGroup
               delay={500}
             >
@@ -118,7 +110,7 @@ const ProjectDetailsPage = () => {
             </AnimationGroup>
           </div>
         </section>
-        
+
         <CMSList collection="projects" maxItems={2} excludeSlug={slug} />
 
       </main>

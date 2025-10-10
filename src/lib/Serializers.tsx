@@ -8,6 +8,11 @@ const serializers: PortableTextComponents = {
     h2: ({ children }) => <h2>{children}</h2>,
     h3: ({ children }) => <h3>{children}</h3>,
     h6: ({ children }) => <h6 className="mt-6">{children}</h6>,
+    blockquote: ({ children }) => (
+      <blockquote className="my-6 pl-4 py-3 border-l-4 font-inter text-[20px] border-darkgray bg-white/2 text-white">
+        {children}
+      </blockquote>
+    ),
   },
   types: {
     image: ({ value }) => {

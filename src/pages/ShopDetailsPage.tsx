@@ -13,7 +13,7 @@ import Checkout from "@/components/ui/Checkout";
 
 interface ShopDetailsProp {
     title: string;
-    description: any;
+    description: string;
     coverImage: any;
     content: any;
     tags: string[];
