@@ -22,11 +22,12 @@ const Checkout = ({ isOpen, onClose, url }: CheckoutProps) => {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm"
+      className={`fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm transition-opacity duration-300 ${isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
       onClick={onClose}
     >
       <div
-        className="relative bg-darkgray rounded-2xl w-[90%] max-w-2xl aspect-[4/5] overflow-hidden border border-white/10"
+        className="relative bg-darkgray rounded-2xl w-[95%] max-w-lg sm:max-w-2xl h-[80vh] overflow-hidden border border-white/10"
         onClick={(e) => e.stopPropagation()}
       >
         <iframe
@@ -42,6 +43,7 @@ const Checkout = ({ isOpen, onClose, url }: CheckoutProps) => {
           ×
         </button>
       </div>
+
     </div>
   );
 };

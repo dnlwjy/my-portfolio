@@ -8,7 +8,9 @@ export const shop = defineType({
     { name: "title", title: "Title", type: "string" },
     { name: "slug", title: "Slug", type: "slug", options: { source: "title" } },
     { name: "coverImage", title: "Cover Image", type: "image" },
-    { name: "price",
+    { name: "featured", title: "Featured", type: "boolean", initialValue: false, description: "Mark this item as featured" },
+    {
+      name: "price",
       title: "Price",
       type: "number",
       validation: (Rule) => Rule.min(0).error("Bro, harga masa bisa minus"),
@@ -23,7 +25,7 @@ export const shop = defineType({
     {
       name: "description",
       title: "Description",
-      type: "text" 
+      type: "text"
     },
     {
       name: "content",
@@ -42,7 +44,8 @@ export const shop = defineType({
         },
       ],
     },
-    { name: "checkout",
+    {
+      name: "checkout",
       title: "Checkout Link",
       type: "url",
       validation: (Rule) => Rule.uri({

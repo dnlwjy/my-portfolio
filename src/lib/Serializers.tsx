@@ -3,9 +3,9 @@ import { urlFor } from "@/sanityClient";
 
 const serializers: PortableTextComponents = {
   block: {
-    normal: ({ children }) => <p className="font-normal">{children}</p>,
+    normal: ({ children }) => <p className="mb-4">{children}</p>,
     h1: ({ children }) => <h1>{children}</h1>,
-    h2: ({ children }) => <h2>{children}</h2>,
+    h2: ({ children }) => <h2 className='mt-8'>{children}</h2>,
     h3: ({ children }) => <h3>{children}</h3>,
     h6: ({ children }) => <h6 className="mt-6 mb-[-10px]">{children}</h6>,
     blockquote: ({ children }) => (
@@ -20,7 +20,7 @@ const serializers: PortableTextComponents = {
         <img
           src={urlFor(value).url()}
           alt={value.alt || "Project image"}
-          className="rounded-lg mt-4 mb-12 border border-white/5"
+          className="rounded-lg my-4 border border-white/5"
         />
       );
     },

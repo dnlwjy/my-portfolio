@@ -89,8 +89,8 @@ const AboutPage = ({ maxItems }: AboutPageProps) => {
             </div>
           </AnimationGroup>
         </section>
-        <CMSList collection="stack" CardComponent={ItemCard3} cols={2} ViewAll={false} />
-        <CMSList collection="setup" CardComponent={ItemCard3} cols={2} ViewAll={false} />
+        <CMSList collection="stack" heading="My Stack" CardComponent={ItemCard3} cols={2} ViewAll={false} />
+        <CMSList collection="setup" heading="Desk Setup" CardComponent={ItemCard3} cols={2} ViewAll={false} />
       </main>
       <Footer />
     </>
