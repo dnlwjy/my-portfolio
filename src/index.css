@@ -30,7 +30,7 @@ h3 {
   @apply font-playfair text-[18px] md:text-[20px] tracking-[-1px] leading-[1.1] font-normal text-white
 }
 h6 {
-  @apply font-inter text-[24px] md:text-[32px] tracking-[-1px] leading-[1.5] font-normal text-white
+  @apply font-inter text-[20px] md:text-[24px] tracking-[-1px] leading-[1.7] font-normal text-white
 }
 
 p {

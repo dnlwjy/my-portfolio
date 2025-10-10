@@ -10,6 +10,14 @@ export const shop = defineType({
     { name: "coverImage", title: "Cover Image", type: "image" },
     { name: "featured", title: "Featured", type: "boolean", initialValue: false, description: "Mark this item as featured" },
     {
+      name: "images",
+      title: "Images",
+      type: "array",
+      of: [{ type: "image", options: { hotspot: true } }],
+      description: "Additional images for this product (up to 4)",
+      validation: (Rule) => Rule.max(4),
+    },
+    {
       name: "price",
       title: "Price",
       type: "number",
