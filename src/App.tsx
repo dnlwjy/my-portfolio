@@ -15,7 +15,7 @@ const App = () => (
   <QueryClientProvider client={queryClient}>
       <Sonner />
       <BrowserRouter>
-        <div className="max-w-[900px] p-6 mx-auto">
+        <div className="max-w-[900px] p-6 mx-auto overflow-hidden">
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/projects" element={<ProjectsPage />} />

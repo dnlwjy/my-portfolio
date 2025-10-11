@@ -28,7 +28,7 @@ const Hero = () => {
           <AnimationGroup
             delay={1300}
             direction="up"
-            className="flex justify-center gap-3"
+            className="flex flex-wrap justify-center gap-3"
           >
             <Button
               onClick={() => {
