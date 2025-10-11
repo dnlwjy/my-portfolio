@@ -59,7 +59,7 @@ const ProjectDetailsPage = () => {
     <>
       <Header />
       <main>
-        <section id={project.title} className="flex flex-col mx-auto md:pt-40 pt-20 gap-10 w-full">
+        <section id={project.title} className="flex flex-col mx-auto md:pt-40 pt-28 gap-10 w-full">
 
           <AnimationGroup className="flex flex-col gap-4" delay={100}>
             <div className="flex flex-wrap gap-2">

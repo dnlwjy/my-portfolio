@@ -62,7 +62,7 @@ const ShopDetailsPage = () => {
         <>
             <Header />
             <main>
-                <section id={shop.title} className="flex flex-col mx-auto md:pt-40 pt-20 gap-10 w-full">
+                <section id={shop.title} className="flex flex-col mx-auto md:pt-40 pt-28 gap-10 w-full">
 
                     <AnimationGroup delay={100} className="flex-1 flex flex-col gap-10">
 
