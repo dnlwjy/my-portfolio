@@ -4,7 +4,7 @@ const LoadingScreen = () => {
             <img
             src="/uploads/dw-logo.svg"
             alt="Daniel's Logo"
-            className="w-40 h-40"
+            className="md:w-40 md:h-40 w-20 h-20"
           />
         </div>
 
