@@ -109,13 +109,13 @@ const Header = () => {
           >
             {/* Content with movement */}
             <motion.div
-              className="flex flex-col items-center justify-center gap-20"
+              className="flex flex-col items-center justify-center gap-12 pt-6"
               initial={{ y: 40, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: 40, opacity: 0 }}
               transition={{ type: "spring", stiffness: 200, damping: 20 }}
             >
-              <ul className="flex flex-col items-center gap-10">
+              <ul className="flex flex-col items-center gap-6">
                 {navLinks.map(({ title, link }, i) => (
                   <AnimationGroup key={link} delay={100 + i * 100}>
                     <li>
