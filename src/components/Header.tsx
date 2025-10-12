@@ -123,7 +123,7 @@ const Header = () => {
                         title={title}
                         link={link}
                         onClick={() => setOverlayOpen(false)}
-                        style={{ fontSize: "32px" }}
+                        style={{ fontSize: "24px" }}
                       />
                     </li>
                   </AnimationGroup>
@@ -139,7 +139,7 @@ const Header = () => {
                         icon={link.icon}
                         label={link.label}
                         href={link.href}
-                        className="w-9 h-9"
+                        className="w-8 h-8"
                       />
                     </li>
                   ))}
