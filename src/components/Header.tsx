@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { flushSync } from 'react-dom';
 import LinkButton from "./ui/LinkButton";
 import SocialIcon from "@/components/ui/SocialIcon";
 import Instagram from "../assets/instagram.svg?react";
@@ -6,20 +7,44 @@ import Linkedin from "../assets/linkedin.svg?react";
 import Github from "../assets/github.svg?react";
 import Hamburger from "@/components/ui/Hamburger";
 import { HashLink } from "react-router-hash-link";
-
-const SocialLinks = [
-  { icon: Linkedin, href: "https://www.linkedin.com/in/dnlwjy/", label: "Linkedin" },
-  { icon: Instagram, href: "https://www.instagram.com/dnlwjy_/", label: "Instagram" },
-  { icon: Github, href: "https://github.com/dnlwjy/", label: "Github" },
-];
+import AnimationGroup from "./ui/AnimationGroup";
+import { motion, AnimatePresence } from "framer-motion";
 
 const Header = () => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [hamburgerOpen, setHamburgerOpen] = useState(false);
+  const [overlayOpen, setOverlayOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  const SocialLinks = [
+    { icon: Linkedin, href: "https://www.linkedin.com/in/dnlwjy/", label: "Linkedin" },
+    { icon: Instagram, href: "https://www.instagram.com/dnlwjy_/", label: "Instagram" },
+    { icon: Github, href: "https://github.com/dnlwjy/", label: "Github" },
+  ];
+
+  const navLinks = [
+    { title: "About", link: "/about" },
+    { title: "Projects", link: "/projects" },
+    { title: "Shop", link: "/shop" },
+    { title: "Contact", link: "/#contact" },
+  ];
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   return (
     <header className="fixed z-50 left-0 top-0 lg:h-screen h-24 w-full lg:w-40 flex flex-row lg:flex-col lg:py-12 px-6 justify-between items-center">
+      {/* Main Navigation */}
       <nav className="flex lg:flex-col lg:space-y-10 items-center justify-between w-full" aria-label="Main navigation">
-        <HashLink to="/#home" aria-label="Homepage">
+        <HashLink
+          to="/#home"
+          aria-label="Homepage"
+          className="relative z-[70]"
+          onClick={() => setOverlayOpen(false)}
+        >
           <img
             src="/uploads/dw-logo.svg"
             alt="Daniel's Logo"
@@ -28,16 +53,28 @@ const Header = () => {
         </HashLink>
 
         <div className="lg:hidden">
-          <Hamburger isOpen={mobileMenuOpen} toggle={() => setMobileMenuOpen(!mobileMenuOpen)} />
+          <Hamburger
+            isOpen={hamburgerOpen}
+            toggle={() => {
+              if (!overlayOpen) {
+                // open overlay and show X immediately
+                try {
+                  flushSync(() => setHamburgerOpen(true));
+                } catch (e) {
+                  // fallback if flushSync not available
+                  setHamburgerOpen(true);
+                }
+                setOverlayOpen(true);
+              } else {
+                // close overlay first; hamburger will reset after exit
+                setOverlayOpen(false);
+              }
+            }}
+          />
         </div>
 
         <ul className="flex-col space-y-8 hidden lg:flex">
-          {[
-            { title: "About", link: "/about" },
-            { title: "Projects", link: "/projects" },
-            { title: "Shop", link: "/shop" },
-            { title: "Contact", link: "/#contact" }
-          ].map(({ title, link }) => (
+          {navLinks.map(({ title, link }) => (
             <li key={link}>
               <LinkButton
                 title={title}
@@ -47,9 +84,9 @@ const Header = () => {
             </li>
           ))}
         </ul>
-
       </nav>
 
+      {/* Desktop Social */}
       <nav className="hidden lg:flex" aria-label="Social media">
         <ul className="flex flex-col space-y-6">
           {SocialLinks.map((link) => (
@@ -59,6 +96,60 @@ const Header = () => {
           ))}
         </ul>
       </nav>
+
+      {/* Mobile Overlay */}
+      <AnimatePresence onExitComplete={() => setHamburgerOpen(false)}>
+        {overlayOpen && (
+          <motion.div
+            className="fixed inset-0 bg-black z-40 flex items-center justify-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ type: "spring", stiffness: 200, damping: 20 }}
+          >
+            {/* Content with movement */}
+            <motion.div
+              className="flex flex-col items-center justify-center gap-20"
+              initial={{ y: 40, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              exit={{ y: 40, opacity: 0 }}
+              transition={{ type: "spring", stiffness: 200, damping: 20 }}
+            >
+              <ul className="flex flex-col items-center gap-10">
+                {navLinks.map(({ title, link }, i) => (
+                  <AnimationGroup key={link} delay={100 + i * 100}>
+                    <li>
+                      <LinkButton
+                        title={title}
+                        link={link}
+                        onClick={() => setOverlayOpen(false)}
+                        style={{ fontSize: "32px" }}
+                      />
+                    </li>
+                  </AnimationGroup>
+                ))}
+              </ul>
+
+              {/* Mobile Social */}
+              <AnimationGroup delay={600}>
+                <ul className="flex space-x-10">
+                  {SocialLinks.map((link) => (
+                    <li key={link.label}>
+                      <SocialIcon
+                        icon={link.icon}
+                        label={link.label}
+                        href={link.href}
+                        className="w-9 h-9"
+                      />
+                    </li>
+                  ))}
+                </ul>
+              </AnimationGroup>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
     </header>
   );
 };

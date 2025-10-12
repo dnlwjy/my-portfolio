@@ -1,24 +1,23 @@
-import React from "react";
-
 interface HamburgerProps {
   isOpen: boolean;
   toggle: () => void;
 }
 
-const Hamburger: React.FC<HamburgerProps> = ({ isOpen, toggle }) => {
+const Hamburger = ({ isOpen, toggle }: HamburgerProps) => {
   return (
     <button
+      type="button"
       aria-label="Toggle menu"
       onClick={toggle}
-      className="relative w-8 h-6 flex flex-col justify-between items-center"
+      className="relative w-8 h-8 flex items-center justify-center z-[60]"
     >
       <span
-        className={`block h-0.5 w-full bg-white transition-transform duration-300 origin-center
-          ${isOpen ? "rotate-45 translate-y-2" : ""}`}
+        className={`absolute left-0 right-0 h-[2px] bg-white transform transition duration-150 ease-in-out origin-center
+          ${isOpen ? 'top-1/2 translate-y-[-50%] rotate-45' : 'top-2'}`}
       />
       <span
-        className={`block h-0.5 w-full bg-white transition-transform duration-300 origin-center
-          ${isOpen ? "-rotate-45 -translate-y-2" : ""}`}
+        className={`absolute left-0 right-0 h-[2px] bg-white transform transition duration-150 ease-in-out origin-center
+          ${isOpen ? 'top-1/2 translate-y-[-50%] -rotate-45' : 'bottom-2'}`}
       />
     </button>
   );

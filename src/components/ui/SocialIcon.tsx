@@ -4,9 +4,15 @@ type SocialIconProps = {
   icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   href: string;
   label: string;
+  className?: string;
 };
 
-const SocialIcon = ({ icon: Icon, href, label }: SocialIconProps) => {
+const SocialIcon = ({
+  icon: Icon,
+  href,
+  label,
+  className
+}: SocialIconProps) => {
   return (
     <a
       href={href}
@@ -15,7 +21,7 @@ const SocialIcon = ({ icon: Icon, href, label }: SocialIconProps) => {
       className="text-gray hover:text-white transition-colors duration-300"
       aria-label={label}
     >
-      <Icon className="w-6 h-6"/>
+      <Icon className={`w-6 h-6 ${className || ""}`} />
     </a>
   );
 };
