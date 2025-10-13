@@ -12,7 +12,7 @@ const Tag = ({ title, price }: TagProps) => {
   };
 
   return (
-    <span className="inline-flex items-center w-fit px-3 rounded-full font-medium border border-darkgray h-8">
+    <span className="inline-flex items-center w-fit px-4 rounded-full font-medium border border-darkgray h-8">
       {renderPrice()}
       {title && (
         <p className="text-[14px] font-medium text-white">{title}</p>
