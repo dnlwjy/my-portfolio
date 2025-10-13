@@ -30,8 +30,8 @@ const serializers: PortableTextComponents = {
     number: ({ children }) => <ol className="list-decimal ml-6 mb-4"><p>{children}</p></ol>,
   },
   listItem: {
-    bullet: ({ children }) => <li className="mb-2"><p>{children}</p></li>,
-    number: ({ children }) => <li className="mb-2"><p>{children}</p></li>,
+    bullet: ({ children }) => <li className="mb-0"><p>{children}</p></li>,
+    number: ({ children }) => <li className="mb-0"><p>{children}</p></li>,
   },
   marks: {
     strong: ({ children }) => <strong>{children}</strong>,
@@ -40,7 +40,7 @@ const serializers: PortableTextComponents = {
     link: ({ value, children }) => (
       <a
         href={value?.href}
-        className="text-white hover:underline"
+        className="text-white hover:underline text-[18px] md:text-[20px] font-normal"
         target={value?.blank ? "_blank" : "_self"}
         rel={value?.blank ? "noopener noreferrer" : undefined}
       >
