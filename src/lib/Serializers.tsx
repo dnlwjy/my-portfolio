@@ -7,7 +7,7 @@ const serializers: PortableTextComponents = {
     h1: ({ children }) => <h1>{children}</h1>,
     h2: ({ children }) => <h2 className='mt-12 mb-4'>{children}</h2>,
     h3: ({ children }) => <h3>{children}</h3>,
-    h6: ({ children }) => <h6>{children}</h6>,
+    h6: ({ children }) => <h6 className='pb-1 pt-6'>{children}</h6>,
     blockquote: ({ children }) => (
       <blockquote className="my-6 pl-4 py-3 border-l-4 font-inter text-[20px] border-darkgray bg-white/2 text-white">
         {children}
