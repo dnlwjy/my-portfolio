@@ -26,12 +26,12 @@ const serializers: PortableTextComponents = {
     },
   },
   list: {
-    bullet: ({ children }) => <ul className="list-disc ml-6 mb-4">{children}</ul>,
-    number: ({ children }) => <ol className="list-decimal ml-6 mb-4">{children}</ol>,
+    bullet: ({ children }) => <ul className="list-disc ml-6 mb-4"><p>{children}</p></ul>,
+    number: ({ children }) => <ol className="list-decimal ml-6 mb-4"><p>{children}</p></ol>,
   },
   listItem: {
-    bullet: ({ children }) => <li className="mb-2">{children}</li>,
-    number: ({ children }) => <li className="mb-2">{children}</li>,
+    bullet: ({ children }) => <li className="mb-2"><p>{children}</p></li>,
+    number: ({ children }) => <li className="mb-2"><p>{children}</p></li>,
   },
   marks: {
     strong: ({ children }) => <strong>{children}</strong>,

@@ -43,7 +43,14 @@ const Header = () => {
           to="/#home"
           aria-label="Homepage"
           className="relative z-[70]"
-          onClick={() => setOverlayOpen(false)}
+          onClick={() => {
+            try {
+              flushSync(() => setHamburgerOpen(false));
+            } catch (e) {
+              setHamburgerOpen(false);
+            }
+            setOverlayOpen(false);
+          }}
         >
           <img
             src="/uploads/dw-logo.svg"
@@ -66,7 +73,12 @@ const Header = () => {
                 }
                 setOverlayOpen(true);
               } else {
-                // close overlay first; hamburger will reset after exit
+                // close: immediately revert hamburger then start overlay exit
+                try {
+                  flushSync(() => setHamburgerOpen(false));
+                } catch (e) {
+                  setHamburgerOpen(false);
+                }
                 setOverlayOpen(false);
               }
             }}
@@ -109,13 +121,13 @@ const Header = () => {
           >
             {/* Content with movement */}
             <motion.div
-              className="flex flex-col items-center justify-center gap-16 pt-8"
+              className="flex flex-col items-center justify-center gap-20"
               initial={{ y: 40, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: 40, opacity: 0 }}
               transition={{ type: "spring", stiffness: 200, damping: 20 }}
             >
-              <ul className="flex flex-col items-center gap-8">
+              <ul className="flex flex-col items-center gap-10">
                 {navLinks.map(({ title, link }, i) => (
                   <AnimationGroup key={link} delay={100 + i * 100}>
                     <li>
@@ -123,7 +135,7 @@ const Header = () => {
                         title={title}
                         link={link}
                         onClick={() => setOverlayOpen(false)}
-                        style={{ fontSize: "28px" }}
+                        style={{ fontSize: "32px" }}
                       />
                     </li>
                   </AnimationGroup>
@@ -132,14 +144,14 @@ const Header = () => {
 
               {/* Mobile Social */}
               <AnimationGroup delay={600}>
-                <ul className="flex space-x-8">
+                <ul className="flex space-x-10">
                   {SocialLinks.map((link) => (
                     <li key={link.label}>
                       <SocialIcon
                         icon={link.icon}
                         label={link.label}
                         href={link.href}
-                        className="w-8 h-8"
+                        className="w-9 h-9"
                       />
                     </li>
                   ))}
