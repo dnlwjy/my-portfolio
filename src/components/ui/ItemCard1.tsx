@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Tag from "./Tag";
 
 interface ProjectCardProps {
   title: string;
@@ -27,7 +28,10 @@ const ItemCard1 = ({
         </Link>
       </div>
       <div className="flex flex-col text-start gap-2">
-        <h3>{title}</h3>
+        <div className="flex justify-between items-center gap-6">
+          <h3>{title}</h3>
+          {price !== undefined && <Tag price={price === 0 ? 'FREE' : price} />}
+        </div>
         <p
           className="text-[16px]"
           style={{
@@ -40,7 +44,7 @@ const ItemCard1 = ({
         >
           {description}
         </p>
-        {price && <span className="text-sm text-gray-400">${price}</span>}
+
       </div>
     </div>
   );
