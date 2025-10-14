@@ -9,7 +9,6 @@ import {
   FormProvider,
   useFormContext,
 } from "react-hook-form"
-import { cn } from "@/lib/utils"
 import { Label } from "@/components/ui/label"
 
 const Form = FormProvider
@@ -95,7 +94,6 @@ const FormLabel = React.forwardRef<
   return (
     <Label
       ref={ref}
-      className={cn(error)}
       htmlFor={formItemId}
       {...props}
     />
@@ -149,9 +147,7 @@ const FormMessage = React.forwardRef<
   const { error, formMessageId } = useFormField()
   const body = error ? String(error?.message) : children
 
-  if (!body) {
-    return null
-  }
+  if (!body) return null
 
   return (
     <p
