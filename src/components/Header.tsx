@@ -5,7 +5,7 @@ import SocialIcon from "@/components/ui/SocialIcon";
 import Instagram from "../assets/instagram.svg?react";
 import Linkedin from "../assets/linkedin.svg?react";
 import Github from "../assets/github.svg?react";
-import Hamburger from "@/components/ui/Hamburger";
+import { HamburgerX } from "@/components/ui/Hamburger";
 import { HashLink } from "react-router-hash-link";
 import AnimationGroup from "./ui/AnimationGroup";
 import { motion, AnimatePresence } from "framer-motion";
@@ -25,7 +25,7 @@ const Header = () => {
     { title: "About", link: "/about" },
     { title: "Projects", link: "/projects" },
     { title: "Shop", link: "/shop" },
-    { title: "Contact", link: "/#contact" },
+    { title: "Contact", link: "/contact" },
   ];
 
   useEffect(() => {
@@ -60,20 +60,17 @@ const Header = () => {
         </HashLink>
 
         <div className="lg:hidden">
-          <Hamburger
+          <HamburgerX
             isOpen={hamburgerOpen}
             toggle={() => {
               if (!overlayOpen) {
-                // open overlay and show X immediately
                 try {
                   flushSync(() => setHamburgerOpen(true));
                 } catch (e) {
-                  // fallback if flushSync not available
                   setHamburgerOpen(true);
                 }
                 setOverlayOpen(true);
               } else {
-                // close: immediately revert hamburger then start overlay exit
                 try {
                   flushSync(() => setHamburgerOpen(false));
                 } catch (e) {
@@ -117,7 +114,7 @@ const Header = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ type: "spring", stiffness: 200, damping: 20 }}
+            transition={{ type: "spring", stiffness: 200, damping: 10 }}
           >
             {/* Content with movement */}
             <motion.div

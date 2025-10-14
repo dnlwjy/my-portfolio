@@ -2,8 +2,10 @@ import AnimationText from "./ui/AnimationText";
 import Ava from "./Ava";
 import Button from "@/components/ui/Button";
 import AnimationGroup from "./ui/AnimationGroup";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
+  const navigate = useNavigate();
 
   return (
     <section id="home" className="h-screen w-full flex p-4 items-center justify-center">
@@ -29,12 +31,7 @@ const Hero = () => {
             delay={1300}
             className="flex justify-center gap-3"
           >
-            <Button
-              onClick={() => {
-                const el = document.getElementById("contact");
-                if (el) el.scrollIntoView({ behavior: "smooth" });
-              }}
-            >
+            <Button onClick={() => navigate("/contact")}>
               Contact me
             </Button>
             <Button

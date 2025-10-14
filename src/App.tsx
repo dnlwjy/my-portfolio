@@ -8,6 +8,7 @@ import ShopPage from "./pages/ShopPage";
 import ProjectsPage from "./pages/ProjectsPage";
 import AboutPage from "./pages/AboutPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import ContactPage from "./pages/ContactPage";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +25,7 @@ const App = () => (
             <Route path="/shop" element={<ShopPage />} />
             <Route path="/shop/:slug" element={<ShopDetailsPage />} />
             <Route path="*" element={<NotFoundPage />} />
+            <Route path="/contact" element={<ContactPage />} />
           </Routes>
         </div>
       </BrowserRouter>
