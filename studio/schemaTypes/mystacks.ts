@@ -20,5 +20,13 @@ export const stack = defineType({
       title: "Description",
       type: "text"
     },
+    {
+      name: 'sortOrder',
+      title: 'Sort Order',
+      type: 'number',
+      description: 'Lower numbers appear first. Use whole numbers (0,1,2...).',
+      initialValue: 0,
+      validation: (Rule) => Rule.integer().min(0)
+    },
   ],
 });
