@@ -16,7 +16,7 @@ import AnimationGroup from "./ui/AnimationGroup";
 const RECAPTCHA_SITE_KEY = "6Ld3wTIrAAAAAAZdro17b1BoqdzbudrhayMGT9NZ";
 
 const formSchema = z.object({
-  name: z.string().min(2, { message: "Name must be at least 2 characters." }),
+  name: z.string().min(2, { message: "Please fill in your name." }),
   email: z.string().email({ message: "Please enter a valid email address." }),
   message: z.string().min(10, { message: "Message must be at least 10 characters." }),
   recaptcha: z.string().min(1, { message: "Please complete the reCAPTCHA verification." })
