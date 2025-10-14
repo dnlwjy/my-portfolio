@@ -38,8 +38,8 @@ const CMSList = ({
 
   useEffect(() => {
     const query = featuredOnly
-      ? `*[_type == $collection && featured == true]`
-      : `*[_type == $collection]`;
+      ? `*[_type == $collection && featured == true] | order(_rank asc)`
+      : `*[_type == $collection] | order(_rank asc)`;
 
     client
       .fetch(query, { collection })
