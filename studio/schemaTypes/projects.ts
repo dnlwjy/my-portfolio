@@ -18,7 +18,6 @@ export const projects = defineType({
         scheme: ['http', 'https']
       }).error("Masukin yang bener bro"),
     },
-
     {
       name: "tags",
       title: "Tags",

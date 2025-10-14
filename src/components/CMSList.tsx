@@ -1,4 +1,4 @@
-import { Component, useEffect, useState, ComponentType } from "react";
+import { useEffect, useState, ComponentType } from "react";
 import ItemCard1 from "@/components/ui/ItemCard1";
 import { client, urlFor } from "@/sanityClient";
 import AnimationGroup from "./ui/AnimationGroup";
@@ -29,7 +29,6 @@ const CMSList = ({
   maxItems,
   featuredOnly = false,
   collection,
-  showPrice = false,
   excludeSlug,
   ViewAll = true,
   cols = 2,

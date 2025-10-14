@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ItemCard3 from "@/components/ui/ItemCard3";
-import { client, urlFor } from "@/sanityClient";
+import { client } from "@/sanityClient";
 import image from "@/assets/me.jpg";
 import AnimationText from "@/components/ui/AnimationText";
 import AnimationGroup from "@/components/ui/AnimationGroup";
@@ -22,7 +21,6 @@ interface AboutPageProps {
 }
 
 const AboutPage = ({ maxItems }: AboutPageProps) => {
-  const location = useLocation();
   const [items, setItems] = useState<AboutPageItem[]>([]);
   const [loaded, setLoaded] = useState(false);
 
