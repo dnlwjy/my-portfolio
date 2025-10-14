@@ -106,8 +106,7 @@ const CMSList = ({
           return (
             <AnimationGroup
               key={item._id}
-              delay={index * 150 + 100}
-              direction="up"
+              delay={index * 100 + 100}
             >
               <CardComponent {...props} />
             </AnimationGroup>
