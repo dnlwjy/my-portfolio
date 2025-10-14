@@ -14,8 +14,8 @@ export const shop = defineType({
       title: "Images",
       type: "array",
       of: [{ type: "image", options: { hotspot: true } }],
-      description: "Additional images for this product (up to 4)",
-      validation: (Rule) => Rule.max(4),
+      description: "Additional images for this product (up to 3)",
+      validation: (Rule) => Rule.max(3),
     },
     {
       name: "price",

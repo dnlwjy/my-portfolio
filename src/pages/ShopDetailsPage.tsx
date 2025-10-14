@@ -132,7 +132,7 @@ const ShopDetailsPage = () => {
 
 export default ShopDetailsPage;
 
-// Local carousel component to combine coverImage + images[]
+// Local carousel component to combine CoverImage + images[]
 const CarouselImages = ({ shop, title }: any) => {
     const slides: any[] = [];
     if (shop.coverImage) slides.push(shop.coverImage);
