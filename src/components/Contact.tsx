@@ -13,7 +13,7 @@ import ContactCard from "./ui/ContactCard";
 import AnimationText from "./ui/AnimationText";
 import AnimationGroup from "./ui/AnimationGroup";
 
-const RECAPTCHA_SITE_KEY = "6Ld3wTIrAAAAAAZdro17b1BoqdzbudrhayMGT9NZ";
+const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Please fill in your name." }),
@@ -86,7 +86,10 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" aria-label="Get in touch" className="py-40 text-center justify-center items-center flex flex-col gap-10 mx-auto w-full">
+    <section
+      id="contact"
+      aria-label="Get in touch"
+      className="py-40 text-center justify-center items-center flex flex-col gap-10 mx-auto w-full">
 
         <h2 className="text-[44px] md:text-[72px] mb-10">
           <AnimationText
