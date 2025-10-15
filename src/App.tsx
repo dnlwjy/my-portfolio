@@ -14,7 +14,7 @@ const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-      <Sonner />
+      <Sonner richColors/>
       <BrowserRouter>
         <div className="max-w-[900px] p-6 mx-auto overflow-hidden">
           <Routes>
