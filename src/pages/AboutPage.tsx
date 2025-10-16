@@ -77,13 +77,10 @@ const AboutPage = ({ maxItems }: AboutPageProps) => {
               I'm Daniel, a designer and developer focused on creating user-friendly experiences and building robust, efficient systems...
             </p>
             <p>
-              Believe it or not, before design I was a classical pianist student and wanted to be a composer but instead graduated with a degree in graphic design.
+              Believe it or not, before design I was a classical pianist student and wanted to be a composer but instead graduated with a degree in graphic design. Today, I’m a designer and developer skilled in Figma, Framer, and modern web technologies like React, TypeScript, and Tailwind CSS. Over the years, I’ve collaborated remotely with clients from Australia, New Zealand, the US, and the Netherlands — experiences that shaped both my skills and adaptability.
             </p>
             <p>
-              As both a designer and developer, I specialize in user and product quality. I excel in balancing good design and good performance. Besides, I also have a solid background in graphic design, bringing traditional design into a digitized world. I am passionate about staying updated with the latest technology and design trends.
-            </p>
-            <p>
-              If you’re interested in the software and hardware I use, you may check out my resources page. Meanwhile, you can also explore my other passion in music <a href="https://open.spotify.com/album/03Plro1zFGUdv4JQfrSkfR" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray transition-colors duration-300">composing piano music</a>.
+              I’m also eager to work on-site as a full-time team member, not only to grow professionally but to build meaningful connections with creative, passionate people in the industry. If you’re interested in the music I have produced, you may check out my <a href="https://open.spotify.com/album/03Plro1zFGUdv4JQfrSkfR" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray transition-colors duration-300">Spotify page</a>.
             </p>
           </AnimationGroup>
         </section>
