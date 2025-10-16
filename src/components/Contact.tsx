@@ -19,6 +19,13 @@ import ContactCard from './ui/ContactCard';
 import AnimationText from './ui/AnimationText';
 import AnimationGroup from './ui/AnimationGroup';
 import { toast } from 'sonner';
+import { FunctionsHttpError, FunctionsRelayError, FunctionsFetchError } from "@supabase/supabase-js";
+import {
+  generateOwnerNotificationEmail,
+  generateOwnerNotificationSubject,
+  generateUserConfirmationEmail,
+  generateUserConfirmationSubject,
+} from '@/templates/emails';
 
 const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
 
@@ -51,8 +58,6 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      console.log('Submitting form data:', data);
-
       // Submit to Supabase
       const { error } = await supabase.from('form_submissions').insert([
         {
@@ -64,21 +69,86 @@ const Contact = () => {
       ]);
 
       if (error) {
-        console.error('Error submitting form:', error);
-        throw error;
+        throw new Error('Failed to save form data');
+      }
+
+      // Generate email template for owner (with reply-to to user's email)
+      const emailToOwnerHTML = generateOwnerNotificationEmail({
+        name: data.name,
+        email: data.email,
+        message: data.message,
+      });
+
+      const ownerSubject = generateOwnerNotificationSubject(data.name);
+
+      // Send email to owner with reply-to set to user's email
+      const { data: emailOwnerData, error: sendEmailError } = await supabase.functions.invoke('send-emails', {
+        body: {
+          email: data.email,
+          subject: ownerSubject,
+          message: emailToOwnerHTML,
+          sendToMe: true,
+          replyTo: data.email, // This makes the reply button go directly to user's email
+          senderName: data.name
+        },
+      });
+
+      if (sendEmailError) {
+        if (sendEmailError instanceof FunctionsHttpError) {
+          const errorData = await sendEmailError.context.json();
+          throw new Error('Failed to send email to owner: ' + JSON.stringify(errorData));
+        } else if (sendEmailError instanceof FunctionsRelayError) {
+          throw new Error('Relay error: ' + sendEmailError.message);
+        } else if (sendEmailError instanceof FunctionsFetchError) {
+          throw new Error('Network error: ' + sendEmailError.message);
+        }
+        throw new Error('Failed to send email to owner');
+      }
+
+      // Generate confirmation email template for user
+      const emailToUserHTML = generateUserConfirmationEmail({
+        name: data.name,
+        email: data.email,
+        message: data.message,
+      });
+
+      const userSubject = generateUserConfirmationSubject();
+
+      // Send confirmation email to user
+      const { data: emailUserData, error: sendEmailNotification } = await supabase.functions.invoke('send-emails', {
+        body: {
+          email: data.email,
+          subject: userSubject,
+          message: emailToUserHTML,
+          sendToMe: false
+        },
+      });
+
+      if (sendEmailNotification) {
+        if (sendEmailNotification instanceof FunctionsHttpError) {
+          const errorData = await sendEmailNotification.context.json();
+          console.error('HTTP Error sending notification:', errorData);
+          // Don't throw error since main email was already sent
+          console.warn('Confirmation email failed to send, but form submission succeeded');
+        } else if (sendEmailNotification instanceof FunctionsRelayError) {
+          console.error('Relay Error:', sendEmailNotification.message);
+        } else if (sendEmailNotification instanceof FunctionsFetchError) {
+          console.error('Fetch Error:', sendEmailNotification.message);
+        }
+        // Continue since email to owner was already sent
       }
 
       toast.success('Message sent!', {
-        description: "Thanks for reaching out. I'll get back to you soon.",
+        description: "Thank you for reaching out. I'll get back to you soon.",
       });
 
       // Reset form and reCAPTCHA after successful submission
       form.reset();
       recaptchaRef.current?.reset();
     } catch (error) {
-      console.error('Error submitting form:', error);
-      toast.error('Something went wrong', {
-        description: "Your message couldn't be sent. Please try again later.",
+      const errorMessage = error instanceof Error ? error.message : 'An error occurred';
+      toast.error('Failed to send message', {
+        description: errorMessage + '. Please try again or contact directly via email.',
       });
     } finally {
       setIsSubmitting(false);
