@@ -13,7 +13,7 @@ import ContactCard from "./ui/ContactCard";
 import AnimationText from "./ui/AnimationText";
 import AnimationGroup from "./ui/AnimationGroup";
 
-const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
+const RECAPTCHA_SITE_KEY = "6Ld3wTIrAAAAAAZdro17b1BoqdzbudrhayMGT9NZ";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Please fill in your name." }),
