@@ -40,7 +40,10 @@ const ContactPage = () => {
             <main>
                 <Contact />
 
-                <section id="Location" className="flex flex-col w-full h-fit gap-10">
+                <section
+                    id="Location"
+                    aria-label="My Location"
+                    className="flex flex-col w-full h-fit gap-10">
                     <AnimationGroup
                         delay={100}
                         className="flex items-center gap-6 overflow-visible"
@@ -63,7 +66,8 @@ const ContactPage = () => {
                 </section>
 
                 <section
-                    id="Frequently Asked Questions"
+                    id="faq"
+                    aria-label="Frequently Asked Questions"
                     className="w-full flex flex-col gap-10 justify-center mx-auto py-20"
                 >
                     <AnimationGroup
