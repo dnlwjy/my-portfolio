@@ -88,7 +88,7 @@ const Contact = () => {
           subject: ownerSubject,
           message: emailToOwnerHTML,
           sendToMe: true,
-          replyTo: data.email, // This makes the reply button go directly to user's email
+          replyTo: data.email,
           senderName: data.name
         },
       });
