@@ -27,7 +27,7 @@ import {
   generateUserConfirmationSubject,
 } from '@/templates/emails';
 
-const RECAPTCHA_SITE_KEY = import.meta.env.VITE_RECAPTCHA_SITE_KEY;
+const RECAPTCHA_SITE_KEY = import.meta.env.VITE_PUBLIC_RECAPTCHA_SITE_KEY;
 
 const formSchema = z.object({
   name: z.string().min(2, { message: 'Please fill in your name.' }),
