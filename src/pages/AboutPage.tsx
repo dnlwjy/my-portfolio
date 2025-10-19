@@ -49,7 +49,7 @@ const AboutPage = ({ maxItems }: AboutPageProps) => {
   return (
     <>
       <Header />
-      <main className="pt-20">
+      <main className="py-10">
         <section id="about" className="flex flex-col py-20 gap-20 mx-auto w-full text-center">
           <h1>
             <AnimationText
@@ -77,10 +77,10 @@ const AboutPage = ({ maxItems }: AboutPageProps) => {
               I'm Daniel, a designer and developer focused on creating user-friendly experiences and building robust, efficient systems...
             </p>
             <p>
-              Believe it or not, before design I was a classical pianist student and wanted to be a composer but instead graduated with a degree in graphic design. Today, I’m a designer and developer skilled in Figma, Framer, and modern web technologies like React, TypeScript, and Tailwind CSS. Over the years, I’ve collaborated remotely with clients from Australia, New Zealand, the US, and the Netherlands — experiences that shaped both my skills and adaptability.
+              Believe it or not, I was once a classical pianist student and wanted to be a composer but instead graduated with a degree in graphic design. Today, I’m a designer and developer skilled in Figma, Framer, and modern web technologies like React.js, TypeScript, and Tailwind CSS. Over the years, I’ve collaborated remotely with clients from Australia, New Zealand, US, UK, and Netherlands — the experiences that shaped both my skills and adaptability.
             </p>
             <p>
-              I’m also eager to work on-site as a full-time team member, not only to grow professionally but to build meaningful connections with creative, passionate people in the industry. If you’re interested in the music I have produced, you may check out my <a href="https://open.spotify.com/album/03Plro1zFGUdv4JQfrSkfR" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray transition-colors duration-300">Spotify page</a>.
+              I’m also eager to work on-site as a full-time team member, not only to grow professionally but to build meaningful connections with creative, passionate people in the industry. You may want to view <a href="https://drive.google.com/file/d/1g2-1tF6l2J3GOTJN6D0DE1R_SZnUv4wU/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray transition-colors duration-300">my latest CV</a>. If you’re interested in the music I have produced, you may check out my <a href="https://open.spotify.com/artist/0VyiZOjAOfYc0gV7EbT4v0" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray transition-colors duration-300">Spotify page</a>.
             </p>
           </AnimationGroup>
         </section>

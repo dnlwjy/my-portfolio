@@ -37,9 +37,9 @@ const Hero = () => {
             <Button
               variant="secondary"
               onClick={() => {
-                window.open("https://github.com/dnlwjy?tab=repositories", "_blank");
+                window.open("https://drive.google.com/file/d/1g2-1tF6l2J3GOTJN6D0DE1R_SZnUv4wU/view?usp=sharing", "_blank");
               }}>
-              View Github
+              Download CV
             </Button>
           </AnimationGroup>
         </div>

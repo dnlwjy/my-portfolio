@@ -37,9 +37,9 @@ const ContactPage = () => {
     return (
         <>
             <Header />
-            <main>
+            <main className="py-10">
+                
                 <Contact />
-
                 <section
                     id="Location"
                     aria-label="My Location"

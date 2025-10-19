@@ -6,7 +6,7 @@ const ProjectsPage = () => {
     return (
         <>
             <Header />
-            <main className="py-20">
+            <main className="py-10">
                 <CMSList collection="projects" title1="All" title2="Projects"/>
             </main>
             <Footer />

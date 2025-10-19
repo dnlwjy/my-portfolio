@@ -163,7 +163,7 @@ const Contact = () => {
     <section
       id="contact"
       aria-label="Get in touch"
-      className="py-40 text-center justify-center items-center flex flex-col gap-10 mx-auto w-full"
+      className="py-20 text-center justify-center items-center flex flex-col gap-10 mx-auto w-full"
     >
       <h2 className="text-[44px] md:text-[72px] mb-10">
         <AnimationText text="Any Questions?" className="text-gray" delay={0} />
