@@ -11,6 +11,15 @@ export const generateOwnerNotificationEmail = (data: OwnerEmailData): string => 
     timeStyle: 'long'
   });
 
+  // Format pesan dengan quote style ("> ") untuk lebih stand out
+  const quotedMessage = data.message
+    .split('\n')
+    .map(line => `> ${line}`)
+    .join('\n');
+  
+  // Encode pesan untuk URL (mailto body)
+  const encodedMessage = encodeURIComponent(quotedMessage);
+
   return `
     <!DOCTYPE html>
     <html lang="en">
@@ -91,7 +100,7 @@ ${data.message}
                       <p style="margin: 0 0 20px 0; color: #495057; font-size: 15px;">
                         Click the button below to reply directly to <strong>${data.name}</strong>
                       </p>
-                      <a href="mailto:${data.email}?subject=Re: Your message to Daniel Wijaya&body=Hi ${data.name},%0D%0A%0D%0AThank you for reaching out.%0D%0A%0D%0A" 
+                      <a href="mailto:${data.email}?subject=Re: Your message to Daniel Wijaya&body=Hi ${data.name},%0D%0A%0D%0AThank you for reaching out.%0D%0A%0D%0ARegarding your message:%0D%0A${encodedMessage}%0D%0A%0D%0A[Tulis balasan Anda di sini]%0D%0A" 
                          style="display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: #ffffff; text-decoration: none; padding: 14px 40px; border-radius: 50px; font-weight: 600; font-size: 16px; transition: transform 0.2s; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);">
                         ↩️ Reply to ${data.name}
                       </a>
