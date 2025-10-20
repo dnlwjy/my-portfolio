@@ -39,7 +39,7 @@ const Hero = () => {
               onClick={() => {
                 window.open("https://drive.google.com/file/d/1g2-1tF6l2J3GOTJN6D0DE1R_SZnUv4wU/view?usp=sharing", "_blank");
               }}>
-              Download CV
+              View CV
             </Button>
           </AnimationGroup>
         </div>

@@ -103,7 +103,7 @@ const CMSList = ({
           const props = mapFields(item);
           if (!props) return null;
 
-          const delay = isMobile ? 200 : index * 150 + 300;
+          const delay = isMobile ? 300 : index * 150 + 300;
 
           return (
             <AnimationGroup key={item._id} delay={delay}>
