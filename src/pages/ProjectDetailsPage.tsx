@@ -50,6 +50,11 @@ const ProjectDetailsPage = () => {
       .catch(console.error);
   }, [slug]);
 
+  // Scroll to top when slug changes
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, [slug]);
+
   if (!project)
     return (
       <LoadingScreen />
