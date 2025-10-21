@@ -171,17 +171,21 @@ const CarouselImages = ({ shop, title }: any) => {
                     className="w-full h-full object-cover"
                 />
 
-                <button onClick={prev} aria-label="Previous slide" className="absolute left-3 top-1/2 -translate-y-1/2 z-20 p-2 md:p-3 rounded-full bg-black/30"> 
-                    <svg className="w-5 h-5 md:w-6 md:h-6 text-white" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                        <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                </button>
+                {slides.length > 1 && (
+                    <>
+                        <button onClick={prev} aria-label="Previous slide" className="absolute left-3 top-1/2 -translate-y-1/2 z-20 p-2 md:p-3 rounded-full bg-black/30"> 
+                            <svg className="w-5 h-5 md:w-6 md:h-6 text-white" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                        </button>
 
-                <button onClick={next} aria-label="Next slide" className="absolute right-3 top-1/2 -translate-y-1/2 z-20 p-2 md:p-3 rounded-full bg-black/30">
-                    <svg className="w-5 h-5 md:w-6 md:h-6 text-white" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                        <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                </button>
+                        <button onClick={next} aria-label="Next slide" className="absolute right-3 top-1/2 -translate-y-1/2 z-20 p-2 md:p-3 rounded-full bg-black/30">
+                            <svg className="w-5 h-5 md:w-6 md:h-6 text-white" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                <path d="M9 6l6 6-6 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                        </button>
+                    </>
+                )}
             </div>
 
             {slides.length > 1 && (

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { flushSync } from 'react-dom';
+import DWLogo from "@/assets/dw-logo.svg?react";
 import LinkButton from "./ui/LinkButton";
 import SocialIcon from "@/components/ui/SocialIcon";
 import Instagram from "../assets/instagram.svg?react";
@@ -52,9 +53,8 @@ const Header = () => {
             setOverlayOpen(false);
           }}
         >
-          <img
-            src="/uploads/dw-logo.svg"
-            alt="Daniel's Logo"
+          <DWLogo
+            aria-label="Go to Homepage"
             className="w-13 h-13 hover:scale-95 duration-300 ease-out"
           />
         </HashLink>
