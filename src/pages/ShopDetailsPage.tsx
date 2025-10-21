@@ -79,9 +79,9 @@ const ShopDetailsPage = () => {
                             </div>
                             <h1 className="text-wrap">{shop.title}</h1>
                             <p>{shop.description}</p>
-                            {shop?.price && (
+                            {shop?.price !== undefined && (
                                 <h2 className="font-inter">
-                                    {shop.price.toLocaleString("en-US", {
+                                    {shop.price === 0 ? 'FREE' : shop.price.toLocaleString("en-US", {
                                         style: "currency",
                                         currency: "USD",
                                     })}
