@@ -5,24 +5,47 @@ import AnimationGroup from "./ui/AnimationGroup";
 import AvaVideo from "@/assets/ava.mp4";
 
 const AvaBase = () => {
-  return (
-    <AnimationGroup delay={300} className="relative mx-auto w-[333px] h-[443px] object-cover -z-10 pointer-events-none">
-      <AspectRatio ratio={1}>
-        <video autoPlay loop muted playsInline>
-          <source src={AvaVideo} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      </AspectRatio>
+  const [scrollY, setScrollY] = useState(0);
 
-      <div className="absolute right-0 bottom-0 bg-black w-[208px] h-[64px]"></div>
-      <div
-        className="absolute inset-0"
-        style={{
-          background:
-      "radial-gradient(farthest-side at center, #12121200 80%, #121212 99%, #121212 100%)",
-        }}
-      ></div>
-    </AnimationGroup>
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const parallaxOffset = scrollY * 0.2;
+
+  return (
+    <div 
+      className="relative mx-auto w-[333px] h-[443px] -z-10"
+      style={{
+        transform: `translateY(${parallaxOffset}px)`
+      }}
+    >
+      <AnimationGroup 
+        delay={300} 
+        className="relative w-full h-full object-cover pointer-events-none"
+      >
+        <AspectRatio ratio={1}>
+          <video autoPlay loop muted playsInline>
+            <source src={AvaVideo} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+        </AspectRatio>
+
+        <div className="absolute right-0 bottom-0 bg-black w-[208px] h-[64px]"></div>
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+        "radial-gradient(farthest-side at center, #12121200 80%, #121212 99%, #121212 100%)",
+          }}
+        ></div>
+      </AnimationGroup>
+    </div>
   );
 };
 
