@@ -7,6 +7,7 @@ import image from "@/assets/me.jpg";
 import AnimationText from "@/components/ui/AnimationText";
 import AnimationGroup from "@/components/ui/AnimationGroup";
 import CMSList from "@/components/CMSList";
+import LoadingScreen from "@/components/ui/LoadingScreen";
 
 interface AboutPageItem {
   _id: string;
@@ -25,6 +26,9 @@ const AboutPage = ({ maxItems }: AboutPageProps) => {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
+    setLoaded(false);
+    setItems([]);
+    
     client.fetch(
       `*[_type == "my-stack" || _type == "desk-setup"]{
         _id, _type, name, description, image
@@ -32,7 +36,11 @@ const AboutPage = ({ maxItems }: AboutPageProps) => {
     )
       .then(data => {
         setItems(data);
-        setLoaded(true);
+        // Add a small delay to ensure smooth transition
+        setTimeout(() => {
+          setLoaded(true);
+          window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+        }, 300);
       })
       .catch(console.error);
   }, []);
@@ -45,6 +53,10 @@ const AboutPage = ({ maxItems }: AboutPageProps) => {
   }, [loaded, location]);
 
   const displayedItems = maxItems ? items.slice(0, maxItems) : items;
+
+  if (!loaded) {
+    return <LoadingScreen />;
+  }
 
   return (
     <>

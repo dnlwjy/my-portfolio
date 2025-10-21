@@ -5,6 +5,7 @@ import Contact from "@/components/Contact";
 import Accordion from "@/components/ui/Accordion";
 import AnimationGroup from "@/components/ui/AnimationGroup";
 import { client } from "@/sanityClient";
+import LoadingScreen from "@/components/ui/LoadingScreen";
 
 interface FAQItem {
     question: string;
@@ -17,6 +18,9 @@ const ContactPage = () => {
 
     useEffect(() => {
         const fetchFAQs = async () => {
+            setLoading(true);
+            setFaqs([]);
+            
             try {
                 const query = `*[_type == "faq"] | order(_createdAt asc){
           question,
@@ -24,15 +28,23 @@ const ContactPage = () => {
         }`;
                 const data = await client.fetch(query);
                 setFaqs(data);
+                // Add a small delay to ensure smooth transition
+                setTimeout(() => {
+                    setLoading(false);
+                    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                }, 300);
             } catch (error) {
                 console.error("Error fetching FAQs:", error);
-            } finally {
                 setLoading(false);
             }
         };
 
         fetchFAQs();
     }, []);
+
+    if (loading) {
+        return <LoadingScreen />;
+    }
 
     return (
         <>
@@ -78,11 +90,7 @@ const ContactPage = () => {
                         <hr className="flex-grow h-0.5 bg-darkgray" />
                     </AnimationGroup>
 
-                    {loading ? (
-                        <p className="text-white">Loading FAQs...</p>
-                    ) : (
-                        <Accordion items={faqs} />
-                    )}
+                    <Accordion items={faqs} />
                 </section>
 
             </main>

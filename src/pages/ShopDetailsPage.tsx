@@ -32,7 +32,9 @@ const ShopDetailsPage = () => {
 
     useEffect(() => {
         if (!slug) return;
+        
         setLoading(true);
+        setShop(null);
 
         client
             .fetch(
@@ -49,14 +51,18 @@ const ShopDetailsPage = () => {
                 }`,
                 { slug }
             )
-            .then((data) => setShop(data))
-            .catch(console.error)
-            .finally(() => setLoading(false));
+            .then((data) => {
+                setShop(data);
+                // Add a small delay to ensure smooth transition
+                setTimeout(() => {
+                    setLoading(false);
+                    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+                }, 300);
+            })
+            .catch(console.error);
     }, [slug]);
 
-    if (loading) return <LoadingScreen />;
-
-    if (!shop) return null;
+    if (loading || !shop) return <LoadingScreen />;
 
     return (
         <>
