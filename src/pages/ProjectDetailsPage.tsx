@@ -27,9 +27,13 @@ const ProjectDetailsPage = () => {
 
   const { slug } = useParams<{ slug: string }>();
   const [project, setProject] = useState<ProjectDetailsData | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     if (!slug) return;
+
+    setIsLoading(true);
+    setProject(null);
 
     client.fetch(
       `*[_type == "projects" && slug.current == $slug][0]{
@@ -45,17 +49,18 @@ const ProjectDetailsPage = () => {
   }`,
       { slug }
     )
-
-      .then((data) => setProject(data))
+      .then((data) => {
+        setProject(data);
+        // Add a small delay to ensure smooth transition
+        setTimeout(() => {
+          setIsLoading(false);
+          window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+        }, 300);
+      })
       .catch(console.error);
   }, [slug]);
 
-  // Scroll to top when slug changes
-  useEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-  }, [slug]);
-
-  if (!project)
+  if (isLoading || !project)
     return (
       <LoadingScreen />
     );
