@@ -2,13 +2,14 @@ import React, { useState, useEffect } from "react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { withCursorFollow } from "@/utils/withCursorFollow";
 import AnimationGroup from "./ui/AnimationGroup";
+import AvaVideo from "@/assets/ava.mp4";
 
 const AvaBase = () => {
   return (
-    <AnimationGroup delay={300} direction="up" className="relative mx-auto w-[333px] h-[443px] object-cover -z-10 pointer-events-none">
+    <AnimationGroup delay={300} className="relative mx-auto w-[333px] h-[443px] object-cover -z-10 pointer-events-none">
       <AspectRatio ratio={1}>
         <video autoPlay loop muted playsInline>
-          <source src="/uploads/ava.mp4" type="video/mp4" />
+          <source src={AvaVideo} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </AspectRatio>
