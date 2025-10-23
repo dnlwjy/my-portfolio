@@ -15,6 +15,20 @@ const Header = () => {
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
   const [overlayOpen, setOverlayOpen] = useState(false);
 
+  // Prevent scrolling when overlay is open
+  useEffect(() => {
+    if (overlayOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [overlayOpen]);
+
   const SocialLinks = [
     { icon: Linkedin, href: "https://www.linkedin.com/in/dnlwjy/", label: "Linkedin" },
     { icon: Instagram, href: "https://www.instagram.com/dnlwjy_/", label: "Instagram" },
