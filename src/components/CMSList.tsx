@@ -95,15 +95,15 @@ const CMSList = ({
       )}
 
       <div
-        className={`grid grid-cols-1 ${
-          cols === 2 ? "md:grid-cols-2" : "md:grid-cols-3"
-        } gap-x-4 gap-y-8`}
+        className={`grid grid-cols-1 sm:grid-cols-2 ${
+          cols === 3 ? "md:grid-cols-3" : "md:grid-cols-2"
+        } gap-x-4 gap-y-4`}
       >
         {displayedItems.map((item, index) => {
           const props = mapFields(item);
           if (!props) return null;
 
-          const delay = isMobile ? 300 : index * 150 + 300;
+          const delay = isMobile ? 300 : 300 + ((index % cols) * 150);
 
           return (
             <AnimationGroup key={item._id} delay={delay}>

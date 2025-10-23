@@ -10,6 +10,7 @@ import LoadingScreen from "@/components/ui/LoadingScreen";
 import AnimationGroup from "@/components/ui/AnimationGroup";
 import Serializers from "@/lib/Serializers";
 import ProjectSupport from "@/components/ui/ProjectSupport";
+import { SiteMetaData } from "@/components/SiteMetaData";
 
 interface ProjectDetailsData {
   title: string;
@@ -60,13 +61,20 @@ const ProjectDetailsPage = () => {
       .catch(console.error);
   }, [slug]);
 
-  if (isLoading || !project)
-    return (
-      <LoadingScreen />
-    );
+  if (isLoading || !project) return <LoadingScreen />;
+
+  const currentUrl = `https://danielwijaya.com${location.pathname}`;
 
   return (
     <>
+      <SiteMetaData
+        title={`Project | ${project.title}`}
+        description={project.description}
+        url={currentUrl}
+        image={project.coverImage ? urlFor(project.coverImage).url() : "https://danielwijaya.com/og-default.png"}
+        type="article"
+      />
+
       <Header />
       <main>
         <section id={project.title} className="flex flex-col mx-auto md:pt-40 pt-28 gap-10 w-full">

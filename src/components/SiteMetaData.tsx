@@ -1,30 +1,58 @@
 import { Helmet } from "react-helmet-async";
 
-export function SiteMetaData() {
+export const OG_TYPES = [
+    "website",
+    "article",
+    "product",
+    "profile",
+] as const;
+export type OGType = typeof OG_TYPES[number];
+
+interface SiteMetaDataProps {
+    title?: string;
+    description?: string;
+    url?: string;
+    image?: string;
+    type?: OGType;
+    isIndexable?: boolean;
+}
+
+export function SiteMetaData({
+    title = "Daniel Wijaya | Designer + Developer",
+    description = "I'm Daniel, a designer and developer focused on creating user-friendly experiences and building robust, efficient systems",
+    url = "https://danielwijaya.com",
+    image = "https://danielwijaya.com/og-preview.png",
+    type = "website",
+    isIndexable = true,
+}: SiteMetaDataProps) {
+    const robotsValue = isIndexable ? "index, follow" : "noindex, nofollow";
+
     return (
         <Helmet>
 
             {/* Basic SEO */}
-            <title>Daniel Wijaya | Designer + Developer</title>
-            <meta name="description" content="As a designer and frontend developer, I’ve worked with companies and great clients to help them achieve their business goals and reach their full potential." />
-            <meta name="author" content="Daniel Wijaya" />
-            <meta name="robots" content="index, follow" />
+            <title>{title}</title>
+            <meta name="description" content={description} />
+            <meta name="robots" content={robotsValue} />
 
             {/* Open Graph (Social Preview) */}
-            <meta property="og:type" content="website" />
-            <meta property="og:site_name" content="Daniel Wijaya" />
-            <meta property="og:title" content="Daniel Wijaya | Designer + Developer" />
-            <meta property="og:description" content="As a designer and frontend developer, I’ve worked with companies and great clients to help them achieve their business goals and reach their full potential." />
-            <meta property="og:image" content="https://danielwijaya.com/og-preview.jpg" />
+            <meta property="og:type" content={type} />
+            <meta property="og:title" content={title} />
+            <meta property="og:description" content={description} />
+            <meta property="og:image" content={image} />
             <meta property="og:image:width" content="1200" />
             <meta property="og:image:height" content="630" />
-            <meta property="og:url" content="https://danielwijaya.com" />
+            <meta property="og:url" content={url} />
 
             {/* Twitter Card (Social Preview) */}
             <meta name="twitter:card" content="summary_large_image" />
-            <meta name="twitter:title" content="Daniel Wijaya | Designer + Developer" />
-            <meta name="twitter:description" content="As a designer and developer, I’ve worked with companies and great clients to help them achieve their business goals and reach their full potential." />
-            <meta name="twitter:image" content="https://danielwijaya.com/og-preview.jpg" />
+            <meta name="twitter:title" content={title} />
+            <meta name="twitter:description" content={description} />
+            <meta name="twitter:image" content={image} />
+
+            {/* 🔹 Canonical */}
+            <link rel="canonical" href={url} />
+
         </Helmet>
     );
 }

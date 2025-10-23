@@ -11,6 +11,7 @@ import LoadingScreen from "@/components/ui/LoadingScreen";
 import AnimationGroup from "@/components/ui/AnimationGroup";
 import Serializers from "@/lib/Serializers";
 import Checkout from "@/components/ui/Checkout";
+import { SiteMetaData } from "@/components/SiteMetaData";
 
 interface ShopDetailsProp {
     title: string;
@@ -32,7 +33,7 @@ const ShopDetailsPage = () => {
 
     useEffect(() => {
         if (!slug) return;
-        
+
         setLoading(true);
         setShop(null);
 
@@ -64,8 +65,18 @@ const ShopDetailsPage = () => {
 
     if (loading || !shop) return <LoadingScreen />;
 
+    const currentUrl = `https://danielwijaya.com${location.pathname}`;
+
     return (
         <>
+            <SiteMetaData
+                title={`${shop.title} | Shop`}
+                description={shop.description}
+                url={currentUrl}
+                image={shop.coverImage ? urlFor(shop.coverImage).url() : "https://danielwijaya.com/og-default.png"}
+                type="product"
+            />
+
             <Header />
             <main>
                 <section id={shop.title} className="flex flex-col mx-auto md:pt-40 pt-28 gap-10 w-full">
@@ -173,7 +184,7 @@ const CarouselImages = ({ shop, title }: any) => {
 
                 {slides.length > 1 && (
                     <>
-                        <button onClick={prev} aria-label="Previous slide" className="absolute left-3 top-1/2 -translate-y-1/2 z-20 p-2 md:p-3 rounded-full bg-black/30"> 
+                        <button onClick={prev} aria-label="Previous slide" className="absolute left-3 top-1/2 -translate-y-1/2 z-20 p-2 md:p-3 rounded-full bg-black/30">
                             <svg className="w-5 h-5 md:w-6 md:h-6 text-white" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                                 <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
                             </svg>

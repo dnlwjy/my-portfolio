@@ -17,13 +17,14 @@ const ItemCard1 = ({
   price,
 }: ProjectCardProps) => {
   return (
-    <div className="flex flex-col text-center gap-4">
+    <div className="flex flex-col text-center gap-4 pb-4">
       <div className="w-full aspect-[4/3] overflow-hidden rounded-2xl">
         <Link to={url}>
           <img
             src={image}
             alt={title}
             className="w-full h-full object-cover transition-opacity duration-300 ease-in-out hover:opacity-50"
+            loading="lazy"
           />
         </Link>
       </div>

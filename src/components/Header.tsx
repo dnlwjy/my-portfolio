@@ -14,7 +14,6 @@ import { motion, AnimatePresence } from "framer-motion";
 const Header = () => {
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
   const [overlayOpen, setOverlayOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
 
   const SocialLinks = [
     { icon: Linkedin, href: "https://www.linkedin.com/in/dnlwjy/", label: "Linkedin" },
@@ -28,13 +27,6 @@ const Header = () => {
     { title: "Shop", link: "/shop" },
     { title: "Contact", link: "/contact" },
   ];
-
-  useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth <= 768);
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
 
   return (
     <header className="fixed z-50 left-0 top-0 lg:h-screen h-24 w-full lg:w-40 flex flex-row lg:flex-col lg:py-12 px-6 justify-between items-center">

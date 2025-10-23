@@ -13,8 +13,8 @@ export default {
 	prefix: "",
 	theme: {
 		screens: {
-			'sm': '360px',
-			'md': '810px',
+			'sm': '640px',
+			'md': '860px',
 			'lg': '1152px'
 		},
 		container: {
@@ -29,7 +29,7 @@ export default {
 			colors: {
 				black: '#121212',
 				white: '#ffffff',
-				gray: '#898989',
+				gray: '#909090',
 				darkgray: '#252525',
 				blue: '#3B82F6'
 			},

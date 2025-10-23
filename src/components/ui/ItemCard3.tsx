@@ -14,11 +14,12 @@ const ItemCard3 = ({
     url = '#',
 }: ItemCard3Props) => {
     return (
-        <a className="flex gap-4 h-fit items-center">
+        <div className="flex gap-6 h-fit items-center pb-4">
             <img
                 src={image}
                 alt={title}
-                className="w-[56px] h-[56px] object-cover rounded-md"
+                className="w-[64px] h-[64px] object-cover rounded-md"
+                loading="lazy"
             />
 
             <div className="flex flex-col gap-2">
@@ -26,7 +27,7 @@ const ItemCard3 = ({
                 <p className="text-[16px]">{description}</p>
             </div>
 
-        </a>
+        </div>
     )
 }
 

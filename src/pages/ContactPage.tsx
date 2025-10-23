@@ -6,6 +6,7 @@ import Accordion from "@/components/ui/Accordion";
 import AnimationGroup from "@/components/ui/AnimationGroup";
 import { client } from "@/sanityClient";
 import LoadingScreen from "@/components/ui/LoadingScreen";
+import { SiteMetaData } from "@/components/SiteMetaData";
 
 interface FAQItem {
     question: string;
@@ -20,7 +21,7 @@ const ContactPage = () => {
         const fetchFAQs = async () => {
             setLoading(true);
             setFaqs([]);
-            
+
             try {
                 const query = `*[_type == "faq"] | order(_createdAt asc){
           question,
@@ -48,9 +49,16 @@ const ContactPage = () => {
 
     return (
         <>
+            <SiteMetaData
+                title="Contact | Daniel Wijaya"
+                description="Get in touch with me for collaborations."
+                url="https://danielwijaya.com/contact"
+                image="https://danielwijaya.com/og-contact.png"
+            />
+
             <Header />
             <main className="py-10">
-                
+
                 <Contact />
                 <section
                     id="Location"
