@@ -1,6 +1,8 @@
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
+
 import HomePage from "./pages/HomePage";
 import ProjectDetailsPage from "./pages/ProjectDetailsPage";
 import ShopDetailsPage from "./pages/ShopDetailsPage";
@@ -9,12 +11,15 @@ import ProjectsPage from "./pages/ProjectsPage";
 import AboutPage from "./pages/AboutPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import ContactPage from "./pages/ContactPage";
+import { SiteMetaData } from "./components/SiteMetaData";
 
 const queryClient = new QueryClient();
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-      <Sonner richColors/>
+  <HelmetProvider>
+    <QueryClientProvider client={queryClient}>
+      <SiteMetaData />
+      <Sonner richColors />
       <BrowserRouter>
         <div className="max-w-[900px] p-6 mx-auto overflow-hidden">
           <Routes>
@@ -29,7 +34,9 @@ const App = () => (
           </Routes>
         </div>
       </BrowserRouter>
-  </QueryClientProvider>
+
+    </QueryClientProvider>
+  </HelmetProvider>
 );
 
 export default App;
