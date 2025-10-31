@@ -5,7 +5,7 @@ const LoadingScreen = () => {
         <div className="flex justify-center items-center h-screen">
             <DWLogo
                 aria-label="Loading..."
-                className="md:w-40 md:h-40 w-20 h-20"
+                className="md:w-40 md:h-40 w-28 h-28"
             />
         </div>
 

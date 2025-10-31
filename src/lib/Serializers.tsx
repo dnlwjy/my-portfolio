@@ -3,7 +3,7 @@ import { urlFor } from "@/sanityClient";
 
 const serializers: PortableTextComponents = {
   block: {
-    normal: ({ children }) => <p className="mb-8">{children}</p>,
+    normal: ({ children }) => <p className="mb-8 text-[#959595]">{children}</p>,
     h1: ({ children }) => <h1>{children}</h1>,
     h2: ({ children }) => <h2 className='mt-12 mb-4'>{children}</h2>,
     h3: ({ children }) => <h3>{children}</h3>,

@@ -9,7 +9,7 @@ const Hero = () => {
 
   return (
     <section id="home" className="h-screen w-full flex p-4 items-center justify-center">
-      <div className="w-full text-center max-w-[840px] pb-6">
+      <div className="w-full text-center max-w-[840px] pb-12">
         <div className="md:h-[320px] h-[365px] -z-20">
           <Ava/>
         </div>

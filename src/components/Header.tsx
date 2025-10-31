@@ -3,7 +3,7 @@ import { flushSync } from 'react-dom';
 import DWLogo from "@/assets/dw-logo.svg?react";
 import LinkButton from "./ui/LinkButton";
 import SocialIcon from "@/components/ui/SocialIcon";
-import Instagram from "../assets/instagram.svg?react";
+import Framer from "../assets/framer.svg?react";
 import Linkedin from "../assets/linkedin.svg?react";
 import Github from "../assets/github.svg?react";
 import { HamburgerX } from "@/components/ui/Hamburger";
@@ -31,7 +31,7 @@ const Header = () => {
 
   const SocialLinks = [
     { icon: Linkedin, href: "https://www.linkedin.com/in/dnlwjy/", label: "Linkedin" },
-    { icon: Instagram, href: "https://www.instagram.com/dnlwjy_/", label: "Instagram" },
+    { icon: Framer, href: "https://www.framer.com/@danielwijaya/", label: "Framer" },
     { icon: Github, href: "https://github.com/dnlwjy/", label: "Github" },
   ];
 
