@@ -60,6 +60,23 @@ const ContactPage = () => {
             <main className="py-10">
 
                 <Contact />
+
+                <section
+                    id="faq"
+                    aria-label="Frequently Asked Questions"
+                    className="w-full flex flex-col gap-10 justify-center mx-auto py-20"
+                >
+                    <AnimationGroup
+                        delay={200}
+                        className="flex items-center gap-6 overflow-visible"
+                    >
+                        <h2>FAQ</h2>
+                        <hr className="flex-grow h-0.5 bg-darkgray" />
+                    </AnimationGroup>
+
+                    <Accordion items={faqs} />
+                </section>
+
                 <section
                     id="Location"
                     aria-label="My Location"
@@ -83,22 +100,6 @@ const ContactPage = () => {
                             loading="lazy"
                         ></iframe>
                     </AnimationGroup>
-                </section>
-
-                <section
-                    id="faq"
-                    aria-label="Frequently Asked Questions"
-                    className="w-full flex flex-col gap-10 justify-center mx-auto py-20"
-                >
-                    <AnimationGroup
-                        delay={200}
-                        className="flex items-center gap-6 overflow-visible"
-                    >
-                        <h2>FAQ</h2>
-                        <hr className="flex-grow h-0.5 bg-darkgray" />
-                    </AnimationGroup>
-
-                    <Accordion items={faqs} />
                 </section>
 
             </main>

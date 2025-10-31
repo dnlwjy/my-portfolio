@@ -27,24 +27,24 @@ export const generateUserConfirmationEmail = (data: UserConfirmationData): strin
             color: #121212;
         }
 
-        h1,
-        h2,
-        h3 {
-            font-family: 'Playfair Display', serif;
+        h1, h2, h3 {
             color: #121212;
             font-weight: 600;
         }
 
         h1 {
+            font-family: 'Playfair Display', serif;
             font-size: 48px;
         }
 
         h2 {
             font-size: 24px;
+            font-family: 'Playfair Display', serif;
         }
 
         h3 {
-            font-size: 20px;
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
         }
 
         p {
@@ -116,7 +116,7 @@ export const generateUserConfirmationEmail = (data: UserConfirmationData): strin
                     <tr>
                         <td style="padding: 0px 30px 30px 30px;">
                             <p>
-                                I typically respond within <strong>24 hours</strong>. Your inquiry is important to me,
+                                *I typically respond within <strong>24 hours</strong>. Your inquiry is important to me,
                                 and I'll make sure to address it promptly.
                             </p>
                         </td>
@@ -162,6 +162,5 @@ export const generateUserConfirmationEmail = (data: UserConfirmationData): strin
 };
 
 export const generateUserConfirmationSubject = (): string => {
-  return `✅ Message Received - I'll Get Back to You Soon | Daniel Wijaya`;
+  return `Daniel Wijaya - Message Received ✅`;
 };
-
