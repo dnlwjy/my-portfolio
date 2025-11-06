@@ -30,7 +30,7 @@ export default {
 				black: '#121212',
 				white: '#ffffff',
 				gray: '#8D8D8D',
-				darkgray: '#292929',
+				darkgray: '#2A2A2A',
 				blue: '#3B82F6'
 			},
 			keyframes: {
