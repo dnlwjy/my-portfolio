@@ -11,7 +11,6 @@ const HomePage = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Simulate loading time for all CMS components and content
     const timer = setTimeout(() => {
       setLoading(false);
       window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
