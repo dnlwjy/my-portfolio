@@ -8,15 +8,29 @@ import ItemCard2 from "@/components/ui/ItemCard2";
 import LoadingScreen from "@/components/ui/LoadingScreen";
 
 const HomePage = () => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(() => {
+    // Only show loading on first visit
+    const hasVisited = sessionStorage.getItem('homepage-visited');
+    return !hasVisited;
+  });
 
   useEffect(() => {
-    const timer = setTimeout(() => {
+    const hasVisited = sessionStorage.getItem('homepage-visited');
+    
+    if (!hasVisited) {
+      // First visit - show loading screen
+      const timer = setTimeout(() => {
+        setLoading(false);
+        sessionStorage.setItem('homepage-visited', 'true');
+        window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+      }, 300);
+
+      return () => clearTimeout(timer);
+    } else {
+      // Subsequent visits - no loading screen, just scroll to top
       setLoading(false);
       window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-    }, 300);
-
-    return () => clearTimeout(timer);
+    }
   }, []);
 
   if (loading) {
