@@ -1,11 +1,11 @@
 interface UserConfirmationData {
-  name: string;
-  email: string;
-  message: string;
+    name: string;
+    email: string;
+    message: string;
 }
 
 export const generateUserConfirmationEmail = (data: UserConfirmationData): string => {
-  return `
+    return `
     <!DOCTYPE html>
 <html lang="en">
 
@@ -27,7 +27,9 @@ export const generateUserConfirmationEmail = (data: UserConfirmationData): strin
             color: #121212;
         }
 
-        h1, h2, h3 {
+        h1,
+        h2,
+        h3 {
             color: #121212;
             font-weight: 600;
         }
@@ -99,14 +101,13 @@ export const generateUserConfirmationEmail = (data: UserConfirmationData): strin
                     <!-- Message Summary -->
                     <tr>
                         <td style="padding: 20px 30px;">
-                            <div style="background: #eeeeee; border-radius: 10px; padding: 24px; padding-top: 10px;">
-                                <h3>
-                                    Your Message Summary
-                                </h3>
-                                <div
-                                    style="background: #ffffff; padding: 20px; border-radius: 8px; border-left: 4px solid #121212;">
-                                    <p style="margin: 0; white-space: pre-wrap;">${data.message}</p>
-                                </div>
+
+                            <h3>
+                                Your Message Summary
+                            </h3>
+                            <div
+                                style="background: #eeeeee; padding: 20px; border-radius: 8px; border-left: 4px solid #121212;">
+                                <p style="margin: 0; white-space: pre-wrap;">${data.message}</p>
                             </div>
                         </td>
                     </tr>
@@ -129,10 +130,10 @@ export const generateUserConfirmationEmail = (data: UserConfirmationData): strin
                             <p style="margin: 0; color: #121212; font-size: 22px; font-weight: 600;">
                                 Daniel Wijaya
                             </p>
-                            <div
-                                style="display: block; padding-top: 0; margin-top: 12px;">
+                            <div style="display: block; padding-top: 0; margin-top: 12px;">
                                 <div>📧 <a href="mailto:wijayadaniel19@gmail.com">wijayadaniel19@gmail.com</a></div>
-                                <div>🌐 <a href="https://danielwijaya.com" target="_blank" rel="noopener noreferrer">danielwijaya.com</a></div>
+                                <div>🌐 <a href="https://danielwijaya.com" target="_blank"
+                                        rel="noopener noreferrer">danielwijaya.com</a></div>
                             </div>
 
                         </td>
@@ -162,5 +163,5 @@ export const generateUserConfirmationEmail = (data: UserConfirmationData): strin
 };
 
 export const generateUserConfirmationSubject = (): string => {
-  return `Daniel Wijaya - Message Received ✅`;
+    return `Daniel Wijaya - Message Received ✅`;
 };
