@@ -8,6 +8,13 @@ export const stack = defineType({
     { name: "title", title: "Title", type: "string" },
     { name: "slug", title: "Slug", type: "slug", options: { source: "title" } },
     { name: "coverImage", title: "Cover Image", type: "image" },
+    { 
+      name: "order", 
+      title: "Display Order", 
+      type: "number", 
+      description: "Lower numbers appear first (1, 2, 3...)",
+      validation: (Rule) => Rule.min(1).integer().positive()
+    },
     {
       name: "tags",
       title: "Tags",

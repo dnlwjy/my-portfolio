@@ -9,6 +9,13 @@ export const projects = defineType({
     { name: "slug", title: "Slug", type: "slug", options: { source: "title" } },
     { name: "coverImage", title: "Cover Image", type: "image" },
     { name: "featured", title: "Featured", type: "boolean", initialValue: false, description: "Mark this project as featured" },
+    { 
+      name: "order", 
+      title: "Display Order", 
+      type: "number", 
+      description: "Lower numbers appear first (1, 2, 3...)",
+      validation: (Rule) => Rule.min(1).integer().positive()
+    },
 
     { name: "role", title: "Role", type: "string", },
     { name: "year", title: "Year", type: "number", validation: (Rule) => Rule.min(2020).max(new Date().getFullYear()) },
