@@ -9,13 +9,7 @@ export const shop = defineType({
     { name: "slug", title: "Slug", type: "slug", options: { source: "title" } },
     { name: "coverImage", title: "Cover Image", type: "image" },
     { name: "featured", title: "Featured", type: "boolean", initialValue: false, description: "Mark this item as featured" },
-    { 
-      name: "order", 
-      title: "Display Order", 
-      type: "number", 
-      description: "Lower numbers appear first (1, 2, 3...)",
-      validation: (Rule) => Rule.min(1).integer().positive()
-    },
+    { name: "orderRank", title: "Order Rank", type: "string", hidden: true },
     {
       name: "images",
       title: "Images",
