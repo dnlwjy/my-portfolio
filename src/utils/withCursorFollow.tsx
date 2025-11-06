@@ -5,7 +5,7 @@ import { motion, useMotionValue, useSpring } from "framer-motion"
 
 const settings = {
     damping: 100, // Damping: higher values are smoother
-    stiffness: 100, // Stiffness: higher values increase response speed
+    stiffness: 160, // Stiffness: higher values increase response speed
     maxDistance: 2000, // Max distance for effect activation
     intensity: 0.1, // Effect intensity: higher values = stronger effect
 }
