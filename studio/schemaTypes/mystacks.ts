@@ -8,7 +8,6 @@ export const stack = defineType({
     { name: "title", title: "Title", type: "string" },
     { name: "slug", title: "Slug", type: "slug", options: { source: "title" } },
     { name: "coverImage", title: "Cover Image", type: "image" },
-    { name: "orderRank", title: "Order Rank", type: "string", hidden: true },
     {
       name: "tags",
       title: "Tags",
