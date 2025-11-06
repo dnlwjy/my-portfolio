@@ -140,7 +140,13 @@ const ShopDetailsPage = () => {
                     </AnimationGroup>
                 </section>
 
-                <CMSList collection="shop" heading="More Like This" maxItems={2} excludeSlug={slug} />
+                <CMSList 
+                    collection="shop" 
+                    heading="More Like This" 
+                    maxItems={2} 
+                    excludeSlug={slug}
+                    currentTags={shop.tags}
+                />
             </main>
 
             {shop.checkout && (

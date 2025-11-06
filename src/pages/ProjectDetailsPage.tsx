@@ -126,7 +126,13 @@ const ProjectDetailsPage = () => {
           </AnimationGroup>
         </section>
 
-        <CMSList collection="projects" heading="More Projects" maxItems={2} excludeSlug={slug} />
+        <CMSList 
+          collection="projects" 
+          heading="More Projects" 
+          maxItems={2} 
+          excludeSlug={slug}
+          currentTags={project.tags}
+        />
 
       </main>
       <Footer />

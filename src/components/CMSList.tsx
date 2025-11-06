@@ -16,6 +16,7 @@ interface CMSListProps {
   ViewAll?: boolean;
   cols?: 2 | 3;
   CardComponent?: ComponentType<any>;
+  currentTags?: string[];
 }
 
 interface SanityDoc {
@@ -33,6 +34,7 @@ const CMSList = ({
   ViewAll = true,
   cols = 2,
   CardComponent = ItemCard1,
+  currentTags = [],
 }: CMSListProps) => {
   const [items, setItems] = useState<SanityDoc[]>([]);
   const [isMobile, setIsMobile] = useState(false);
@@ -57,6 +59,23 @@ const CMSList = ({
 
   const displayedItems = items
     .filter((item) => item.slug?.current !== excludeSlug)
+    .sort((a, b) => {
+      // If currentTags are provided, prioritize items with similar tags
+      if (currentTags.length > 0) {
+        const aMatchingTags = a.tags?.filter((tag: string) => currentTags.includes(tag)).length || 0;
+        const bMatchingTags = b.tags?.filter((tag: string) => currentTags.includes(tag)).length || 0;
+        
+        // Sort by number of matching tags (descending), then by orderRank
+        if (aMatchingTags !== bMatchingTags) {
+          return bMatchingTags - aMatchingTags;
+        }
+      }
+      
+      // Fallback to original ordering (orderRank, then creation date)
+      const aOrder = a.orderRank || 999;
+      const bOrder = b.orderRank || 999;
+      return aOrder - bOrder;
+    })
     .slice(0, maxItems);
 
   const mapFields = (item: SanityDoc) => {
