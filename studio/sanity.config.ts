@@ -10,7 +10,10 @@ export default defineConfig({
   projectId: 'irfb1i5g',
   dataset: 'production',
 
-  plugins: [structureTool(), visionTool()],
+  plugins: [
+    structureTool(), 
+    visionTool()
+  ],
 
   schema: {
     types: schemaTypes,
