@@ -5,13 +5,6 @@ export const stack = defineType({
   title: "My Stack",
   type: "document",
   fields: [
-    { 
-      name: "order", 
-      title: "Display Order", 
-      type: "number", 
-      initialValue: 0,
-      description: "Lower numbers appear first (0, 1, 2, etc.)"
-    },
     { name: "title", title: "Title", type: "string" },
     { name: "slug", title: "Slug", type: "slug", options: { source: "title" } },
     { name: "coverImage", title: "Cover Image", type: "image" },
