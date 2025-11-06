@@ -7,6 +7,7 @@ import AnimationGroup from "@/components/ui/AnimationGroup";
 import { client } from "@/sanityClient";
 import LoadingScreen from "@/components/ui/LoadingScreen";
 import { SiteMetaData } from "@/components/SiteMetaData";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 
 interface FAQItem {
     question: string;
@@ -54,6 +55,13 @@ const ContactPage = () => {
                 description="Get in touch with me for collaborations."
                 url="https://danielwijaya.com/contact"
                 image="https://danielwijaya.com/og-contact.png"
+            />
+
+            <BreadcrumbSchema
+                items={[
+                    { name: "Home", url: "https://danielwijaya.com" },
+                    { name: "Contact", url: "https://danielwijaya.com/contact" },
+                ]}
             />
 
             <Header />

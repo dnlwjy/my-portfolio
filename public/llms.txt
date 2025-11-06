@@ -1,0 +1,15 @@
+# Permitted AI Crawlers
+User-agent: ChatGPT
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /

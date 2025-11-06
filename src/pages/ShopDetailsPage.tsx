@@ -12,6 +12,7 @@ import AnimationGroup from "@/components/ui/AnimationGroup";
 import Serializers from "@/lib/Serializers";
 import Checkout from "@/components/ui/Checkout";
 import { SiteMetaData } from "@/components/SiteMetaData";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 
 interface ShopDetailsProp {
     title: string;
@@ -75,6 +76,14 @@ const ShopDetailsPage = () => {
                 url={currentUrl}
                 image={shop.coverImage ? urlFor(shop.coverImage).url() : "https://danielwijaya.com/og-default.png"}
                 type="product"
+            />
+
+            <BreadcrumbSchema
+                items={[
+                    { name: "Home", url: "https://danielwijaya.com" },
+                    { name: "Shop", url: "https://danielwijaya.com/shop" },
+                    { name: shop.title, url: currentUrl },
+                ]}
             />
 
             <Header />

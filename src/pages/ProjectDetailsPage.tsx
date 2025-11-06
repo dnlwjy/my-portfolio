@@ -11,6 +11,7 @@ import AnimationGroup from "@/components/ui/AnimationGroup";
 import Serializers from "@/lib/Serializers";
 import ProjectSupport from "@/components/ui/ProjectSupport";
 import { SiteMetaData } from "@/components/SiteMetaData";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 
 interface ProjectDetailsData {
   title: string;
@@ -73,6 +74,14 @@ const ProjectDetailsPage = () => {
         url={currentUrl}
         image={project.coverImage ? urlFor(project.coverImage).url() : "https://danielwijaya.com/og-default.png"}
         type="article"
+      />
+
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://danielwijaya.com" },
+          { name: "Projects", url: "https://danielwijaya.com/projects" },
+          { name: project.title, url: currentUrl },
+        ]}
       />
 
       <Header />

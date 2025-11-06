@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import CMSList from "@/components/CMSList";
 import { SiteMetaData } from "@/components/SiteMetaData";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 
 const ShopPage = () => {
     return (
@@ -11,6 +12,13 @@ const ShopPage = () => {
                 description="Explore my store and products."
                 url="https://danielwijaya.com/shop"
                 image="https://danielwijaya.com/og-shop.png"
+            />
+
+            <BreadcrumbSchema
+                items={[
+                    { name: "Home", url: "https://danielwijaya.com" },
+                    { name: "Shop", url: "https://danielwijaya.com/shop" },
+                ]}
             />
 
             <Header />

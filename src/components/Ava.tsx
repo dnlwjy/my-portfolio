@@ -26,7 +26,7 @@ const AvaBase = () => {
       }}
     >
       <AnimationGroup 
-        delay={300} 
+        delay={500} 
         className="relative w-full h-full object-cover pointer-events-none"
       >
         <AspectRatio ratio={1}>

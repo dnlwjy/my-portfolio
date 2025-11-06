@@ -9,6 +9,7 @@ import AnimationGroup from "@/components/ui/AnimationGroup";
 import CMSList from "@/components/CMSList";
 import LoadingScreen from "@/components/ui/LoadingScreen";
 import { SiteMetaData } from "@/components/SiteMetaData";
+import BreadcrumbSchema from "@/components/BreadcrumbSchema";
 
 interface AboutPageItem {
   _id: string;
@@ -65,6 +66,13 @@ const AboutPage = ({ maxItems }: AboutPageProps) => {
         title="About | Daniel Wijaya"
         url="https://danielwijaya.com/about"
         type="profile"
+      />
+
+      <BreadcrumbSchema
+        items={[
+          { name: "Home", url: "https://danielwijaya.com" },
+          { name: "About", url: "https://danielwijaya.com/about" },
+        ]}
       />
 
       <Header />

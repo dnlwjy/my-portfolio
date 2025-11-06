@@ -19,16 +19,16 @@ const Hero = () => {
             <AnimationText
               text="I'm Daniel."
               className="text-gray"
-              delay={300} />
+              delay={700} />
             <span>
               <AnimationText
               text="Designer and developer."
-              delay={600} />
+              delay={1000} />
             </span>
           </h1>
 
           <AnimationGroup
-            delay={1300}
+            delay={1600}
             className="flex justify-center gap-3"
           >
             <Button onClick={() => navigate("/contact")}>
