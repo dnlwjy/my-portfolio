@@ -24,7 +24,7 @@ const ContactPage = () => {
             setFaqs([]);
 
             try {
-                const query = `*[_type == "faq"] | order(_createdAt asc){
+                const query = `*[_type == "faq"] | order(orderRank asc, _createdAt asc){
           question,
           answer
         }`;

@@ -16,9 +16,11 @@ export const setup = defineType({
   fields: [
     {
       name: 'orderRank',
-      title: 'Order',
+      title: 'Display Order',
       type: 'number',
-      hidden: true,
+      description: 'Lower numbers appear first (1, 2, 3, etc.)',
+      validation: (Rule) => Rule.min(1).integer(),
+      initialValue: 100,
     },
     { name: "title", title: "Title", type: "string" },
     { name: "slug", title: "Slug", type: "slug", options: { source: "title" } },
