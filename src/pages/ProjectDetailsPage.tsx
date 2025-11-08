@@ -128,7 +128,7 @@ const ProjectDetailsPage = () => {
 
         <CMSList
           collection="projects"
-          heading="More Projects"
+          heading="More projects"
           maxItems={2}
           excludeSlug={slug}
           currentTags={project.tags}
