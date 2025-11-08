@@ -142,7 +142,7 @@ const ShopDetailsPage = () => {
 
                 <CMSList
                     collection="shop"
-                    heading="Similar Items"
+                    heading="More like this"
                     maxItems={2}
                     excludeSlug={slug}
                     currentTags={shop.tags}
