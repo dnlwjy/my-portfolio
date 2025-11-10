@@ -13,6 +13,20 @@ import NotFoundPage from "./pages/NotFoundPage";
 import ContactPage from "./pages/ContactPage";
 import { SiteMetaData } from "./components/SiteMetaData";
 
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { logPageView } from "./utils/analytics";
+
+const TrackPageView = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    logPageView(location.pathname + location.search);
+  }, [location]);
+
+  return null;
+};
+
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -21,6 +35,7 @@ const App = () => (
       <SiteMetaData />
       <Sonner richColors />
       <BrowserRouter>
+        <TrackPageView />
         <div className="max-w-[900px] p-6 mx-auto overflow-hidden">
           <Routes>
             <Route path="/" element={<HomePage />} />
