@@ -11,6 +11,7 @@ import ProjectsPage from "./pages/ProjectsPage";
 import AboutPage from "./pages/AboutPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import ContactPage from "./pages/ContactPage";
+import RefundPolicy from "./pages/RefundPolicy";
 import { SiteMetaData } from "./components/SiteMetaData";
 
 import { useEffect } from "react";
@@ -46,6 +47,7 @@ const App = () => (
             <Route path="/shop/:slug" element={<ShopDetailsPage />} />
             <Route path="*" element={<NotFoundPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            <Route path="/shop/refund-policy" element={<RefundPolicy />} />
           </Routes>
         </div>
       </BrowserRouter>

@@ -5,10 +5,11 @@ interface LinkButtonProps {
   title: string;
   link: string;
   style?: React.CSSProperties;
+  className?: string;
   onClick?: () => void;
 }
 
-const LinkButton = ({ title, link, style, onClick }: LinkButtonProps) => {
+const LinkButton = ({ title, link, style, className, onClick }: LinkButtonProps) => {
   const isExternal = link.startsWith("http://") || link.startsWith("https://");
   const isHashLink = link.includes("#");
 
@@ -19,6 +20,7 @@ const LinkButton = ({ title, link, style, onClick }: LinkButtonProps) => {
         target="_blank"
         rel="noopener noreferrer"
         style={style}
+        className={className}
         onClick={onClick}
       >
         {title}
@@ -28,14 +30,14 @@ const LinkButton = ({ title, link, style, onClick }: LinkButtonProps) => {
 
   if (isHashLink) {
     return (
-      <HashLink smooth to={link} style={style} onClick={onClick}>
+      <HashLink smooth to={link} style={style} className={className} onClick={onClick}>
         {title}
       </HashLink>
     );
   }
 
   return (
-    <RouterLink to={link} style={style} onClick={onClick}>
+    <RouterLink to={link} style={style} className={className} onClick={onClick}>
       {title}
     </RouterLink>
   );
