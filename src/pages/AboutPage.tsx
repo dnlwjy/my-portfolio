@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ItemCard3 from "@/components/ui/ItemCard3";
 import { client } from "@/sanityClient";
-import image from "@/assets/me.webp";
+import me from "@/assets/me.webp";
 import AnimationText from "@/components/ui/AnimationText";
 import AnimationGroup from "@/components/ui/AnimationGroup";
 import CMSList from "@/components/CMSList";
@@ -93,7 +93,7 @@ const AboutPage = ({ maxItems }: AboutPageProps) => {
           <AnimationGroup
             aria-label="Portrait of Daniel Wijaya"
             delay={500}>
-            <img src={image} alt="Daniel Wijaya" className="w-full h-full object-cover rounded-2xl" />
+            <img src={me} alt="Daniel Wijaya and his desk setup" className="w-full h-full object-cover rounded-2xl" />
           </AnimationGroup>
 
           <AnimationGroup
