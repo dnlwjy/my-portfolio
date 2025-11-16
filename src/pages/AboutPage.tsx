@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ItemCard3 from "@/components/ui/ItemCard3";
 import { client } from "@/sanityClient";
-import image from "@/assets/me.jpg";
+import image from "@/assets/me.webp";
 import AnimationText from "@/components/ui/AnimationText";
 import AnimationGroup from "@/components/ui/AnimationGroup";
 import CMSList from "@/components/CMSList";
