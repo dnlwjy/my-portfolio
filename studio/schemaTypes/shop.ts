@@ -25,6 +25,18 @@ export const shop = defineType({
     { name: "title", title: "Title", type: "string" },
     { name: "slug", title: "Slug", type: "slug", options: { source: "title" } },
     { name: "coverImage", title: "Cover Image", type: "image" },
+    {
+      name: "category",
+      title: "Category",
+      type: "string",
+      options: {
+        list: [
+          { title: "Web Templates", value: "Web Templates" },
+          { title: "Sheet Music", value: "Sheet Music" },
+          { title: "Others", value: "Others" },
+        ],
+      },
+    },
     { name: "featured", title: "Featured", type: "boolean", initialValue: false, description: "Mark this item as featured" },
     {
       name: "images",
